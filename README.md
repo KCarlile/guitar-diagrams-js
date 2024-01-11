@@ -12,6 +12,13 @@ Version: 0.1
 [KCarlile.com](https://www.kcarlile.com/)\
 [KCarlile on GitHub](https://github.com/KCarlile)
 
+## Technical
+
+### References
+
+- color reference: [https://htmlcolorcodes.com/color-chart/]
+- canvas API reference: [https://www.w3schools.com/jsref/api_canvas.asp]
+
 ## To Do List
 
 - [ ] Allow for adding fingerings with:

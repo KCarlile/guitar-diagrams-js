@@ -10,9 +10,13 @@
 import { GuitarDiagramsJS } from './lib/Guitar-Diagrams-JS/guitar-diagrams.js';
 
 const gdj = new GuitarDiagramsJS();
+document.getElementById('diagram1').appendChild(gdj.getCanvasElement());
+//gdj.config.fretMarkersEnabled = false;
 gdj.testNeck();
 
-console.log('Fretboard color: ' + gdj.colorFretboard);
-console.log('Frets color: ' + gdj.colorFrets);
-console.log('Nut color: ' + gdj.colorNut);
-console.log('Strings color: ' + gdj.colorStrings);
+console.log('Fretboard color: ' + gdj.config.colorFretboard);
+console.log('Frets color: ' + gdj.config.colorFrets);
+console.log('Nut color: ' + gdj.config.colorNut);
+console.log('Strings color: ' + gdj.config.colorStrings);
+console.log('Fret Markers color: ' + gdj.config.colorFretMarkers);
+console.log('Fret Markers enabled: ' + gdj.config.fretMarkersEnabled);

@@ -7,17 +7,15 @@
  * @link https://github.com/KCarlile
  */
 
+import { GuitarDiagramsJSConfig } from './guitar-diagrams-config.js';
+
 /**
  * Class representing primary Guitar Diagrams JS functionality.
  */
 export class GuitarDiagramsJS {
     // ========== BEGIN private members
-    // Colors
-    #colorFretboard = '#795548';
-    #colorNut = '#F2F3F4';
-    #colorFrets = '#808B96';
-    #colorStrings = '#CFD8DC';
-    #colorNutOutline = '#000000';
+    // ----- References
+    #config;
     // ========== END private members
 
     // ========== BEGIN static members
@@ -27,90 +25,28 @@ export class GuitarDiagramsJS {
     /**
      * Create a GuitarDiagramsJS object instance.
      */
-    constructor() {
+    constructor(paramCanvasID = null) {
+        this.#config = new GuitarDiagramsJSConfig(paramCanvasID);
     } // end default constructor
     // ========== END constructors
 
     // ========== BEGIN properties
+    // ----- References
     /**
-     * Gets the HTML color code of the fretboard.
-     * @return {string} The HTML color code of the fretboard.
+     * Gets the Guitar Diagrams JS Config object.
+     * @return {object} The Guitar Diagrams JS Config object.
      */
-    get colorFretboard() {
-        return this.#colorFretboard;
-    } // end get colorFretboard property
+    get config() {
+        return this.#config;
+    } // end get config property
 
     /**
-     * Sets the HTML color code of the fretboard.
-     * @param {string} paramColorFretboard - The HTML color code of the fretboard.
+     * Sets the Guitar Diagrams JS Config object.
+     * @param {string} paramConfig - The Guitar Diagrams JS Config object.
      */
-    set colorFretboard(paramColorFretboard) {
-        this.#colorFretboard = paramColorFretboard;
-    } // end get colorFretboard property
-
-    /**
-     * Gets the HTML color code of the nut.
-     * @return {string} The HTML color code of the nut.
-     */
-    get colorNut() {
-        return this.#colorNut;
-    } // end get colorNut property
-
-    /**
-     * Gets the HTML color code of the nut.
-     * @param {string} paramColorNut - The HTML color code of the nut.
-     */
-    set colorNut(paramColorNut) {
-        this.#colorNut = paramColorNut;
-    } // end get colorNut property
-
-    /**
-     * Gets the HTML color code of the nut outline.
-     * @return {string} The HTML color code of the nut outline.
-     */
-    get colorNutOutline() {
-        return this.#colorNutOutline;
-    } // end get colorNutOutline property
-
-    /**
-     * Gets the HTML color code of the nut outline.
-     * @param {string} paramColorNutOutline - The HTML color code of the nut outline.
-     */
-    set colorNutOutline(paramColorNutOutline) {
-        this.#colorNutOutline = paramColorNutOutline;
-    } // end get colorNutOutline property
-
-    /**
-     * Gets the HTML color code of the frets.
-     * @return {string} The HTML color code of the frets.
-     */
-    get colorFrets() {
-        return this.#colorFrets;
-    } // end get colorFrets property
-
-    /**
-     * Gets the HTML color code of the frets.
-     * @param {string} paramColorFrets - The HTML color code of the frets.
-     */
-    set colorFrets(paramColorFrets) {
-        this.#colorFrets = paramColorFrets;
-    } // end get colorFrets property
-
-    /**
-     * Gets the HTML color code of the strings.
-     * @return {string} The HTML color code of the strings.
-     */
-    get colorStrings() {
-        return this.#colorStrings;
-    } // end get colorStrings property
-
-    /**
-     * Gets the HTML color code of the strings.
-     * @param {string} paramColorFrets - The HTML color code of the strings.
-     */
-    set colorStrings(paramColorStrings) {
-        this.#colorStrings = paramColorStrings;
-    } // end get colorStrings property
+    set config(paramConfig) {
+        this.#config = paramConfig;
+    } // end get config property
     // ========== END properties
 
     // ========== BEGIN private methods
@@ -146,16 +82,16 @@ export class GuitarDiagramsJS {
         const fretSpacing = 100;
         const fretThickness = 6;
 
-        const c = document.getElementById("myCanvas");
+        const c = document.getElementById(this.config.canvasID);
         const ctx = c.getContext("2d");
 
         // Fretboard
-        ctx.fillStyle = this.colorFretboard;
+        ctx.fillStyle = this.#config.colorFretboard;
         ctx.fillRect(0,0,width,height);
 
         // Nut
-        ctx.fillStyle = this.colorNut;
-        ctx.strokeStyle = this.colorNutOutline;
+        ctx.fillStyle = this.#config.colorNut;
+        ctx.strokeStyle = this.#config.colorNutOutline;
         ctx.rect(0,0,width,10);
         ctx.fill();
         ctx.stroke();
@@ -166,28 +102,28 @@ export class GuitarDiagramsJS {
         ctx.lineWidth = fretThickness;
         ctx.moveTo(0, fretStart);
         ctx.lineTo(width, fretStart);
-        ctx.strokeStyle = this.colorFrets;
+        ctx.strokeStyle = this.#config.colorFrets;
         ctx.stroke();
 
         // Fret 2
         ctx.lineWidth = fretThickness;
         ctx.moveTo(0, fretStart * 2);
         ctx.lineTo(width, fretStart * 2);
-        ctx.strokeStyle = this.colorFrets;
+        ctx.strokeStyle = this.#config.colorFrets;
         ctx.stroke();
 
         // Fret 3
         ctx.lineWidth = fretThickness;
         ctx.moveTo(0, fretStart * 3);
         ctx.lineTo(width, fretStart * 3);
-        ctx.strokeStyle = this.colorFrets;
+        ctx.strokeStyle = this.#config.colorFrets;
         ctx.stroke();
 
         // Fret 4
         ctx.lineWidth = fretThickness;
         ctx.moveTo(0, fretStart * 4);
         ctx.lineTo(width, fretStart * 4);
-        ctx.strokeStyle = this.colorFrets;
+        ctx.strokeStyle = this.#config.colorFrets;
         ctx.stroke();
 
 
@@ -200,45 +136,68 @@ export class GuitarDiagramsJS {
         ctx.lineWidth = string6width;
         ctx.moveTo(string6X, stringTop);
         ctx.lineTo(string6X, stringBottom);
-        ctx.strokeStyle = this.colorStrings;
+        ctx.strokeStyle = this.#config.colorStrings;
         ctx.stroke();
 
         // String 5 (A)
         ctx.lineWidth = string5width;
         ctx.moveTo(string5X, stringTop);
         ctx.lineTo(string5X, stringBottom);
-        ctx.strokeStyle = this.colorStrings;
+        ctx.strokeStyle = this.#config.colorStrings;
         ctx.stroke();
 
         // String 4 (D)
         ctx.lineWidth = string4width;
         ctx.moveTo(string4X, stringTop);
         ctx.lineTo(string4X, stringBottom);
-        ctx.strokeStyle = this.colorStrings;
+        ctx.strokeStyle = this.#config.colorStrings;
         ctx.stroke();
 
         // String 3 (G)
         ctx.lineWidth = string3width;
         ctx.moveTo(string3X, stringTop);
         ctx.lineTo(string3X, stringBottom);
-        ctx.strokeStyle = this.colorStrings;
+        ctx.strokeStyle = this.#config.colorStrings;
         ctx.stroke();
 
         // String 2 (b)
         ctx.lineWidth = string2width;
         ctx.moveTo(string2X, stringTop);
         ctx.lineTo(string2X, stringBottom);
-        ctx.strokeStyle = this.colorStrings;
+        ctx.strokeStyle = this.#config.colorStrings;
         ctx.stroke();
 
         // String 1 (e)
         ctx.lineWidth = string1width;
         ctx.moveTo(string1X, stringTop);
         ctx.lineTo(string1X, stringBottom);
-        ctx.strokeStyle = this.colorStrings;
+        ctx.strokeStyle = this.#config.colorStrings;
         ctx.stroke();
+
+        // Fret Markers
+        if (this.#config.fretMarkersEnabled) {
+            ctx.beginPath();
+            let radius = 8;
+            ctx.arc((width / 2), ((fretStart / 2) + (fretSpacing * 2)), radius, 0, 2 * Math.PI);
+            ctx.arc((width / 2), ((fretStart / 2) + (fretSpacing * 4)), radius, 0, 2 * Math.PI);
+            ctx.fillStyle = this.#config.colorFretMarkers;
+            ctx.fill();
+        } // end if test
     } // end testNeck method
-    // ========== END private methods
+
+    /**
+     * Returns a canvas element to be added to the HTML page for use by Guitar Diagrams JS.
+     * @return {Element} The generated canvas element.
+     */
+    getCanvasElement() {
+        let canvasElement = document.createElement('canvas');
+        canvasElement.id = this.#config.canvasID;
+        canvasElement.width = 300;
+        canvasElement.height = 500;
+
+        return canvasElement;
+    } // end getCanvasElement method
+    // ========== END public methods
 
     // ========== BEGIN static methods
     // ========== END static methods
