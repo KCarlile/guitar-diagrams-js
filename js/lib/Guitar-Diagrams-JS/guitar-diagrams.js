@@ -17,7 +17,7 @@ export class GuitarDiagramsJS {
     #colorNut = '#F2F3F4';
     #colorFrets = '#808B96';
     #colorStrings = '#CFD8DC';
-    #colorOutline = '#FFFFFF';
+    #colorNutOutline = '#000000';
     // ========== END private members
 
     // ========== BEGIN static members
@@ -63,6 +63,22 @@ export class GuitarDiagramsJS {
     set colorNut(paramColorNut) {
         this.#colorNut = paramColorNut;
     } // end get colorNut property
+
+    /**
+     * Gets the HTML color code of the nut outline.
+     * @return {string} The HTML color code of the nut outline.
+     */
+    get colorNutOutline() {
+        return this.#colorNutOutline;
+    } // end get colorNutOutline property
+
+    /**
+     * Gets the HTML color code of the nut outline.
+     * @param {string} paramColorNutOutline - The HTML color code of the nut outline.
+     */
+    set colorNutOutline(paramColorNutOutline) {
+        this.#colorNutOutline = paramColorNutOutline;
+    } // end get colorNutOutline property
 
     /**
      * Gets the HTML color code of the frets.
@@ -139,7 +155,7 @@ export class GuitarDiagramsJS {
 
         // Nut
         ctx.fillStyle = this.colorNut;
-        ctx.strokeStyle = this.colorOutline;
+        ctx.strokeStyle = this.colorNutOutline;
         ctx.rect(0,0,width,10);
         ctx.fill();
         ctx.stroke();
