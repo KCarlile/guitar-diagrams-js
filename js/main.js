@@ -12,8 +12,11 @@ import { GuitarDiagramsJS } from './lib/Guitar-Diagrams-JS/guitar-diagrams.js';
 const gdj = new GuitarDiagramsJS();
 document.getElementById('diagram1').appendChild(gdj.getCanvasElement());
 //gdj.config.fretMarkersEnabled = false;
+//gdj.config.orientHorizontally = true;
+//gdj.config.fretStartingNumber = 2;
 gdj.testNeck();
 
+console.log('Canvas ID: ' + gdj.config.canvasID);
 console.log('Fretboard color: ' + gdj.config.colorFretboard);
 console.log('Frets color: ' + gdj.config.colorFrets);
 console.log('Nut color: ' + gdj.config.colorNut);

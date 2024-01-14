@@ -23,10 +23,13 @@ export class GuitarDiagramsJSConfig {
     #colorNutOutline = '#000000';
     #colorFretMarkers = '#FFFFFF';
 
-    // ----- Dimensions
+    // ----- Dimensions/Orientation
+    #orientHorizontally = false;
 
     // ----- Features
     #fretMarkersEnabled = true;
+    #fretStartingNumber = 0;
+
     // ========== END private members
 
     // ========== BEGIN static members
@@ -40,8 +43,6 @@ export class GuitarDiagramsJSConfig {
         if (paramCanvasID != null) {
             this.#canvasID = paramCanvasID;
         } // end if test
-
-        console.log('Canvas ID: ' + this.#canvasID);
     } // end default constructor
     // ========== END constructors
 
@@ -160,6 +161,22 @@ export class GuitarDiagramsJSConfig {
         this.#colorFretMarkers = paramColorFretMarkers;
     } // end get colorFretMarkers property
 
+    // ----- Dimensions/Orientation
+    /**
+     * Gets the horizontal status of the diagram.
+     * @return {boolean} The horizontal status of diagram.
+     */
+    get orientHorizontally() {
+        return this.#orientHorizontally;
+    } // end get orientHorizontally property
+
+    /**
+     * sets the horizontal status of the diagram.
+     * @param {boolean} paramOrientHorizontally - The horizontal status of diagram.
+     */
+    set orientHorizontally(paramOrientHorizontally) {
+        this.#orientHorizontally = paramOrientHorizontally;
+    } // end get orientHorizontally property
 
     // ----- Features
     /**
@@ -171,12 +188,28 @@ export class GuitarDiagramsJSConfig {
     } // end get fretMarkersEnabled property
 
     /**
-     * Gets the enabled status of fret markers.
+     * Sets the enabled status of fret markers.
      * @param {string} paramFretMarkersEnabled - The enabled status of fret markers.
      */
     set fretMarkersEnabled(paramFretMarkersEnabled) {
         this.#fretMarkersEnabled = paramFretMarkersEnabled;
     } // end get fretMarkersEnabled property
+
+    /**
+     * Gets the starting fret number.
+     * @return {number} The starting fret number.
+     */
+    get fretStartingNumber() {
+        return this.#fretStartingNumber;
+    } // end get fretStartingNumber property
+
+    /**
+     * Sets the starting fret number.
+     * @param {number} paramFretStartingNumber - The starting fret number.
+     */
+    set fretStartingNumber(paramFretStartingNumber) {
+        this.#fretStartingNumber = paramFretStartingNumber;
+    } // end get fretStartingNumber property
     // ========== END properties
 
     // ========== BEGIN private methods
