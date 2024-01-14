@@ -25,6 +25,7 @@ export class GuitarDiagramsJSConfig {
 
     // ----- Dimensions/Orientation
     #orientHorizontally = false;
+    #scaleFactor = 1;
 
     // ----- Features
     #fretMarkersEnabled = true;
@@ -163,6 +164,22 @@ export class GuitarDiagramsJSConfig {
 
     // ----- Dimensions/Orientation
     /**
+     * Gets the scale factor of the diagram.
+     * @return {number} The scale factor of the diagram.
+     */
+    get scaleFactor() {
+        return this.#scaleFactor;
+    } // end get scaleFactor property
+
+    /**
+     * Sets the scale factor of the diagram.
+     * @param {number} paramScaleFactor - The scale factor of the diagram.
+     */
+    set scaleFactor(paramScaleFactor) {
+        this.#scaleFactor = paramScaleFactor;
+    } // end get scaleFactor property
+
+    /**
      * Gets the horizontal status of the diagram.
      * @return {boolean} The horizontal status of diagram.
      */
@@ -171,7 +188,7 @@ export class GuitarDiagramsJSConfig {
     } // end get orientHorizontally property
 
     /**
-     * sets the horizontal status of the diagram.
+     * Sets the horizontal status of the diagram.
      * @param {boolean} paramOrientHorizontally - The horizontal status of diagram.
      */
     set orientHorizontally(paramOrientHorizontally) {
