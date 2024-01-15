@@ -31,3 +31,4 @@ Version: 0.1
 - [ ] Allow for changing of orientation/rotation
 - [ ] Function to generate canvas tag
 - [ ] Option to change string count for bass or mandolin
+- [ ] Simplify scaling with local pre-scaled variables: `let width = scale(SomeBigStaticPath);`

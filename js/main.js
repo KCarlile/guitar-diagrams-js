@@ -7,7 +7,7 @@
  * @link https://github.com/KCarlile
  */
 
-import { GuitarDiagramsJS } from './lib/Guitar-Diagrams-JS/guitar-diagrams.js';
+import { GuitarDiagramsJS } from './lib/guitar-diagrams-js/guitar-diagrams.js';
 
 //const gdjControl = new GuitarDiagramsJS();
 //document.getElementById('diagram1').appendChild(gdjControl.getCanvasElement());
@@ -26,8 +26,16 @@ console.log('Fret Markers enabled: ' + gdjControl.config.fretMarkersEnabled);
 */
 const gdj1 = new GuitarDiagramsJS();
 gdj1.config.canvasID = 'diagram2Canvas';
-//gdj1.config.scaleFactor = .5;
+gdj1.config.scaleFactor = .75;
 //gdj1.config.fretStartingNumber = 3;
 console.log('Scale Factor: ' + gdj1.config.scaleFactor);
 document.getElementById('diagram2').appendChild(gdj1.getCanvasElement());
 gdj1.drawNeck();
+gdj1.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
+gdj1.addMarker(2, 2, '2');
+gdj1.addMarker(3, 3, '3');
+gdj1.addMarker(4, 4, '4');
+gdj1.addMarker(5, 5, '5');
+gdj1.addMarker(6, 4, '6');
+gdj1.listAllMarkers();
+gdj1.drawAllMarkers();

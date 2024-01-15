@@ -8,6 +8,7 @@
  */
 
 import { GuitarDiagramsJSConfig } from './guitar-diagrams-config.js';
+import { GuitarDiagramsJSMarker } from './guitar-diagrams-marker.js';
 
 /**
  * Class representing primary Guitar Diagrams JS functionality.
@@ -39,6 +40,18 @@ export class GuitarDiagramsJS {
     static fretSpacing = 100;
     static fretThickness = 6;
     static fretMarkerRadius = 8;
+    
+    static markerRadius = 14;
+
+    /**
+     * Enumeration for marker shapes.
+     * @readonly
+     * @enum {string}
+     */
+    static Shape = {
+        Circle: 'circle',
+        Square: 'square'
+    }; // end Shape enumeration
     // ========== END static members
 
     // ========== BEGIN constructors
@@ -178,16 +191,24 @@ export class GuitarDiagramsJS {
      */
     #drawString(paramStringNumber) {
         const maxStrings = 6;
+
+        let stringIndent = this.#scale(GuitarDiagramsJS.stringIndent);
+        let stringSpacing = this.#scale(GuitarDiagramsJS.stringSpacing);
+        let stringBaseWidth = this.#scale(GuitarDiagramsJS.stringBaseWidth);
+        let stringWidthFactor = this.#scale(GuitarDiagramsJS.stringWidthFactor);
+        let fretboardHeight = this.#scale(GuitarDiagramsJS.fretboardHeight);
+        let nutHeight = this.#scale(GuitarDiagramsJS.nutHeight);
+
         // string location in X plane
-        let stringXPos = this.#scale(GuitarDiagramsJS.stringIndent) + ((paramStringNumber - 1) * (this.#scale(GuitarDiagramsJS.stringSpacing)));
+        let stringXPos = stringIndent + ((paramStringNumber - 1) * (stringSpacing));
 
         // string width
-        let stringWidth = this.#scale(GuitarDiagramsJS.stringBaseWidth) + ((maxStrings - (paramStringNumber - 1)) * this.#scale(GuitarDiagramsJS.stringWidthFactor));
+        let stringWidth = stringBaseWidth + ((maxStrings - (paramStringNumber - 1)) * stringWidthFactor);
 
         this.#canvasContext.beginPath();
         this.#canvasContext.lineWidth = stringWidth;
         this.#canvasContext.moveTo(stringXPos, 0);
-        this.#canvasContext.lineTo(stringXPos, this.#scale(GuitarDiagramsJS.fretboardHeight - GuitarDiagramsJS.nutHeight));
+        this.#canvasContext.lineTo(stringXPos, fretboardHeight - nutHeight);
         this.#canvasContext.strokeStyle = this.#config.colorStrings;
         this.#canvasContext.stroke();
     } // end drawString method
@@ -221,10 +242,60 @@ export class GuitarDiagramsJS {
         this.#drawAllStrings();
     } // end drawNeck method
 
-    addMarker() {
-        let marker = new GuitarDiagramsMarker();
+    addMarker(paramString, paramFret, paramText, paramShape) {
+        let marker = new GuitarDiagramsJSMarker();
+        marker.string = paramString;
+        marker.fret = paramFret;
+        marker.text = paramText;
+        marker.shape = paramShape;
         this.#markers.push(marker);
     } // end addMarker method
+
+    listAllMarkers() {
+        this.#markers.forEach ((marker) => {
+            console.log('Marker text: ' + marker);
+        });
+    } // end listAllMarkers method
+
+    drawAllMarkers() {
+        const self = this;
+        this.#markers.forEach ((marker) => {
+            this.#drawMarker(marker);
+            console.log('Marker text: ' + marker);
+        });
+    } // end drawAllMarkers method
+
+    #drawMarker(marker) {
+        const maxStrings = 6;
+
+        let markerRadius = this.#scale(GuitarDiagramsJS.markerRadius);
+        let fretStart = this.#scale(GuitarDiagramsJS.fretStart);
+        let fretboardWidth = this.#scale(GuitarDiagramsJS.fretboardWidth);
+        let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
+        let stringSpacing = this.#scale(GuitarDiagramsJS.stringSpacing);
+        let stringIndent = this.#scale(GuitarDiagramsJS.stringIndent);
+
+        let string = maxStrings - marker.string;
+
+        let posX = stringIndent + ((maxStrings - marker.string) * stringSpacing);
+        let posY = ((marker.fret - 1) * fretSpacing) + (fretSpacing / 2); // nutHeight + marker.fret * 10;
+
+        this.#canvasContext.beginPath();
+        this.#canvasContext.arc(posX, posY, markerRadius, 0, 2 * Math.PI);
+        this.#canvasContext.fillStyle = marker.colorFill
+        this.#canvasContext.strokeStyle = marker.colorStroke;
+        this.#canvasContext.stroke();
+        this.#canvasContext.fill();
+
+        this.#canvasContext.beginPath();
+        this.#canvasContext.fillStyle = marker.colorFont;
+        this.#canvasContext.textAlign = 'center';
+        this.#canvasContext.textBaseline = 'middle';
+        this.#canvasContext.fillText(marker.text, posX, posY);
+        this.#canvasContext.fill();
+
+        console.log(marker.shape);
+    } // end drawMarker method
 
     /**
      * Returns a canvas element to be added to the HTML page for use by Guitar Diagrams JS.

@@ -198,7 +198,7 @@ export class GuitarDiagramsJSConfig {
     // ----- Features
     /**
      * Gets the enabled status of fret markers.
-     * @return {string} The enabled status of fret markers.
+     * @return {boolean} The enabled status of fret markers.
      */
     get fretMarkersEnabled() {
         return this.#fretMarkersEnabled;
@@ -206,7 +206,7 @@ export class GuitarDiagramsJSConfig {
 
     /**
      * Sets the enabled status of fret markers.
-     * @param {string} paramFretMarkersEnabled - The enabled status of fret markers.
+     * @param {boolean} paramFretMarkersEnabled - The enabled status of fret markers.
      */
     set fretMarkersEnabled(paramFretMarkersEnabled) {
         this.#fretMarkersEnabled = paramFretMarkersEnabled;
