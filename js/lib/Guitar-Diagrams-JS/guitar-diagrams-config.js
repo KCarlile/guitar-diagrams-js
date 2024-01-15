@@ -8,7 +8,7 @@
  */
 
 /**
- * Class representing primary Guitar Diagrams JS configuration.
+ * Class representing the Guitar Diagrams JS configuration.
  */
 export class GuitarDiagramsJSConfig {
     // ========== BEGIN private members
@@ -38,7 +38,7 @@ export class GuitarDiagramsJSConfig {
 
     // ========== BEGIN constructors
     /**
-     * Create a GuitarDiagramsJS object instance.
+     * Create a GuitarDiagramsJSConfig object instance.
      */
     constructor(paramCanvasID = null) {
         if (paramCanvasID != null) {
@@ -237,4 +237,4 @@ export class GuitarDiagramsJSConfig {
 
     // ========== BEGIN static methods
     // ========== END static methods
-} // end GuitarDiagramsJS class
+} // end GuitarDiagramsJSConfig class

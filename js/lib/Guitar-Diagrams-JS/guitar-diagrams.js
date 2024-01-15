@@ -16,6 +16,7 @@ export class GuitarDiagramsJS {
     // ========== BEGIN private members
     // ----- References
     #config;
+    #markers = Array();
 
     // ----- Local
     #canvas;
@@ -219,6 +220,11 @@ export class GuitarDiagramsJS {
         this.#drawAllFrets();
         this.#drawAllStrings();
     } // end drawNeck method
+
+    addMarker() {
+        let marker = new GuitarDiagramsMarker();
+        this.#markers.push(marker);
+    } // end addMarker method
 
     /**
      * Returns a canvas element to be added to the HTML page for use by Guitar Diagrams JS.
