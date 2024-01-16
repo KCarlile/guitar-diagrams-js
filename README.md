@@ -21,14 +21,19 @@ Version: 0.1
 
 ## To Do List
 
+- [ ] Configuration:
+  - [x] Make the fretboard (and everything) scalable
+  - [x] Allow for setting the fret number; if >0, hide the nut
+  - [ ] Horizontal fretboard
+  - [ ] Specify number of frets
+  - [ ] Dynamic canvas size based on fret spacing * frets
+  - [ ] Option to change string count for bass or mandolin
 - [ ] Allow for adding fingerings with:
   - [ ] Numbers for fingers or scale tones (with accidentals), note names (with accidentals)
-  - [ ] Shapes and colors (roots,chord-tones, others)
-- [ ] Allow for setting the fret number; if >0, hide the nut
-- [ ] Make the fretboard (and everything) scalable
+  - [x] Shapes and colors (roots, chord-tones, others)
+- [ ] Support 0-fret open strings (0) AND muted open strings (X)
 - [ ] Allow for mirroring for left-handed players
 - [ ] Allow for optional image download button
 - [ ] Allow for changing of orientation/rotation
-- [ ] Function to generate canvas tag
-- [ ] Option to change string count for bass or mandolin
-- [ ] Simplify scaling with local pre-scaled variables: `let width = scale(SomeBigStaticPath);`
+- [x] Function to generate canvas tag
+- [x] Simplify scaling with local pre-scaled variables: `let width = scale(SomeBigStaticPath);`
