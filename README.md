@@ -25,8 +25,8 @@ Version: 0.1
   - [x] Make the fretboard (and everything) scalable
   - [x] Allow for setting the fret number; if >0, hide the nut
   - [ ] Horizontal fretboard
-  - [ ] Specify number of frets
-  - [ ] Dynamic canvas size based on fret spacing * frets
+  - [x] Specify number of frets
+  - [x] Dynamic canvas size based on fret spacing * frets
   - [ ] Option to change string count for bass or mandolin
 - [ ] Allow for adding fingerings with:
   - [ ] Numbers for fingers or scale tones (with accidentals), note names (with accidentals)

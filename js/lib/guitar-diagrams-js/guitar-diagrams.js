@@ -28,7 +28,7 @@ export class GuitarDiagramsJS {
     static stringSpacing = 30;
     static fretboardPadding = 20;
     static fretboardWidth = (GuitarDiagramsJS.fretboardPadding * 2) + (GuitarDiagramsJS.stringSpacing * 5);
-    static fretboardHeight = 500;
+    //static fretboardHeight = 500;
     static nutHeight = 10;
     
     static stringBaseWidth = 3;
@@ -137,12 +137,25 @@ export class GuitarDiagramsJS {
     } // end setCanvasSize method
 
     /**
+     * 
+     * @returns 
+     */
+    #getFretboardHeight() {
+        let fretThickness = this.#scale(GuitarDiagramsJS.fretThickness);
+        let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
+        let nutHeight = (this.#config.fretStartingNumber == 0) ? this.#scale(GuitarDiagramsJS.nutHeight) : 0;
+        let fretboardHeight = this.#scale(((this.#config.fretCount * fretSpacing) + (fretThickness / 2))) + nutHeight;
+
+        return fretboardHeight;
+    } // end getFretboardHeight method
+
+    /**
      * Draws the fretboard and fret markers.
      */
     #drawFretboard() {
         let fretboardWidth = this.#scale(GuitarDiagramsJS.fretboardWidth);
-        let fretboardHeight = this.#scale(GuitarDiagramsJS.fretboardHeight);
-
+        let fretboardHeight = this.#scale(this.#getFretboardHeight());
+        
         this.#canvasContext.beginPath();
         this.#canvasContext.fillStyle = this.#config.colorFretboard;
         this.#canvasContext.fillRect(0, 0, fretboardWidth, fretboardHeight);
@@ -163,7 +176,6 @@ export class GuitarDiagramsJS {
             } // end else test
         } // end if test
     } // end drawFretboard method
-
     /**
      * Draws the fret marker.
      * @param {number} paramFretNumber - The number of the fret being drawn. 
@@ -197,28 +209,28 @@ export class GuitarDiagramsJS {
         let fretboardWidth = this.#scale(GuitarDiagramsJS.fretboardWidth);
         let nutHeight = this.#scale(GuitarDiagramsJS.nutHeight);
 
-        this.#canvasContext.beginPath();
-
         if (this.#config.fretStartingNumber == 0) {
+            this.#canvasContext.beginPath();
             this.#canvasContext.fillStyle = this.#config.colorNut;
             this.#canvasContext.strokeStyle = this.#config.colorNutOutline;
             this.#canvasContext.rect(0, 0, fretboardWidth, nutHeight);
             this.#canvasContext.fill();
             this.#canvasContext.stroke();
+            this.#canvasContext.closePath();
             // move down the height of the nut
             this.#canvasContext.translate(0, nutHeight);
         } // end if test
         else {
             this.#drawFret(0);
+            this.#canvasContext.beginPath();
             this.#canvasContext.fillStyle = '#000000';
             this.#canvasContext.font = '28px Arial';
             this.#canvasContext.textAlign = 'right';
             this.#canvasContext.textBaseline = 'middle';
             this.#canvasContext.stroke();
-            this.#canvasContext.fillText(this.#config.fretStartingNumber, -6,28);
+            this.#canvasContext.fillText(this.#config.fretStartingNumber, -6, 28);
+            this.#canvasContext.closePath();
         } // end else test
-
-        this.#canvasContext.closePath();
     } // end drawNut method
 
     /**
@@ -240,23 +252,17 @@ export class GuitarDiagramsJS {
         let fretThickness = this.#scale(GuitarDiagramsJS.fretThickness);
         let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
         let fretboardWidth = this.#scale(GuitarDiagramsJS.fretboardWidth);
+        let posY = (fretSpacing * paramFretNumber) - (fretThickness / 2);
+
+        if (posY < 0) {
+            posY = 0;
+        } // end if test
 
         this.#canvasContext.beginPath();
         this.#canvasContext.fillStyle = this.#config.colorFrets;
-        //this.#canvasContext.strokeStyle = this.#config.colorNutOutline;
-        this.#canvasContext.rect(0, ((fretSpacing * paramFretNumber) - (fretThickness / 2)), fretboardWidth, fretThickness);
+        this.#canvasContext.lineWidth = 0;
+        this.#canvasContext.rect(0, posY, fretboardWidth, fretThickness);
         this.#canvasContext.fill();
-        //this.#canvasContext.stroke();
-        /*
-        this.#canvasContext.lineWidth = fretThickness;
-        this.#canvasContext.moveTo(0, fretSpacing * paramFretNumber);
-        this.#canvasContext.lineTo(fretboardWidth, (fretSpacing * paramFretNumber));
-        this.#canvasContext.strokeStyle = this.#config.colorFrets;
-        this.#canvasContext.stroke();
-        */
-
-
-
         this.#canvasContext.closePath();
     } // end drawFret method
 
@@ -283,7 +289,7 @@ export class GuitarDiagramsJS {
         let stringSpacing = this.#scale(GuitarDiagramsJS.stringSpacing);
         let stringBaseWidth = this.#scale(GuitarDiagramsJS.stringBaseWidth);
         let stringWidthFactor = this.#scale(GuitarDiagramsJS.stringWidthFactor);
-        let fretboardHeight = this.#scale(GuitarDiagramsJS.fretboardHeight);
+        let fretboardHeight = this.#scale(this.#getFretboardHeight());
         let nutHeight = (this.#config.fretStartingNumber > 0) ? 0 : this.#scale(GuitarDiagramsJS.nutHeight);
 
         // string location in X plane
@@ -295,8 +301,7 @@ export class GuitarDiagramsJS {
         this.#canvasContext.beginPath();
         this.#canvasContext.lineWidth = stringWidth;
         this.#canvasContext.moveTo(stringXPos, 0);
-        //this.#canvasContext.lineTo(stringXPos, fretboardHeight - nutHeight);
-        this.#canvasContext.lineTo(stringXPos, fretboardHeight);
+        this.#canvasContext.lineTo(stringXPos, fretboardHeight - nutHeight);
         this.#canvasContext.strokeStyle = this.#config.colorStrings;
         this.#canvasContext.stroke();
         this.#canvasContext.closePath();
@@ -375,12 +380,12 @@ export class GuitarDiagramsJS {
     } // end drawMarker method
 
     /**
-     * Scales any number for resizing the drawing based on the provided scaling factor.
-     * @param {number} paramScalingFactor - The scaling factor as a decimal (e.g., .5 or 1.5) 
-     * @returns 
+     * Scales any provided numeric value for resizing the drawing based on the scaling factor.
+     * @param {number} paramVector - The numeric variable to be scaled.  
+     * @return {number} Scaled version of the numeric value provided.
      */
-    #scale(paramScalingFactor) {
-        return this.#config.scaleFactor * paramScalingFactor;
+    #scale(paramVector) {
+        return this.#config.scaleFactor * paramVector;
     } // end scale method
 
     /*
