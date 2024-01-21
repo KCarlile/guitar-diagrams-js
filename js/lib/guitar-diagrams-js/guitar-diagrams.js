@@ -111,14 +111,16 @@ export class GuitarDiagramsJS {
             this.#canvasContext.translate(60,0);
         } // end if test
 
+        if (this.#config.stringNamesEnabled) {
+            this.#canvasContext.translate(0,30);
+        } // end if test
+
         let nutHeight = this.#scale(GuitarDiagramsJS.nutHeight);
         let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
 
         if (this.#config.fretStartingNumber != 0) {
             //nutHeight = 0;
         } // end if test
-
-        //
 
         //this.#canvasContext.canvas.height = (this.#config.fretCount * fretSpacing) + nutHeight;
         //this.#canvasContext.canvas.width = 600;

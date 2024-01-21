@@ -31,6 +31,7 @@ export class GuitarDiagramsJSConfig {
     // ----- Features
     #fretMarkersEnabled = true;
     #fretStartingNumber = 0;
+    #stringNamesEnabled = false;
 
     // ========== END private members
 
@@ -244,6 +245,22 @@ export class GuitarDiagramsJSConfig {
     set fretStartingNumber(paramFretStartingNumber) {
         this.#fretStartingNumber = paramFretStartingNumber;
     } // end get fretStartingNumber property
+
+    /**
+     * Gets the enabled status of string names.
+     * @return {boolean} The enabled status of string names.
+     */
+    get stringNamesEnabled() {
+        return this.#stringNamesEnabled;
+    } // end get stringNamesEnabled property
+
+    /**
+     * Sets the enabled status of string names.
+     * @param {boolean} paramStringNamesEnabled - The enabled status of string names.
+     */
+    set stringNamesEnabled(paramStringNamesEnabled) {
+        this.#stringNamesEnabled = paramStringNamesEnabled;
+    } // end get stringNamesEnabled property
     // ========== END properties
 
     // ========== BEGIN private methods
