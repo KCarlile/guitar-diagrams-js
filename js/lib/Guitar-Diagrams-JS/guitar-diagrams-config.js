@@ -24,8 +24,9 @@ export class GuitarDiagramsJSConfig {
     #colorFretMarkers = '#FFFFFF';
 
     // ----- Dimensions/Orientation
-    #orientHorizontally = false;
+    #fretCount = 5;
     #scaleFactor = 1;
+    #orientHorizontally = false;
 
     // ----- Features
     #fretMarkersEnabled = true;
@@ -163,6 +164,22 @@ export class GuitarDiagramsJSConfig {
     } // end get colorFretMarkers property
 
     // ----- Dimensions/Orientation
+    /**
+     * Gets the number of frets on the diagram.
+     * @return {number} The number of frets on the diagram.
+     */
+    get fretCount() {
+        return this.#fretCount;
+    } // end get fretCount property
+
+    /**
+     * Sets the number of frets on the diagram.
+     * @param {number} paramFretCount - The number of frets on the diagram.
+     */
+    set fretCount(paramFretCount) {
+        this.#fretCount = paramFretCount;
+    } // end get fretCount property
+
     /**
      * Gets the scale factor of the diagram.
      * @return {number} The scale factor of the diagram.
