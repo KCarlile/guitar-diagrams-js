@@ -178,6 +178,7 @@ export class GuitarDiagramsJS {
             } // end else test
         } // end if test
     } // end drawFretboard method
+
     /**
      * Draws the fret marker.
      * @param {number} paramFretNumber - The number of the fret being drawn. 
@@ -188,14 +189,7 @@ export class GuitarDiagramsJS {
         let fretMarkerRadius = this.#scale(GuitarDiagramsJS.fretMarkerRadius);
         let nutHeight = this.#scale(GuitarDiagramsJS.nutHeight);
 
-        if (this.#config.fretStartingNumber != 0) {
-            //nutHeight = 0;
-        } // end if test
-
         this.#canvasContext.beginPath();
-        //this.#canvasContext.arc((fretboardWidth / 2),
-            //(nutHeight + (fretSpacing / 2) + (fretSpacing * paramFretNumber)),
-            //fretMarkerRadius, 0, 2 * Math.PI);
         this.#canvasContext.arc((fretboardWidth / 2),
             ((fretSpacing / 2) + (fretSpacing * paramFretNumber)),
             fretMarkerRadius, 0, 2 * Math.PI);
@@ -307,6 +301,20 @@ export class GuitarDiagramsJS {
         this.#canvasContext.strokeStyle = this.#config.colorStrings;
         this.#canvasContext.stroke();
         this.#canvasContext.closePath();
+
+        // string names
+        if (this.#config.stringNamesEnabled) {
+            let stringNames = ['E','A','D','G','B','e'];
+
+            this.#canvasContext.beginPath();
+            this.#canvasContext.fillStyle = '#000000';
+            this.#canvasContext.font = '16px Arial';
+            this.#canvasContext.textAlign = 'center';
+            this.#canvasContext.textBaseline = 'middle';
+            this.#canvasContext.stroke();
+            this.#canvasContext.fillText(stringNames[paramStringNumber - 1], stringXPos, -20);
+            this.#canvasContext.closePath();
+        } // end if test
     } // end drawString method
 
     /**
