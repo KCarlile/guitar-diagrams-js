@@ -106,13 +106,25 @@ export class GuitarDiagramsJS {
 
         this.#canvas.setAttribute("width", "800");
 
-        // Translations
-        if (this.#config.fretStartingNumber != 0) {
-            this.#canvasContext.translate(60,0);
+        let posXTranslate = 60;
+        let posYTranslate = 0;
+
+        // swap orientation
+        if (this.#config.orientHorizontally == true) {
+            [posXTranslate, posYTranslate] = [posYTranslate, posXTranslate];
         } // end if test
 
+        // Translations
+        if (this.#config.fretStartingNumber != 0) {
+            this.#canvasContext.translate(posXTranslate, posYTranslate);
+        } // end if test
+
+        posXTranslate = 0;
+        posYTranslate = 30;
+
         if (this.#config.stringNamesEnabled) {
-            this.#canvasContext.translate(0,30);
+            //this.#canvasContext.translate(0,30);
+            this.#canvasContext.translate(posXTranslate, posYTranslate);
         } // end if test
 
         let nutHeight = this.#scale(GuitarDiagramsJS.nutHeight);
@@ -157,6 +169,11 @@ export class GuitarDiagramsJS {
     #drawFretboard() {
         let fretboardWidth = this.#scale(GuitarDiagramsJS.fretboardWidth);
         let fretboardHeight = this.#scale(this.#getFretboardHeight());
+
+        // swap orientation
+        if (this.#config.orientHorizontally == true) {
+            [fretboardWidth, fretboardHeight] = [fretboardHeight, fretboardWidth];
+        } // end if test
         
         this.#canvasContext.beginPath();
         this.#canvasContext.fillStyle = this.#config.colorFretboard;
@@ -189,10 +206,16 @@ export class GuitarDiagramsJS {
         let fretMarkerRadius = this.#scale(GuitarDiagramsJS.fretMarkerRadius);
         let nutHeight = this.#scale(GuitarDiagramsJS.nutHeight);
 
+        let posX = fretboardWidth / 2;
+        let posY = (fretSpacing / 2) + (fretSpacing * paramFretNumber);
+
+        // swap orientation
+        if (this.#config.orientHorizontally == true) {
+            [posX, posY] = [posY, posX];
+        } // end if test
+
         this.#canvasContext.beginPath();
-        this.#canvasContext.arc((fretboardWidth / 2),
-            ((fretSpacing / 2) + (fretSpacing * paramFretNumber)),
-            fretMarkerRadius, 0, 2 * Math.PI);
+        this.#canvasContext.arc(posX, posY, fretMarkerRadius, 0, 2 * Math.PI);
         this.#canvasContext.fillStyle = this.#config.colorFretMarkers;
         this.#canvasContext.fill();
         this.#canvasContext.closePath();
@@ -204,6 +227,14 @@ export class GuitarDiagramsJS {
     #drawNut() {
         let fretboardWidth = this.#scale(GuitarDiagramsJS.fretboardWidth);
         let nutHeight = this.#scale(GuitarDiagramsJS.nutHeight);
+        let posXTranslate = 0;
+        let posYTranslate = nutHeight;
+
+        // swap orientation
+        if (this.#config.orientHorizontally == true) {
+            [fretboardWidth, nutHeight] = [nutHeight, fretboardWidth];
+            [posXTranslate, posYTranslate] = [posYTranslate, posXTranslate];
+        } // end if test
 
         if (this.#config.fretStartingNumber == 0) {
             this.#canvasContext.beginPath();
@@ -214,7 +245,7 @@ export class GuitarDiagramsJS {
             this.#canvasContext.stroke();
             this.#canvasContext.closePath();
             // move down the height of the nut
-            this.#canvasContext.translate(0, nutHeight);
+            this.#canvasContext.translate(posXTranslate, posYTranslate);
         } // end if test
         else {
             this.#drawFret(0);
@@ -248,16 +279,25 @@ export class GuitarDiagramsJS {
         let fretThickness = this.#scale(GuitarDiagramsJS.fretThickness);
         let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
         let fretboardWidth = this.#scale(GuitarDiagramsJS.fretboardWidth);
+        let posX = 0;
         let posY = (fretSpacing * paramFretNumber) - (fretThickness / 2);
+        let fretWidth = fretboardWidth;
+        let fretHeight = fretThickness;
 
         if (posY < 0) {
             posY = 0;
         } // end if test
 
+        // swap orientation
+        if (this.#config.orientHorizontally == true) {
+            [posX, posY] = [posY, posX];
+            [fretWidth, fretHeight] = [fretHeight, fretWidth];
+        } // end if test
+
         this.#canvasContext.beginPath();
         this.#canvasContext.fillStyle = this.#config.colorFrets;
         this.#canvasContext.lineWidth = 0;
-        this.#canvasContext.rect(0, posY, fretboardWidth, fretThickness);
+        this.#canvasContext.rect(posX, posY, fretWidth, fretHeight);
         this.#canvasContext.fill();
         this.#canvasContext.closePath();
     } // end drawFret method
