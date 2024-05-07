@@ -24,10 +24,10 @@ Version: 0.1
 - [ ] Configuration:
   - [x] Make the fretboard (and everything) scalable
   - [x] Allow for setting the fret number; if >0, hide the nut
-  - [ ] Horizontal fretboard
+  - [x] Horizontal fretboard
   - [x] Specify number of frets
   - [x] Dynamic canvas size based on fret spacing * frets
-  - [ ] Option to change string count for bass or mandolin
+  - [ ] Option to change string count for bass, mandolin, 7/8 string guitar, etc.
   - [ ] Make string names configurable
   - [ ] Allow for optional image download button
   - [ ] Allow for mirroring for left-handed players
