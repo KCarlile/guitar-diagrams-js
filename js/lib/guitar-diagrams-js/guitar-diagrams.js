@@ -42,6 +42,9 @@ export class GuitarDiagramsJS {
     
     static markerRadius = 14;
 
+    static stringNameFontSize = 20;
+    static fretNumberFontSize = 24;
+
     /**
      * Enumeration for marker shapes.
      * @readonly
@@ -141,7 +144,7 @@ export class GuitarDiagramsJS {
             } // end else test
         } // end if test
         */
-        let nutThickness = this.#scale(GuitarDiagramsJS.nutThickness);
+        //let nutThickness = this.#scale(GuitarDiagramsJS.nutThickness);
         let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
 
         if (this.#config.fretStartingNumber != 0) {
@@ -159,36 +162,33 @@ export class GuitarDiagramsJS {
         if (this.#config.stringNamesEnabled) {
             let stringSpacing = this.#scale(GuitarDiagramsJS.stringSpacing);
             let stringIndent = this.#scale(GuitarDiagramsJS.stringIndent);
+            let stringNameFontSize = this.#scale(GuitarDiagramsJS.stringNameFontSize);
+            let fretNumberFontSize = this.#scale(GuitarDiagramsJS.fretNumberFontSize);
+            let stringNamesIndent = this.#config.fretStartingNumber == 0 ? 0 : fretNumberFontSize;
             let posX;
             let posY;
 
             let stringNames = ['E','A','D','G','B','e'];
-            let stringNamesSpace = 10;
 
             if (this.#config.orientHorizontally == true) {
-                // horizontal
-                this.#canvasContext.translate(stringNamesSpace, 0);
+                stringNames = stringNames.reverse();
             } // end if test
-            else {
-                // vertical
-                this.#canvasContext.translate(0, stringNamesSpace);
-            } // end else test
 
             for (const [key, value] of Object.entries(stringNames)) {
                 if (this.#config.orientHorizontally == true) {
                     // horizontal
-                    posX = 0;
-                    posY = (stringIndent + ((stringNames.length - key - 1) * stringSpacing));
+                    posX = (stringNameFontSize / 2);
+                    posY = (stringIndent + (key * stringSpacing)) + stringNamesIndent;
                 } // end if test
                 else {
                     // vertical
-                    posX = (stringIndent + (key * stringSpacing));
-                    posY = 0;
+                    posX = (stringIndent + (key * stringSpacing)) + stringNamesIndent;
+                    posY = (stringNameFontSize / 2);
                 } // end else test
 
                 this.#canvasContext.beginPath();
                 this.#canvasContext.fillStyle = '#000000';
-                this.#canvasContext.font = '16px Arial';
+                this.#canvasContext.font = stringNameFontSize + 'px Arial';
                 this.#canvasContext.textAlign = 'center';
                 this.#canvasContext.textBaseline = 'middle';
                 this.#canvasContext.stroke();
@@ -198,61 +198,41 @@ export class GuitarDiagramsJS {
 
             if (this.#config.orientHorizontally == true) {
                 // horizontal
-                this.#canvasContext.translate(stringNamesSpace, 0);
+                this.#canvasContext.translate(stringNameFontSize, 0);
             } // end if test
             else {
                 // vertical
-                this.#canvasContext.translate(0, stringNamesSpace);
+                this.#canvasContext.translate(0, stringNameFontSize);
             } // end else test
         } // end if test
     } // end drawStringNames method
 
     /**
-     * Draws the nut if the fret starting number is 0. Otherwise, it omits the nut and includes the fret number.
+     * Draws the fret number if starting fret is > 0.
      */
-    #drawNut() {
-        let fretboardWidth = this.#scale(GuitarDiagramsJS.fretboardWidth);
-        let nutThickness = this.#scale(GuitarDiagramsJS.nutThickness);
-        let nutSpacing = nutThickness;
+    #drawFretNumber() {
+        let fretNumberFontSize = this.#scale(GuitarDiagramsJS.fretNumberFontSize);
 
-        // swap orientation
-        if (this.#config.orientHorizontally == true) {
-            [fretboardWidth, nutThickness] = [nutThickness, fretboardWidth];
-        } // end if test
-
-        if (this.#config.fretStartingNumber == 0) {
-            // draw the nut
-            this.#canvasContext.beginPath();
-            this.#canvasContext.fillStyle = this.#config.colorNut;
-            this.#canvasContext.strokeStyle = this.#config.colorNutOutline;
-            this.#canvasContext.rect(0, 0, fretboardWidth, nutThickness);
-            this.#canvasContext.fill();
-            this.#canvasContext.stroke();
-            this.#canvasContext.closePath();
-
-            // translate for nut
-            if (this.#config.orientHorizontally == true) {
-                // horizontal
-                this.#canvasContext.translate(nutSpacing, 0);
-            } // end if test
-            else {
-                // vertical
-                this.#canvasContext.translate(0, nutSpacing);
-            } // end else test
-        } // end if test
-        else {
-            // draw the 0 fret, then the fret number to the right/top
-            this.#drawFret(0);
+        if (this.#config.fretStartingNumber != 0) {
             this.#canvasContext.beginPath();
             this.#canvasContext.fillStyle = '#000000';
-            this.#canvasContext.font = '28px Arial';
+            this.#canvasContext.font = fretNumberFontSize + 'px Arial';
             this.#canvasContext.textAlign = 'right';
             this.#canvasContext.textBaseline = 'middle';
             this.#canvasContext.stroke();
-            this.#canvasContext.fillText(this.#config.fretStartingNumber, -6, 28);
+            this.#canvasContext.fillText(this.#config.fretStartingNumber, (fretNumberFontSize / 2), (fretNumberFontSize / 2));
             this.#canvasContext.closePath();
-        } // end else test
-    } // end drawNut method
+
+            if (this.#config.orientHorizontally == true) {
+                // horizontal
+                this.#canvasContext.translate(0, fretNumberFontSize);
+            } // end if test
+            else {
+                // vertical
+                this.#canvasContext.translate(fretNumberFontSize, 0);
+            } // end else test
+        } // end if test
+    } // end #drawFretNumber method
 
     /**
      * Draws the fretboard.
@@ -272,16 +252,28 @@ export class GuitarDiagramsJS {
     } // end drawFretboard method
 
     /**
-     * Gets the length of the fretboard.
-     * @return {number} Length of the fretboard.
+     * Draws the nut if the fret starting number is 0. Otherwise, it omits the nut and includes the fret number.
      */
-    #getFretboardLength() {
-        let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
-        let fretLength = this.#scale(GuitarDiagramsJS.fretThickness);
-        let fretboardLength = this.#scale(this.#config.fretCount * fretSpacing) + (fretLength / 2);
+    #drawNut() {
+        let fretboardWidth = this.#scale(GuitarDiagramsJS.fretboardWidth);
+        let nutThickness = this.#scale(GuitarDiagramsJS.nutThickness);
 
-        return fretboardLength;
-    } // end getFretboardLength method
+        // swap orientation
+        if (this.#config.orientHorizontally == true) {
+            [fretboardWidth, nutThickness] = [nutThickness, fretboardWidth];
+        } // end if test
+
+        if (this.#config.fretStartingNumber == 0) {
+            // draw the nut
+            this.#canvasContext.beginPath();
+            this.#canvasContext.fillStyle = this.#config.colorNut;
+            this.#canvasContext.strokeStyle = this.#config.colorNutOutline;
+            this.#canvasContext.rect(0, 0, fretboardWidth, nutThickness);
+            this.#canvasContext.fill();
+            this.#canvasContext.stroke();
+            this.#canvasContext.closePath();
+        } // end if test
+    } // end drawNut method
 
     /**
      * Draws the fret markers.
@@ -302,7 +294,6 @@ export class GuitarDiagramsJS {
             } // end else test
         } // end if test
     } // end drawFretMarkers method
-
 
     /**
      * Draws the fret marker.
@@ -328,11 +319,14 @@ export class GuitarDiagramsJS {
         this.#canvasContext.closePath();
     } // end drawFretMarker method
 
-    
     /**
      * Draws the frets.
      */
     #drawAllFrets() {
+        if (this.#config.fretStartingNumber != 0) {
+            this.#drawFret(0);
+        } // end if test
+
         this.#drawFret(1);
         this.#drawFret(2);
         this.#drawFret(3);
@@ -362,6 +356,14 @@ export class GuitarDiagramsJS {
             [posX, posY] = [posY, posX];
             [fretWidth, fretLength] = [fretLength, fretWidth];
         } // end if test
+
+        if(paramFretNumber == 0) {
+            console.log("****");
+            console.log("  posX: " + posX);
+            console.log("  posY: " + posY);
+            console.log("  fretWidth: " + fretWidth);
+            console.log("  fretLength: " + fretLength);
+        }
 
         this.#canvasContext.beginPath();
         this.#canvasContext.fillStyle = this.#config.colorFrets;
@@ -397,7 +399,7 @@ export class GuitarDiagramsJS {
         let stringThickness = 5;
         let fretboardLength = this.#scale(this.#getFretboardLength());
         let fretboardWidth = this.#scale(GuitarDiagramsJS.fretboardWidth);
-        let nutThickness = (this.#config.fretStartingNumber > 0) ? 0 : this.#scale(GuitarDiagramsJS.nutThickness);
+        //let nutThickness = (this.#config.fretStartingNumber > 0) ? 0 : this.#scale(GuitarDiagramsJS.nutThickness);
 
         let posX, posY, endX, endY = 0;
 
@@ -427,6 +429,18 @@ export class GuitarDiagramsJS {
         this.#canvasContext.fill();
         this.#canvasContext.closePath();
     } // end drawString method
+
+    /**
+     * Gets the length of the fretboard.
+     * @return {number} Length of the fretboard.
+     */
+    #getFretboardLength() {
+        let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
+        let fretLength = this.#scale(GuitarDiagramsJS.fretThickness);
+        let fretboardLength = this.#scale(this.#config.fretCount * fretSpacing) + (fretLength / 2);
+
+        return fretboardLength;
+    } // end getFretboardLength method
 
     #drawStringOriginal(paramStringNumber) {
         const maxStrings = 6;
@@ -565,11 +579,12 @@ export class GuitarDiagramsJS {
      * Draws the neck.
      */
     drawNeck() {
-        this.#initializeDrawing();
-        this.#drawStringNames();
+        this.#initializeDrawing();  // this is a mess
+        this.#drawStringNames();    // working
+        this.#drawFretNumber();     // working
         //this.#setCanvasSize();
-        this.#drawNut();
-        this.#drawFretboard();
+        this.#drawFretboard();      // working
+        this.#drawNut();            // working
         this.#drawFretMarkers();
         this.#drawAllFrets();
         this.#drawAllStrings();
