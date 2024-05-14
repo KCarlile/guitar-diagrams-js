@@ -27,11 +27,11 @@ Version: 0.1
   - [x] Horizontal fretboard
   - [x] Specify number of frets
   - [x] Dynamic canvas size based on fret spacing * frets
+  - [x] Allow for changing of orientation/rotation
   - [ ] Option to change string count for bass, mandolin, 7/8 string guitar, etc.
   - [ ] Make string names configurable
   - [ ] Allow for optional image download button
   - [ ] Allow for mirroring for left-handed players
-  - [ ] Allow for changing of orientation/rotation
 - [ ] Allow for adding fingerings with:
   - [x] Numbers for fingers or scale tones (with accidentals), note names (with accidentals)
   - [x] Shapes and colors (roots, chord-tones, others)

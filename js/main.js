@@ -23,7 +23,7 @@ let gdj2 = new GuitarDiagramsJS();
 gdj2.config.canvasID = 'diagram2Canvas';
 gdj2.config.stringNamesEnabled = true;
 gdj2.config.orientHorizontally = true;
-///gdj2.config.fretStartingNumber = 1;
+//gdj2.config.fretStartingNumber = 1;
 console.log('Orient horizontally: ' + gdj2.config.orientHorizontally);
 document.getElementById('diagram2').appendChild(gdj2.getCanvasElement());
 gdj2 = setupDiagram(gdj2);

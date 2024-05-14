@@ -431,73 +431,12 @@ export class GuitarDiagramsJS {
     } // end drawString method
 
     /**
-     * Gets the length of the fretboard.
-     * @return {number} Length of the fretboard.
-     */
-    #getFretboardLength() {
-        let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
-        let fretLength = this.#scale(GuitarDiagramsJS.fretThickness);
-        let fretboardLength = this.#scale(this.#config.fretCount * fretSpacing) + (fretLength / 2);
-
-        return fretboardLength;
-    } // end getFretboardLength method
-
-    #drawStringOriginal(paramStringNumber) {
-        const maxStrings = 6;
-
-        let stringIndent = this.#scale(GuitarDiagramsJS.stringIndent);
-        let stringSpacing = this.#scale(GuitarDiagramsJS.stringSpacing);
-        let stringBaseWidth = this.#scale(GuitarDiagramsJS.stringBaseWidth);
-        let stringWidthFactor = this.#scale(GuitarDiagramsJS.stringWidthFactor);
-        let fretboardLength = this.#scale(this.#getFretboardLength());
-        let fretboardWidth = this.#scale(GuitarDiagramsJS.fretboardWidth);
-        let nutThickness = (this.#config.fretStartingNumber > 0) ? 0 : this.#scale(GuitarDiagramsJS.nutThickness);
-
-
-/// !!!!!!! SOMETHING WEIRD IS GOING ON HERE WITH THE HORIZONTAL POSITIONING !!!!!!!
-        // string parameters
-        let posX = stringIndent + ((paramStringNumber - 1) * (stringSpacing));
-        let posY = 0;
-        let stringWidth = stringBaseWidth + ((maxStrings - (paramStringNumber - 1)) * stringWidthFactor);;
-        let stringEnd = fretboardLength - nutThickness;
-
-        // swap orientation
-        if (this.#config.orientHorizontally == true) {
-            posX = 0;
-            posY = (fretboardWidth - stringIndent) - ((paramStringNumber - 1) * (stringSpacing));
-            stringEnd = posY;
-
-        console.log("xxxEnd X,Y: " + posX + ", " + stringEnd);
-
-            //[posX, posY] = [posY, posX];
-            //[stringWidth, stringEnd] = [stringEnd, stringWidth];
-
-
-            console.log("****");
-            console.log("  String #: " + paramStringNumber);
-            //stringIndent = 0;
-            console.log("  posX: " + posX);
-            console.log("  posY: " + posY);
-            console.log("  stringWidth: " + stringWidth);
-            console.log("  stringEnd: " + stringEnd);
-        } // end if test
-
-        this.#canvasContext.beginPath();
-        this.#canvasContext.lineWidth = stringWidth;
-        this.#canvasContext.moveTo(posX, posY);
-        //this.#canvasContext.lineTo(posX, fretboardHeight - nutThickness);
-        this.#canvasContext.lineTo(posX, stringEnd);
-        this.#canvasContext.strokeStyle = this.#config.colorStrings;
-        this.#canvasContext.stroke();
-        this.#canvasContext.closePath();
-    } // end drawString method
-
-    /**
      * Draws the specified marker.
      * @param {object} paramMarker - The marker to be drown.
      */
     #drawMarker(paramMarker) {
         const maxStrings = 6;
+        const canvas = this.#canvasContext;
 
         let markerRadius = this.#scale(GuitarDiagramsJS.markerRadius);
         let fretboardWidth = this.#scale(GuitarDiagramsJS.fretboardWidth);
@@ -509,60 +448,102 @@ export class GuitarDiagramsJS {
         let posX = stringIndent + ((maxStrings - paramMarker.string) * stringSpacing);
         let posY = ((paramMarker.fret - 1) * fretSpacing) + (fretSpacing / 2);
 
+        // swap orientation
+        if (this.#config.orientHorizontally == true) {
+            posX = stringIndent + ((paramMarker.string - 1) * stringSpacing);
+            [posX, posY] = [posY, posX];
+        } // end if test
+
         let markerFontSize = this.#scale(16);
 
         // marker shape
-        this.#canvasContext.beginPath();
-        this.#canvasContext.fillStyle = paramMarker.colorFill
-        this.#canvasContext.strokeStyle = paramMarker.colorStroke;
-        this.#canvasContext.lineWidth = strokeWidth;
+        canvas.beginPath();
+        canvas.fillStyle = paramMarker.colorFill
+        canvas.strokeStyle = paramMarker.colorStroke;
+        canvas.lineWidth = strokeWidth;
 
         if (paramMarker.shape == GuitarDiagramsJS.Shape.Square) {
-            this.#canvasContext.fillRect((posX - markerRadius), (posY - markerRadius), (markerRadius * 2), (markerRadius * 2));
-            this.#canvasContext.strokeRect((posX - markerRadius), (posY - markerRadius), (markerRadius * 2), (markerRadius * 2));
+            this.#drawMarkerSquare(posX, posY);
         } // end if test
         else if (paramMarker.shape == GuitarDiagramsJS.Shape.Triangle) {
-            let triangleMarkerRadius = markerRadius * 1.25;
-            let triangleMarkerHeight = (triangleMarkerRadius * 2) * (Math.sqrt(3)/2);
-
-            this.#canvasContext.moveTo(posX, posY - triangleMarkerRadius);
-            this.#canvasContext.lineTo((posX + triangleMarkerRadius), (posY - triangleMarkerRadius + triangleMarkerHeight));
-            this.#canvasContext.lineTo((posX - triangleMarkerRadius), (posY - triangleMarkerRadius + triangleMarkerHeight));
-            this.#canvasContext.lineTo(posX, posY - triangleMarkerRadius);
-            this.#canvasContext.fill();
-            this.#canvasContext.stroke();
+            this.#drawMarkerTriangle(posX, posY);
         } // end else if test
         else if (paramMarker.shape == GuitarDiagramsJS.Shape.Diamond) {
-            let diamondMarkerRadius = markerRadius * 1.25;
-
-            this.#canvasContext.beginPath();
-            this.#canvasContext.moveTo(posX, posY - diamondMarkerRadius);
-            this.#canvasContext.lineTo((posX + diamondMarkerRadius), posY);
-            this.#canvasContext.lineTo(posX, (posY + diamondMarkerRadius));
-            this.#canvasContext.lineTo((posX - diamondMarkerRadius), (posY));
-            this.#canvasContext.lineTo(posX, (posY - diamondMarkerRadius));
-            this.#canvasContext.fill();
-            this.#canvasContext.stroke();
+            this.#drawMarkerDiamond(posX, posY);
         } // end else if test
         else {
-            this.#canvasContext.lineWidth = this.#scale(2);
-            this.#canvasContext.arc(posX, posY, markerRadius, 0, 2 * Math.PI);
-            this.#canvasContext.fill();
-            this.#canvasContext.stroke();
+            this.#drawMarkerCircle(posX, posY);
         } // end else test
 
         this.#canvasContext.closePath();
 
         // marker text
-        this.#canvasContext.beginPath();
-        this.#canvasContext.fillStyle = paramMarker.colorFont;
-        this.#canvasContext.textAlign = 'center';
-        this.#canvasContext.textBaseline = 'middle';
-        this.#canvasContext.font = markerFontSize + 'px Arial';
-        this.#canvasContext.fillText(paramMarker.text, posX, posY + strokeWidth);
-        this.#canvasContext.fill();
-        this.#canvasContext.closePath();
+        canvas.beginPath();
+        canvas.fillStyle = paramMarker.colorFont;
+        canvas.textAlign = 'center';
+        canvas.textBaseline = 'middle';
+        canvas.font = markerFontSize + 'px Arial';
+        canvas.fillText(paramMarker.text, posX, posY + strokeWidth);
+        canvas.fill();
+        canvas.closePath();
     } // end drawMarker method
+
+    #drawMarkerSquare(posX, posY) {
+        const canvas = this.#canvasContext
+        let markerRadius = this.#scale(GuitarDiagramsJS.markerRadius);
+        canvas.fillRect((posX - markerRadius), (posY - markerRadius), (markerRadius * 2), (markerRadius * 2));
+        canvas.strokeRect((posX - markerRadius), (posY - markerRadius), (markerRadius * 2), (markerRadius * 2));
+    } // end drawMarkerSquare method
+
+    #drawMarkerCircle(posX, posY) {
+        const canvas = this.#canvasContext
+        let markerRadius = this.#scale(GuitarDiagramsJS.markerRadius);
+        canvas.lineWidth = this.#scale(2);
+        canvas.arc(posX, posY, markerRadius, 0, 2 * Math.PI);
+        canvas.fill();
+        canvas.stroke();
+    } // end drawMarkerCircle method
+
+    #drawMarkerTriangle(posX, posY) {
+        const canvas = this.#canvasContext
+        let markerRadius = this.#scale(GuitarDiagramsJS.markerRadius);
+        let triangleMarkerRadius = markerRadius * 1.25;
+        let triangleMarkerHeight = (triangleMarkerRadius * 2) * (Math.sqrt(3)/2);
+
+        canvas.moveTo(posX, posY - triangleMarkerRadius);
+        canvas.lineTo((posX + triangleMarkerRadius), (posY - triangleMarkerRadius + triangleMarkerHeight));
+        canvas.lineTo((posX - triangleMarkerRadius), (posY - triangleMarkerRadius + triangleMarkerHeight));
+        canvas.lineTo(posX, posY - triangleMarkerRadius);
+        canvas.fill();
+        canvas.stroke();
+    } // end drawMarkerTriangle method
+
+    #drawMarkerDiamond(posX, posY) {
+        const canvas = this.#canvasContext
+        let markerRadius = this.#scale(GuitarDiagramsJS.markerRadius);
+        let diamondMarkerRadius = markerRadius * 1.25;
+
+        canvas.beginPath();
+        canvas.moveTo(posX, posY - diamondMarkerRadius);
+        canvas.lineTo((posX + diamondMarkerRadius), posY);
+        canvas.lineTo(posX, (posY + diamondMarkerRadius));
+        canvas.lineTo((posX - diamondMarkerRadius), (posY));
+        canvas.lineTo(posX, (posY - diamondMarkerRadius));
+        canvas.fill();
+        canvas.stroke();
+    } // end drawMarkerDiamond method
+
+    /**
+     * Gets the length of the fretboard.
+     * @return {number} Length of the fretboard.
+     */
+    #getFretboardLength() {
+        let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
+        let fretLength = this.#scale(GuitarDiagramsJS.fretThickness);
+        let fretboardLength = this.#scale(this.#config.fretCount * fretSpacing) + (fretLength / 2);
+
+        return fretboardLength;
+    } // end getFretboardLength method
 
     /**
      * Scales any provided numeric value for resizing the drawing based on the scaling factor.
