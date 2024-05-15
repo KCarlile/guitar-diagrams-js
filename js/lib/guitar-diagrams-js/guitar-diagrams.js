@@ -327,11 +327,13 @@ export class GuitarDiagramsJS {
             this.#drawFret(0);
         } // end if test
 
-        this.#drawFret(1);
-        this.#drawFret(2);
-        this.#drawFret(3);
-        this.#drawFret(4);
-        this.#drawFret(5);
+        for (let i = 0; i <= this.#config.fretCount; i++) {
+            if ((i == 0) && (this.#config.fretStartingNumber == 0)) {
+                continue;
+            } // end if test
+
+            this.#drawFret(i);
+        } // end for loop
     } // end drawAllFrets method
 
     /**
@@ -588,9 +590,9 @@ export class GuitarDiagramsJS {
 
     drawAllMarkers() {
         const self = this;
-        this.#markers.forEach ((marker) => {
+        this.#markers.forEach(marker => {
             this.#drawMarker(marker);
-        });
+        }); // end forEach loop
     } // end drawAllMarkers method
 
     /**
