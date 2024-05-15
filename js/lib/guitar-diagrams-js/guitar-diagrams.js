@@ -230,7 +230,7 @@ export class GuitarDiagramsJS {
      */
     #drawNut() {
         const canvas = this.#canvasContext;
-        let fretboardWidth = this.#getFretboardWidth(); //this.#scale(GuitarDiagramsJS.fretboardWidth);
+        let fretboardWidth = this.#getFretboardWidth();
         let nutThickness = this.#scale(GuitarDiagramsJS.nutThickness);
 
         // swap orientation
@@ -276,7 +276,7 @@ export class GuitarDiagramsJS {
      */
     #drawFretMarker(paramFretNumber) {
         const canvas = this.#canvasContext;
-        let fretboardWidth = this.#getFretboardWidth(); //this.#scale(GuitarDiagramsJS.fretboardWidth);
+        let fretboardWidth = this.#getFretboardWidth();
         let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
         let fretMarkerRadius = this.#scale(GuitarDiagramsJS.fretMarkerRadius);
 
@@ -320,7 +320,7 @@ export class GuitarDiagramsJS {
         const canvas = this.#canvasContext;
         let fretThickness = this.#scale(GuitarDiagramsJS.fretThickness);
         let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
-        let fretboardWidth = this.#getFretboardWidth(); //this.#scale(GuitarDiagramsJS.fretboardWidth);
+        let fretboardWidth = this.#getFretboardWidth();
         let posX = 0;
         let posY = (fretSpacing * paramFretNumber) - (fretThickness / 2);
         let fretWidth = fretboardWidth;
@@ -366,7 +366,7 @@ export class GuitarDiagramsJS {
         let stringBaseWidth = this.#scale(GuitarDiagramsJS.stringBaseWidth);
         let stringWidthFactor = this.#scale(GuitarDiagramsJS.stringWidthFactor);
         let fretboardLength = this.#scale(this.#getFretboardLength());
-        let fretboardWidth = this.#getFretboardWidth(); //this.#scale(GuitarDiagramsJS.fretboardWidth);
+        let fretboardWidth = this.#getFretboardWidth();
 
         let posX, posY, endX, endY = 0;
 
@@ -403,16 +403,16 @@ export class GuitarDiagramsJS {
      */
     #drawMarker(paramMarker) {
         const canvas = this.#canvasContext;
-        const maxStrings = 6;
 
-        let markerRadius = this.#scale(GuitarDiagramsJS.markerRadius);
-        let fretboardWidth = this.#getFretboardWidth(); //this.#scale(GuitarDiagramsJS.fretboardWidth);
+        //let markerRadius = this.#scale(GuitarDiagramsJS.markerRadius);
+        //let fretboardWidth = this.#getFretboardWidth();
+        let stringCount = this.#config.stringNames.length;
         let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
         let stringSpacing = this.#scale(GuitarDiagramsJS.stringSpacing);
         let stringIndent = this.#scale(GuitarDiagramsJS.stringIndent);
         let strokeWidth = this.#scale(2);
 
-        let posX = stringIndent + ((maxStrings - paramMarker.string) * stringSpacing);
+        let posX = stringIndent + ((stringCount - paramMarker.string) * stringSpacing);
         let posY = ((paramMarker.fret - 1) * fretSpacing) + (fretSpacing / 2);
 
         // swap orientation
@@ -571,12 +571,27 @@ export class GuitarDiagramsJS {
     } // end drawNeck method
 
     addMarker(paramString, paramFret, paramText = '', paramShape = null) {
-        let marker = new GuitarDiagramsJSMarker();
-        marker.string = paramString;
-        marker.fret = paramFret;
-        marker.text = paramText;
-        marker.shape = paramShape == null ? GuitarDiagramsJS.Shape.Circle : paramShape;
-        this.#markers.push(marker);
+        let stringCount = this.#config.stringNames.length;
+        let minFret = 0;
+        let maxFret = this.#config.fretCount;
+
+        if ((paramString < 1) || (paramString > stringCount) || (paramFret < minFret) || (paramFret > maxFret)) {
+            console.log('[State] GuitarDiagramsJS.addMarker(): ' + '{ minFret: ' + minFret +
+                ' | maxFret: ' + maxFret + ' }');
+            console.log('[Error] GuitarDiagramsJS.addMarker(): Fret marker could not be placed on fretboard.' +
+                ' { paramString: ' + paramString +
+                ' | paramFret: ' + paramFret +
+                ' | paramText: ' + paramText +
+                ' | paramShape: ' + paramShape + ' }');
+        } // end if test
+        else {
+            let marker = new GuitarDiagramsJSMarker();
+            marker.string = paramString;
+            marker.fret = paramFret;
+            marker.text = paramText;
+            marker.shape = paramShape == null ? GuitarDiagramsJS.Shape.Circle : paramShape;
+            this.#markers.push(marker);
+        } // end else test
     } // end addMarker method
 
     listAllMarkers() {

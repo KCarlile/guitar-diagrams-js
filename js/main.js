@@ -15,7 +15,6 @@ gdj1.config.canvasID = 'diagram1Canvas';
 //gdj1.config.fretStartingNumber = 3;
 //gdj1.config.fretCount = 3;
 gdj1.config.stringNamesEnabled = true;
-console.log('Scale Factor: ' + gdj1.config.scaleFactor);
 document.getElementById('diagram1').appendChild(gdj1.getCanvasElement());
 gdj1 = setupDiagram(gdj1);
 
@@ -23,10 +22,9 @@ let gdj2 = new GuitarDiagramsJS();
 gdj2.config.canvasID = 'diagram2Canvas';
 gdj2.config.stringNamesEnabled = true;
 gdj2.config.orientHorizontally = true;
-//gdj2.config.fretStartingNumber = 3;
-gdj2.config.stringNames = ['R','J'];
+gdj2.config.fretStartingNumber = 3;
+gdj2.config.stringNames = ['D','A','D','G'];
 //gdj2.config.fretCount = 3;
-console.log('Orient horizontally: ' + gdj2.config.orientHorizontally);
 document.getElementById('diagram2').appendChild(gdj2.getCanvasElement());
 gdj2 = setupDiagram(gdj2);
 
