@@ -32,6 +32,7 @@ export class GuitarDiagramsJSConfig {
     #fretMarkersEnabled = true;
     #fretStartingNumber = 0;
     #stringNamesEnabled = false;
+    #stringNames = ['E','A','D','G','B','e'];
 
     // ========== END private members
 
@@ -261,6 +262,24 @@ export class GuitarDiagramsJSConfig {
     set stringNamesEnabled(paramStringNamesEnabled) {
         this.#stringNamesEnabled = paramStringNamesEnabled;
     } // end get stringNamesEnabled property
+
+    /**
+     * Gets the array of string names.
+     * @return {array} The array of string names.
+     */
+    get stringNames() {
+        return this.#stringNames;
+    } // end get stringNames property
+
+    /**
+     * Sets the array of string names.
+     * @param {array} paramStringNames - The array of string names.
+     */
+    set stringNames(paramStringNames) {
+        this.#stringNames = paramStringNames;
+    } // end get stringNames property
+
+
     // ========== END properties
 
     // ========== BEGIN private methods
