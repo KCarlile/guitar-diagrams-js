@@ -14,6 +14,10 @@ Version: 0.1
 
 ## Technical
 
+### Demo Page
+
+The demo page leverages the [Bootstrap framework](https://getbootstrap.com/) simply for easier formatting, but it is not required for GuitarDiagramsJS
+
 ### References
 
 - color reference: [https://htmlcolorcodes.com/color-chart/]
