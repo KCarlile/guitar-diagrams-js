@@ -17,6 +17,7 @@ gdj1.config.canvasID = 'diagram1Canvas';
 gdj1.config.stringNamesEnabled = true;
 document.getElementById('diagram1').appendChild(gdj1.getCanvasElement());
 gdj1 = setupDiagram(gdj1);
+gdj1.logAllMarkers();
 
 let gdj2 = new GuitarDiagramsJS();
 gdj2.config.canvasID = 'diagram2Canvas';

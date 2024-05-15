@@ -175,7 +175,7 @@ export class GuitarDiagramsJSMarker {
 
     // ========== BEGIN public methods
     /**
-     * 
+     * Returns a string representation of the marker GuitarDiagramsJSMarker instance.
      * @returns {string} The string representation of the GuitarDiagramsJSMarker instance.
      */
     toString() {

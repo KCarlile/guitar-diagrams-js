@@ -27,8 +27,6 @@ export class GuitarDiagramsJS {
     // ========== BEGIN static members
     static stringSpacing = 30;
     static fretboardPadding = 20;
-    static fretboardWidth = (GuitarDiagramsJS.fretboardPadding * 2) + (GuitarDiagramsJS.stringSpacing * 5);
-    //static fretboardLength = 500;
     static nutThickness = 10;
     
     static stringBaseWidth = 3;
@@ -108,19 +106,7 @@ export class GuitarDiagramsJS {
         this.#canvasContext = this.#canvas.getContext('2d');
 
         this.#canvas.setAttribute("width", "800");
-
-        //let posXTranslate = 60;
-        //let posYTranslate = 0;
-
-        //let nutThickness = this.#scale(GuitarDiagramsJS.nutThickness);
-        let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
-
-        if (this.#config.fretStartingNumber != 0) {
-            //nutThickness = 0;
-        } // end if test
-
-        //this.#canvasContext.canvas.height = (this.#config.fretCount * fretSpacing) + nutThickness;
-        //this.#canvasContext.canvas.width = 600;
+        this.#canvas.setAttribute("height", "600");
     } // end initializeDrawing method
 
     /**
@@ -210,9 +196,7 @@ export class GuitarDiagramsJS {
      */
     #drawFretboard() {
         const canvas = this.#canvasContext;
-        //let fretboardWidth = this.#scale(GuitarDiagramsJS.fretboardWidth);
         let fretboardWidth = this.#scale(this.#getFretboardWidth());
-        //let fretboardLength = this.#scale(this.#getFretboardLength());
         let fretboardLength = this.#scale(this.#getFretboardLength());
 
         // swap orientation
@@ -556,20 +540,26 @@ export class GuitarDiagramsJS {
 
     // ========== BEGIN public methods
     /**
-     * Draws the neck.
+     * Draws the neck without markers.
      */
     drawNeck() {
-        this.#initializeDrawing();  // this is a mess
-        this.#drawStringNames();    // working
-        this.#drawFretNumber();     // working
-        //this.#setCanvasSize();
-        this.#drawFretboard();      // working
-        this.#drawNut();            // working
+        this.#initializeDrawing();
+        this.#drawStringNames();
+        this.#drawFretNumber();
+        this.#drawFretboard();
+        this.#drawNut();
         this.#drawFretMarkers();
         this.#drawAllFrets();
         this.#drawAllStrings();
     } // end drawNeck method
 
+    /**
+     * Adds a marker to the diagram, based on the specified parameters, to be drawn.
+     * @param {*} paramString - The specified string to add the marker.
+     * @param {*} paramFret - The specified fret to add the marker.
+     * @param {*} paramText - The specified text to display on the marker.
+     * @param {*} paramShape - The specified shape to render for the marker; defaults to circle.
+     */
     addMarker(paramString, paramFret, paramText = '', paramShape = null) {
         let stringCount = this.#config.stringNames.length;
         let minFret = 0;
@@ -594,18 +584,26 @@ export class GuitarDiagramsJS {
         } // end else test
     } // end addMarker method
 
-    listAllMarkers() {
-        this.#markers.forEach ((marker) => {
-            console.log('Marker text: ' + marker);
-        }); // end foreach loop
-    } // end listAllMarkers method
-
+    /**
+     * Draws each marker added to the diagram.
+     */
     drawAllMarkers() {
         const self = this;
         this.#markers.forEach(marker => {
             this.#drawMarker(marker);
         }); // end forEach loop
     } // end drawAllMarkers method
+
+    /**
+     * Prints to the console a list of all markers added.
+     */
+    logAllMarkers() {
+        if (this.#markers.length > 0) {
+            this.#markers.forEach ((marker) => {
+                console.log('Marker text: ' + marker);
+            }); // end foreach loop
+        } // end if test
+    } // end logAllMarkers method
 
     /**
      * Returns a canvas element to be added to the HTML page for use by Guitar Diagrams JS.
@@ -623,23 +621,4 @@ export class GuitarDiagramsJS {
 
     // ========== BEGIN static methods
     // ========== END static methods
-
-
-
-
-
-
-
-
-    #setCanvasSize() {
-        let nutThickness = this.#scale(GuitarDiagramsJS.nutThickness);
-        let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
-
-        if (this.#config.fretStartingNumber != 0) {
-            //nutThickness = 0;
-        } // end if test
-
-        //this.#canvasContext.canvas.height = (this.#config.fretCount * fretSpacing) + nutThickness;
-        //this.#canvasContext.canvas.width = 600;
-    } // end setCanvasSize method
 } // end GuitarDiagramsJS class
