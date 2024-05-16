@@ -105,8 +105,20 @@ export class GuitarDiagramsJS {
         this.#canvas = document.getElementById(this.#config.canvasID);
         this.#canvasContext = this.#canvas.getContext('2d');
 
-        this.#canvas.setAttribute("width", "800");
-        this.#canvas.setAttribute("height", "600");
+        let fretNumberFontSize = this.#scale(GuitarDiagramsJS.fretNumberFontSize);
+        let stringNamesIndent = this.#scale(this.#config.fretStartingNumber == 0 ? 0 : fretNumberFontSize);
+        let fretThickness = this.#scale(GuitarDiagramsJS.fretThickness);
+        let stringNameFontSize = this.#scale(GuitarDiagramsJS.stringNameFontSize);
+
+        let canvasHeight = this.#getFretboardLength() + stringNameFontSize;
+        let canvasWidth = this.#getFretboardWidth() + stringNamesIndent;
+
+        if (this.#config.orientHorizontally == true) {
+            [canvasHeight, canvasWidth] = [canvasWidth, canvasHeight];
+        } // end if test
+
+        this.#canvas.setAttribute("width", this.#scale(canvasWidth));
+        this.#canvas.setAttribute("height", this.#scale(canvasHeight));
     } // end initializeDrawing method
 
     /**
@@ -123,9 +135,9 @@ export class GuitarDiagramsJS {
             let stringNamesIndent = this.#config.fretStartingNumber == 0 ? 0 : fretNumberFontSize;
             let posX;
             let posY;
-
             let stringNames = this.#config.stringNames;
 
+            // vertical draws string names left to right, but horizontal needs to draw them bottom to top
             if (this.#config.orientHorizontally == true) {
                 stringNames = stringNames.reverse();
             } // end if test
@@ -523,6 +535,7 @@ export class GuitarDiagramsJS {
     #getFretboardWidth() {
         let stringSpacing = this.#scale(GuitarDiagramsJS.stringSpacing);
         let stringIndent = this.#scale(GuitarDiagramsJS.stringIndent);
+
         let fretboardWidth = (this.#config.stringNames.length * stringSpacing) + (stringIndent / 2);
 
         return fretboardWidth;
@@ -534,7 +547,10 @@ export class GuitarDiagramsJS {
      * @return {number} Scaled version of the numeric value provided.
      */
     #scale(paramVector) {
-        return this.#config.scaleFactor * paramVector;
+        let scale = paramVector;
+        scale = this.#config.scaleFactor * paramVector;
+
+        return scale;
     } // end scale method
     // ========== END private methods
 
@@ -612,8 +628,8 @@ export class GuitarDiagramsJS {
     getCanvasElement() {
         let canvasElement = document.createElement('canvas');
         canvasElement.id = this.#config.canvasID;
-        canvasElement.width = 300;
-        canvasElement.height = 600;
+        //canvasElement.width = 300;
+        //canvasElement.height = 600;
 
         return canvasElement;
     } // end getCanvasElement method

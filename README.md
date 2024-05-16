@@ -34,9 +34,11 @@ The demo page leverages the [Bootstrap framework](https://getbootstrap.com/) sim
   - [x] Allow for changing of orientation/rotation
   - [x] Option to change string count for bass, mandolin, 7/8 string guitar, etc.
   - [x] Make string names configurable
-  - [ ] Allow for optional image download button
+  - [ ] Fix scaling issues
+  - [ ] Allow for optional image download button (is this needed with the browser right-click save image option?)
   - [ ] Allow for mirroring for left-handed players
   - [ ] Everything (almost) is configurable
+  - [ ] See if adding buttons for rotating/flipping would work
 - [ ] Allow for adding fingerings with:
   - [x] Numbers for fingers or scale tones (with accidentals), note names (with accidentals)
   - [x] Shapes and colors (roots, chord-tones, others)
@@ -44,9 +46,9 @@ The demo page leverages the [Bootstrap framework](https://getbootstrap.com/) sim
 - [x] Function to generate canvas tag
 - [x] Simplify scaling with local pre-scaled variables: `let width = scale(SomeBigStaticPath);`
   - [ ] Check for missed scaling or double scaling
-- [ ] Clean up bad comments
-- [ ] Add additional comments
-- [ ] JS packaging?
-- [ ] Example page and hosting
 - [ ] Productization
-- [ ] License, contributions, etc.
+  - [ ] Clean up bad comments
+  - [ ] Add additional comments
+  - [ ] JS packaging?
+  - [ ] Example page and hosting
+  - [ ] License, contributions, etc.
