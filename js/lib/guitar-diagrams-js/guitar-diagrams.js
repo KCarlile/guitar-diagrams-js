@@ -110,15 +110,27 @@ export class GuitarDiagramsJS {
         let fretThickness = this.#scale(GuitarDiagramsJS.fretThickness);
         let stringNameFontSize = this.#scale(GuitarDiagramsJS.stringNameFontSize);
 
-        let canvasHeight = this.#getFretboardLength() + stringNameFontSize;
-        let canvasWidth = this.#getFretboardWidth() + stringNamesIndent;
+        let canvasHeight = this.#scale(this.#getFretboardLength() + stringNameFontSize);
+        let canvasWidth = this.#scale(this.#getFretboardWidth() + stringNamesIndent);
 
         if (this.#config.orientHorizontally == true) {
             [canvasHeight, canvasWidth] = [canvasWidth, canvasHeight];
         } // end if test
 
-        this.#canvas.setAttribute("width", this.#scale(canvasWidth));
-        this.#canvas.setAttribute("height", this.#scale(canvasHeight));
+        // set canvas size
+        this.#canvas.setAttribute("width", canvasWidth);
+        this.#canvas.setAttribute("height", canvasHeight);
+
+        // set canvas background color
+        let colorDiagramBackground = this.#config.colorDiagramBackground;
+
+        if ((colorDiagramBackground == '') || (colorDiagramBackground == null)) {
+            this.#canvasContext.clearRect(0, 0, canvasWidth, canvasHeight);
+        } // end if test
+        else {
+            this.#canvasContext.fillStyle = this.#config.colorDiagramBackground;
+            this.#canvasContext.fillRect(0, 0, canvasWidth, canvasHeight);
+        } // end else test
     } // end initializeDrawing method
 
     /**

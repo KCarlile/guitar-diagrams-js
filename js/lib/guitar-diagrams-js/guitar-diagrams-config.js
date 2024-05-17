@@ -22,6 +22,7 @@ export class GuitarDiagramsJSConfig {
     #colorStrings = '#CFD8DC';
     #colorNutOutline = '#000000';
     #colorFretMarkers = '#FFFFFF';
+    #colorDiagramBackground = null;
 
     // ----- Dimensions/Orientation
     #fretCount = 5;
@@ -164,6 +165,28 @@ export class GuitarDiagramsJSConfig {
     set colorFretMarkers(paramColorFretMarkers) {
         this.#colorFretMarkers = paramColorFretMarkers;
     } // end get colorFretMarkers property
+
+    /**
+     * Gets the HTML color code of the diagram background.
+     * @return {string} The HTML color code of the diagram background.
+     */
+    get colorDiagramBackground() {
+        return this.#colorDiagramBackground;
+    } // end get colorDiagramBackground property
+
+    /**
+     * Gets HTML color code of the diagram background.
+     * @param {string} paramColorDiagramBackground - The HTML color code of the diagram background.
+     */
+    set colorDiagramBackground(paramColorDiagramBackground) {
+        if (paramColorDiagramBackground == '' || paramColorDiagramBackground == null) {
+            paramColorDiagramBackground = 'transparent';
+        } // end if test
+
+        this.#colorDiagramBackground = paramColorDiagramBackground;
+    } // end get colorDiagramBackground property
+
+    colorDiagramBackground
 
     // ----- Dimensions/Orientation
     /**
