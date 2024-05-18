@@ -167,7 +167,7 @@ export class GuitarDiagramsJS {
                 } // end else test
 
                 canvas.beginPath();
-                canvas.fillStyle = '#000000';
+                canvas.fillStyle = this.#config.colorLabel;
                 canvas.font = stringNameFontSize + 'px Arial';
                 canvas.textAlign = 'center';
                 canvas.textBaseline = 'middle';
@@ -196,7 +196,7 @@ export class GuitarDiagramsJS {
 
         if (this.#config.fretStartingNumber != 0) {
             canvas.beginPath();
-            canvas.fillStyle = '#000000';
+            canvas.fillStyle = this.#config.colorLabel;
             canvas.font = fretNumberFontSize + 'px Arial';
             canvas.textAlign = 'right';
             canvas.textBaseline = 'middle';

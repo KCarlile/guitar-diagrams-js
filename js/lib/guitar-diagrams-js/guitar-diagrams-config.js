@@ -23,6 +23,7 @@ export class GuitarDiagramsJSConfig {
     #colorNutOutline = '#000000';
     #colorFretMarkers = '#FFFFFF';
     #colorDiagramBackground = null;
+    #colorLabel = '#000000';
 
     // ----- Dimensions/Orientation
     #fretCount = 5;
@@ -175,7 +176,7 @@ export class GuitarDiagramsJSConfig {
     } // end get colorDiagramBackground property
 
     /**
-     * Gets HTML color code of the diagram background.
+     * Gets the HTML color code of the diagram background.
      * @param {string} paramColorDiagramBackground - The HTML color code of the diagram background.
      */
     set colorDiagramBackground(paramColorDiagramBackground) {
@@ -185,6 +186,22 @@ export class GuitarDiagramsJSConfig {
 
         this.#colorDiagramBackground = paramColorDiagramBackground;
     } // end get colorDiagramBackground property
+
+    /**
+     * Gets HTML color code of the label text for string names and fret number.
+     * @return {string} The HTML color code of the label text for string names and fret number.
+     */
+    get colorLabel() {
+        return this.#colorLabel;
+    } // end get colorLabel property
+
+    /**
+     * Gets the HTML color code of the label text for string names and fret number.
+     * @param {string} paramColorLabel - The HTML color code of the label text for string names and fret number.
+     */
+    set colorLabel(paramColorLabel) {
+        this.#colorLabel = paramColorLabel;
+    } // end get colorLabel property
 
     colorDiagramBackground
 

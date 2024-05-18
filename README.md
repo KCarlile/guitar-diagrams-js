@@ -20,8 +20,9 @@ The demo page leverages the [Bootstrap framework](https://getbootstrap.com/) sim
 
 ### References
 
-- color reference: [https://htmlcolorcodes.com/color-chart/]
-- canvas API reference: [https://www.w3schools.com/jsref/api_canvas.asp]
+- Color reference: [https://htmlcolorcodes.com/color-chart/]
+- Canvas API reference: [https://www.w3schools.com/jsref/api_canvas.asp]
+- Bootstrap API: [https://getbootstrap.com/docs/]
 
 ## To Do List
 
