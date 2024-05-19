@@ -7,7 +7,7 @@
  * @link https://github.com/KCarlile
  */
 
-import { GuitarDiagramsJS } from './lib/guitar-diagrams-js/guitar-diagrams.js';
+import { GuitarDiagramsJS } from '../../../guitar-diagrams.js';
 
 let gdj1 = new GuitarDiagramsJS();
 gdj1.config.canvasID = 'diagram1Canvas';
