@@ -18,3 +18,7 @@ A description of the bug and how you found it, including steps to reproduce and 
 ## Approach
 
 - Bulleted list of how this bug should be resolved. It's okay if you don't know how to write the approach at the time of submission.
+
+## Notes
+
+Add any additional notes here
