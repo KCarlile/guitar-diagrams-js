@@ -21,7 +21,7 @@ Please see the [`docs/index.md`](docs/index.md) file for the usage documentation
 
 ### Dependency Requirements
 
-There are no specific requirements<sup>[1](#footnotes)</sup> for dependencies to use Guitar Diagram JS other than the standard browser compatibility considerations with CSS, JavaScript, and HTML 5's `<canvas>` tag. Browser compatibility for the `<canvas>` tag can be found on [the MDN `<canvas>` page](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#browser_compatibility).
+There are no specific requirements<sup>[1](#footnotes),[2](#footnotes)</sup> for dependencies to use Guitar Diagram JS other than the standard browser compatibility considerations with CSS, JavaScript, and HTML 5's `<canvas>` tag. Browser compatibility for the `<canvas>` tag can be found on [the MDN `<canvas>` page](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#browser_compatibility).
 
 ### References
 
@@ -33,4 +33,5 @@ There are no specific requirements<sup>[1](#footnotes)</sup> for dependencies to
 
 #### <a href="footnotes"></a>Footnotes
 
-1. The [demo page](docs/examples/index.html) leverages the [Bootstrap framework](https://getbootstrap.com/) simply for easier formatting, but it is not required for GuitarDiagramsJS.
+1. The [examples page](docs/examples/index.html) leverages the [Bootstrap framework](https://getbootstrap.com/) for easier layout and formatting, but it is not required for GuitarDiagramsJS.
+1. The [examples page](docs/examples/index.html) leverages the [highlight.js](https://highlightjs.org/) for syntax highlighting in the code examples, but it is not required for GuitarDiagramsJS.

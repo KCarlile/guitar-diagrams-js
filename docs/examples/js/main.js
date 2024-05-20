@@ -11,13 +11,23 @@ import { GuitarDiagramsJS } from '../../../guitar-diagrams.js';
 
 let gdj1 = new GuitarDiagramsJS();
 gdj1.config.canvasID = 'diagram1Canvas';
-//gdj1.config.scaleFactor = .5;
-gdj1.config.fretStartingNumber = 3;
-//gdj1.config.fretCount = 3;
-gdj1.config.stringNamesEnabled = true;
 document.getElementById('diagram1').appendChild(gdj1.getCanvasElement());
-gdj1 = setupDiagram(gdj1);
-gdj1.logAllMarkers();
+gdj1.drawNeck();
+
+
+let gdj2 = new GuitarDiagramsJS();
+gdj2.config.canvasID = 'diagram2Canvas';
+gdj2.config.stringNamesEnabled = true;
+document.getElementById('diagram2').appendChild(gdj2.getCanvasElement());
+gdj2.drawNeck();
+gdj2.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
+gdj2.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle);
+gdj2.addMarker(3, 3, '3', GuitarDiagramsJS.Shape.Diamond);
+gdj2.addMarker(4, 4, '4');
+gdj2.addMarker(5, 5, '5');
+gdj2.addMarker(6, 4, '6');
+gdj2.addMarker(3, 1);
+gdj2.drawAllMarkers();
 
 
 // https://gist.github.com/Kaundur/2aca9a9edb003555f44195e826af4084
@@ -36,27 +46,20 @@ aDownloadLink.click();
 */
 
 
-let gdj2 = new GuitarDiagramsJS();
-gdj2.config.canvasID = 'diagram2Canvas';
-gdj2.config.stringNamesEnabled = true;
-gdj2.config.orientHorizontally = true;
-gdj2.config.fretStartingNumber = 3;
-//gdj2.config.scaleFactor = .5;
-gdj2.config.stringNames = ['D','A','D','G'];
-//gdj2.config.fretCount = 3;
-document.getElementById('diagram2').appendChild(gdj2.getCanvasElement());
-gdj2 = setupDiagram(gdj2);
-
-function setupDiagram(diagram) {
-    diagram.drawNeck();
-    diagram.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
-    diagram.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle);
-    diagram.addMarker(3, 3, '3', GuitarDiagramsJS.Shape.Diamond);
-    diagram.addMarker(4, 4, '4');
-    diagram.addMarker(5, 5, '5');
-    diagram.addMarker(6, 4, '6');
-    diagram.addMarker(3, 1);
-    diagram.drawAllMarkers();
-
-    return diagram;
-} // end setupDiagram function
+let gdj3 = new GuitarDiagramsJS();
+gdj3.config.canvasID = 'diagram3Canvas';
+gdj3.config.stringNamesEnabled = true;
+gdj3.config.orientHorizontally = true;
+gdj3.config.fretStartingNumber = 3;
+gdj3.config.stringNames = ['D','A','D','G'];
+gdj3.config.fretCount = 3;
+document.getElementById('diagram3').appendChild(gdj3.getCanvasElement());
+gdj3.drawNeck();
+gdj3.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
+gdj3.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle);
+gdj3.addMarker(3, 3, '3', GuitarDiagramsJS.Shape.Diamond);
+gdj3.addMarker(4, 4, '4');
+gdj3.addMarker(5, 5, '5');
+gdj3.addMarker(6, 4, '6');
+gdj3.addMarker(3, 1);
+gdj3.drawAllMarkers();
