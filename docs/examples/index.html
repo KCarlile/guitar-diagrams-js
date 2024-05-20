@@ -17,16 +17,16 @@
             <div class="row">
                 <div class="col mb-5">
                     <p>Before adding the code to draw your diagram, you'll need to include the Guitar Diagrams JS library and
-                        provide a target element (e.g., a <code class="language-htnml">&lt;div&gt;</code>) to which the app can add the canvas and begin drawing.</p>
+                        provide a target element (e.g., a <code class="language-html">&lt;div&gt;</code>) to which the app can add the canvas and begin drawing.</p>
                     <p>To include the library, use an import statement at the top of your script<sup>*</sup> with the following:</p>
                     <pre><code class="language-javascript">import { GuitarDiagramsJS } from 'path/to/guitar-diagrams.js';</code></pre>
                     <p class="small">* The <em>script</em> can be an inline script with <code class="language-html">&lt;script&gt;</code>
                         tags, or it could be in its own JavaScript file that you include or reference in some other way.</p>
-                    <p>To give Guitar Diagram JS a place to add the drawing, you'll need to specify an element with an ID,
-                        such as the following:</p>
+                    <p>To give Guitar Diagram JS a place to add the drawing, you'll need to specify a block-level element
+                        with an ID, such as the following:</p>
                     <pre><code class="language-html">&lt;div id="diagram1"&gt;&lt;/div&gt;</code></pre>
-                    <p>That div's ID doesn't need to be <em>diagram1</em>, but it needs a unique name that you will reference
-                        later on in your code, like this:</p>
+                    <p>That div's ID doesn't need to be <em>diagram1</em> as shown, but it needs to be a unique name that
+                        you will reference later on in your code, like this:</p>
                     <pre><code class="language-javascript">document.getElementById('diagram1').appendChild(gdj1.getCanvasElement());</code></pre>
                 </div>
             </div>
