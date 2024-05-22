@@ -178,11 +178,11 @@ export class GuitarDiagramsJS {
 
             if (this.#config.orientHorizontally == true) {
                 // horizontal
-                canvas.translate(stringNameFontSize, 0);
+                canvas.translate(stringNameFontSize * 1.5, 0);
             } // end if test
             else {
                 // vertical
-                canvas.translate(0, stringNameFontSize);
+                canvas.translate(0, stringNameFontSize * 1.5);
             } // end else test
         } // end if test
     } // end drawStringNames method
@@ -420,12 +420,16 @@ export class GuitarDiagramsJS {
         let stringIndent = this.#scale(GuitarDiagramsJS.stringIndent);
         let strokeWidth = this.#scale(2);
 
-        let posX = stringIndent + ((stringCount - paramMarker.string) * stringSpacing);
+        let posX = stringIndent + ((stringCount - paramMarker.string) * stringSpacing) + (strokeWidth * .5);
         let posY = ((paramMarker.fret - 1) * fretSpacing) + (fretSpacing / 2);
+
+        if (paramMarker.fret == 0) {
+            posY = this.#scale(GuitarDiagramsJS.nutThickness) / 2;
+        } // end if test
 
         // swap orientation
         if (this.#config.orientHorizontally == true) {
-            posX = stringIndent + ((paramMarker.string - 1) * stringSpacing);
+            posX = stringIndent + ((paramMarker.string - 1) * stringSpacing) + (strokeWidth * .5);
             [posX, posY] = [posY, posX];
         } // end if test
 
