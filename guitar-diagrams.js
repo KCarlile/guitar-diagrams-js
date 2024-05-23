@@ -533,6 +533,32 @@ export class GuitarDiagramsJS {
     } // end drawMarkerDiamond method
 
     /**
+     * Adds any configured controls adjacent to the diagram.
+     */
+    #addControls() {
+        if (this.#config.downloadImageEnabled) {
+            let canvasElement = document.getElementById(this.#config.canvasID);
+            let downloadButton = document.createElement('input');
+
+            downloadButton.type = 'button';
+            downloadButton.id = this.#config.canvasID + 'DownloadButton';
+            downloadButton.style = 'display: block;';
+            downloadButton.value = String.fromCodePoint(0x1F4BE);
+
+            downloadButton.addEventListener('click', () => {
+                const canvas = document.getElementById(this.#config.canvasID);
+                const dataURL = canvas.toDataURL('image/png');
+                let a = document.createElement('a');
+                a.href = dataURL;
+                a.download = this.#config.canvasID + '.png';
+                a.click();
+            });
+
+            canvasElement.insertAdjacentElement('afterend', downloadButton);
+        } // end if test
+    } // end addControls method
+
+    /**
      * Gets the length of the fretboard.
      * @return {number} Length of the fretboard.
      */
@@ -572,6 +598,30 @@ export class GuitarDiagramsJS {
 
     // ========== BEGIN public methods
     /**
+     * Adds the canvas element to the parent element with the specified ID.
+     * @param {string} paramParentElementID - The parent element's ID to which the canvas element will be added.
+     */
+    addCanvas(paramParentElementID) {
+        document.getElementById(paramParentElementID).appendChild(this.getCanvasElement());
+    } // end addCanvas method
+
+    /**
+     * Sets the canvas element's ID for an existing canvas.
+     * @param {string} paramElementID - The canvas element's ID.
+     */
+    setCanvas(paramElementID) {
+        let element = document.getElementById(paramElementID);
+        
+        if ((!!element) && (element.tagName.toLowerCase() == 'canvas')) {
+            this.config.canvasID = paramElementID;
+        } // end if test
+        else {
+            console.log('[Error] GuitarDiagramsJS.setCanvas(): Specified canvas element could not be found.' +
+                ' { paramElementID: ' + paramElementID + ' }');
+        } // end else test
+    } // end setCanvas method
+
+    /**
      * Draws the neck without markers.
      */
     drawNeck() {
@@ -583,6 +633,7 @@ export class GuitarDiagramsJS {
         this.#drawFretMarkers();
         this.#drawAllFrets();
         this.#drawAllStrings();
+        this.#addControls();
     } // end drawNeck method
 
     /**

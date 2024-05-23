@@ -35,6 +35,7 @@ export class GuitarDiagramsJSConfig {
     #fretStartingNumber = 0;
     #stringNamesEnabled = false;
     #stringNames = ['E','A','D','G','B','e'];
+    #downloadImageEnabled = false;
 
     // ========== END private members
 
@@ -319,6 +320,21 @@ export class GuitarDiagramsJSConfig {
         this.#stringNames = paramStringNames;
     } // end get stringNames property
 
+    /**
+     * Gets the enabled status of the download image button.
+     * @return {boolean} The enabled status of the download image button.
+     */
+    get downloadImageEnabled() {
+        return this.#downloadImageEnabled;
+    } // end get downloadImageEnabled property
+
+    /**
+     * Sets the enabled status of the download image button.
+     * @param {boolean} paramDownloadImageEnabled - The enabled status of the download image button.
+     */
+    set downloadImageEnabled(paramDownloadImageEnabled) {
+        this.#downloadImageEnabled = paramDownloadImageEnabled;
+    } // end get downloadImageEnabled property
 
     // ========== END properties
 

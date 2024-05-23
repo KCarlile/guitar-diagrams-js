@@ -18,18 +18,32 @@
                 <div class="col mb-5">
                     <p>Before adding the code to draw your diagram, you'll need to include the Guitar Diagrams JS library and
                         provide a target element (e.g., a <code class="language-html">&lt;div&gt;</code>) to which the app can add the canvas and begin drawing.</p>
-                    <p>To include the library, use an import statement at the top of your script<sup>*</sup> with the following:</p>
+                    <p>To include the library, use an import statement at the top of your script<sup>1</sup> with the following:</p>
                     <pre><code class="language-javascript">import { GuitarDiagramsJS } from 'path/to/guitar-diagrams.js';</code></pre>
-                    <p class="small">* The <em>script</em> can be an inline script with <code class="language-html">&lt;script&gt;</code>
+                    <p class="small"><sup>1</sup>The <em>script</em> can be an inline script with <code class="language-html">&lt;script&gt;</code>
                         tags, or it could be in its own JavaScript file that you include or reference in some other way.</p>
                     <p>To give Guitar Diagram JS a place to add the drawing, you'll need to specify a block-level element
                         with an ID, such as the following:</p>
                     <pre><code class="language-html">&lt;div id="diagram1"&gt;&lt;/div&gt;</code></pre>
                     <p>That div's ID doesn't need to be <em>diagram1</em> as shown, but it needs to be a unique name that
                         you will reference later on in your code, like this:</p>
-                    <pre><code class="language-javascript">document.getElementById('diagram1').appendChild(gdj1.getCanvasElement());</code></pre>
+                    <pre><code class="language-javascript">gdj1.addCanvas('diagram1');</code></pre>
                 </div>
             </div>
+            <h2 class="border-bottom border-1 mb-4">Testing Example</h2>
+            <div class="row mb-5">
+                <div class="col">
+                    <div id="diagram4"></div>
+                </div>
+                <div class="col">
+                    <p>This is a testing example:</p>
+                    <ul>
+                        <li>...</li>
+                    </ul>
+                    <pre><code class="language-javascript">...</code></pre>
+                </div>
+            </div>
+            <hr />
             <h2 class="border-bottom border-1 mb-4">Example 1 - Basic fretboard</h2>
             <div class="row mb-5">
                 <div class="col">
@@ -39,7 +53,7 @@
                     <p>This example demonstrates the most basic usage with a vertical fretboard and no additional options:</p>
                     <pre><code class="language-javascript">let gdj1 = new GuitarDiagramsJS();
 gdj1.config.canvasID = 'diagram1Canvas';
-document.getElementById('diagram1').appendChild(gdj1.getCanvasElement());
+gdj1.addCanvas('diagram1');
 gdj1.drawNeck();</code></pre>
                 </div>
             </div>
@@ -53,24 +67,24 @@ gdj1.drawNeck();</code></pre>
                     <ul>
                         <li>Starting at the 3rd fret</li>
                         <li>String names are enabled</li>
-                        <li>Adds 7 markers of various shapes with one blank marker</li>
+                        <li>Adds 7 markers of various shapes with one blank marker and two zero-fret (open string) markers</li>
                     </ul>
                     <pre><code class="language-javascript">let gdj2 = new GuitarDiagramsJS();
 gdj2.config.canvasID = 'diagram2Canvas';
 gdj2.config.stringNamesEnabled = true;
-document.getElementById('diagram2').appendChild(gdj2.getCanvasElement());
+gdj2.addCanvas('diagram2');
 gdj2.drawNeck();
 gdj2.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
 gdj2.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle);
 gdj2.addMarker(3, 3, '3', GuitarDiagramsJS.Shape.Diamond);
 gdj2.addMarker(4, 4, '4');
-gdj2.addMarker(5, 5, '5');
-gdj2.addMarker(6, 4, '6');
+gdj2.addMarker(5, 0, '0');
+gdj2.addMarker(6, 0, 'X');
 gdj2.addMarker(3, 1);
 gdj2.drawAllMarkers();</code></pre>
                 </div>
             </div>
-            <h2 class="border-bottom border-1 mb-4">Example 3 - Changing string and fret count with custom string names</h2>
+            <h2 class="border-bottom border-1 mb-4">Example 3 - Changing string and fret count with custom string names and horizontal orientation</h2>
             <div class="row mb-5">
                 <div class="col">
                     <div id="diagram3"></div>
@@ -93,7 +107,7 @@ gdj3.config.orientHorizontally = true;
 gdj3.config.fretStartingNumber = 3;
 gdj3.config.stringNames = ['D','A','D','G'];
 gdj3.config.fretCount = 3;
-document.getElementById('diagram3').appendChild(gdj3.getCanvasElement());
+gdj3.addCanvas('diagram3');
 gdj3.drawNeck();
 gdj3.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
 gdj3.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle);
@@ -103,20 +117,6 @@ gdj3.addMarker(5, 5, '5');
 gdj3.addMarker(6, 4, '6');
 gdj3.addMarker(3, 1);
 gdj3.drawAllMarkers();</code></pre>
-                </div>
-            </div>
-            <hr />
-            <h2 class="border-bottom border-1 mb-4">Testing Example</h2>
-            <div class="row mb-5">
-                <div class="col">
-                    <div id="diagram4"></div>
-                </div>
-                <div class="col">
-                    <p>This is a testing example:</p>
-                    <ul>
-                        <li>...</li>
-                    </ul>
-                    <pre><code class="language-javascript">...</code></pre>
                 </div>
             </div>
         </div>
