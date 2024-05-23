@@ -536,6 +536,7 @@ export class GuitarDiagramsJS {
      * Adds any configured controls adjacent to the diagram.
      */
     #addControls() {
+        // image download button
         if (this.#config.downloadImageEnabled) {
             let canvasElement = document.getElementById(this.#config.canvasID);
             let downloadButton = document.createElement('input');
@@ -543,6 +544,7 @@ export class GuitarDiagramsJS {
             downloadButton.type = 'button';
             downloadButton.id = this.#config.canvasID + 'DownloadButton';
             downloadButton.style = 'display: block;';
+            downloadButton.classList.add('guitar-diagrams-button-download');
             downloadButton.value = String.fromCodePoint(0x1F4BE);
 
             downloadButton.addEventListener('click', () => {
@@ -556,6 +558,13 @@ export class GuitarDiagramsJS {
 
             canvasElement.insertAdjacentElement('afterend', downloadButton);
         } // end if test
+
+        // other controls go here
+        /*
+        if (this.#config.someFeatureEnabled) {
+            // ...
+        } // end if test
+        */
     } // end addControls method
 
     /**
@@ -695,6 +704,7 @@ export class GuitarDiagramsJS {
     getCanvasElement() {
         let canvasElement = document.createElement('canvas');
         canvasElement.id = this.#config.canvasID;
+        canvasElement.classList.add('guitar-diagrams-canvas');
         //canvasElement.width = 300;
         //canvasElement.height = 600;
 
