@@ -25,6 +25,8 @@ export class GuitarDiagramsJS {
     // ========== END private members
 
     // ========== BEGIN static members
+    // These are hard coded as they are relative sizes to each other.
+    // Sizing can be changed by using the scaling method.
     static stringSpacing = 30;
     static fretboardPadding = 20;
     static nutThickness = 10;
@@ -153,15 +155,15 @@ export class GuitarDiagramsJS {
                 stringNames = stringNames.reverse();
             } // end if test
 
-            for (const [key, value] of Object.entries(stringNames)) {
+            for (const [stringNumber, stringName] of Object.entries(stringNames)) {
                 if (this.#config.orientHorizontally == true) {
                     // horizontal
                     posX = (stringNameFontSize / 2);
-                    posY = (stringIndent + (key * stringSpacing)) + stringNamesIndent;
+                    posY = (stringIndent + (stringNumber * stringSpacing)) + stringNamesIndent;
                 } // end if test
                 else {
                     // vertical
-                    posX = (stringIndent + (key * stringSpacing)) + stringNamesIndent;
+                    posX = (stringIndent + (stringNumber * stringSpacing)) + stringNamesIndent;
                     posY = (stringNameFontSize / 2);
                 } // end else test
 
@@ -171,7 +173,7 @@ export class GuitarDiagramsJS {
                 canvas.textAlign = 'center';
                 canvas.textBaseline = 'middle';
                 canvas.stroke();
-                canvas.fillText(value, posX, posY);
+                canvas.fillText(stringName, posX, posY);
                 canvas.closePath();
             } // end for loop
 
