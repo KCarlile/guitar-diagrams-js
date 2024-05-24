@@ -25,6 +25,13 @@ export class GuitarDiagramsJSConfig {
     #colorDiagramBackground = null;
     #colorLabel = '#000000';
 
+    // Markers
+    #markerStrokeWidth = 2; //@ 418, 438
+    #markerFontSize = 16; //@ 432
+    ////#marker line width //@ 493, 512, 535
+    ////Marker triangle radius factor //@ 507
+    ////Marker diamond radius factor //@ 529
+
     // ----- Dimensions/Orientation
     #fretCount = 5;
     #scaleFactor = 1;
@@ -204,7 +211,38 @@ export class GuitarDiagramsJSConfig {
         this.#colorLabel = paramColorLabel;
     } // end get colorLabel property
 
-    colorDiagramBackground
+    // ----- Markers
+    /**
+     * Gets the marker's stroke width.
+     * @return {number} The marker's stroke width.
+     */
+    get markerStrokeWidth() {
+        return this.#markerStrokeWidth;
+    } // end get markerStrokeWidth property
+
+    /**
+     * Gets the marker's stroke width.
+     * @param {number} paramMarkerStrokeWidth - The marker's stroke width.
+     */
+    set markerStrokeWidth(paramMarkerStrokeWidth) {
+        this.#markerStrokeWidth = paramMarkerStrokeWidth;
+    } // end get markerStrokeWidth property
+
+    /**
+     * Gets the marker's font size.
+     * @return {number} The marker's font size.
+     */
+    get markerFontSize() {
+        return this.#markerFontSize;
+    } // end get markerFontSize property
+
+    /**
+     * Gets the marker's font size.
+     * @param {number} paramMarkerFontSize - The marker's font size.
+     */
+    set markerFontSize(paramMarkerFontSize) {
+        this.#markerFontSize = paramMarkerFontSize;
+    } // end get markerFontSize property
 
     // ----- Dimensions/Orientation
     /**

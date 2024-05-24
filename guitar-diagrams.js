@@ -415,7 +415,7 @@ export class GuitarDiagramsJS {
         let nutThickness = this.#scale(GuitarDiagramsJS.nutThickness);
         let stringSpacing = this.#scale(GuitarDiagramsJS.stringSpacing);
         let stringIndent = this.#scale(GuitarDiagramsJS.stringIndent);
-        let strokeWidth = this.#scale(2);
+        let strokeWidth = this.#scale(this.#config.markerStrokeWidth);
         let posX = stringIndent + ((stringCount - paramMarker.string) * stringSpacing) + (strokeWidth * .5);
         let posY = ((paramMarker.fret - 1) * fretSpacing) + (fretSpacing / 2);
 
@@ -429,7 +429,7 @@ export class GuitarDiagramsJS {
             [posX, posY] = [posY, posX];
         } // end if test
 
-        let markerFontSize = this.#scale(16);
+        let markerFontSize = this.#scale(this.#config.markerFontSize);
 
         // marker shape
         canvas.beginPath();
@@ -508,13 +508,15 @@ export class GuitarDiagramsJS {
         let triangleMarkerRadius = markerRadius * 1.25;
         let triangleMarkerHeight = (triangleMarkerRadius * 2) * (Math.sqrt(3)/2);
 
-        canvas.moveTo(paramPosX, paramPosY - triangleMarkerRadius);
+        canvas.moveTo(paramPosX,
+            (paramPosY - triangleMarkerRadius));
         canvas.lineTo(
             (paramPosX + triangleMarkerRadius),
             (paramPosY - triangleMarkerRadius + triangleMarkerHeight));
         canvas.lineTo((paramPosX - triangleMarkerRadius),
             (paramPosY - triangleMarkerRadius + triangleMarkerHeight));
-        canvas.lineTo(paramPosX, paramPosY - triangleMarkerRadius);
+        canvas.lineTo(paramPosX,
+            (paramPosY - triangleMarkerRadius));
         canvas.fill();
         canvas.stroke();
     } // end drawMarkerTriangle method
