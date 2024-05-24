@@ -119,8 +119,8 @@ export class GuitarDiagramsJS {
         } // end if test
 
         // set canvas size
-        this.#canvas.setAttribute("width", canvasWidth);
-        this.#canvas.setAttribute("height", canvasHeight);
+        this.#canvas.setAttribute('width', canvasWidth);
+        this.#canvas.setAttribute('height', canvasHeight);
 
         // set canvas background color
         let colorDiagramBackground = this.#config.colorDiagramBackground;
@@ -334,8 +334,6 @@ export class GuitarDiagramsJS {
         let fretboardWidth = this.#getFretboardWidth();
         let posX = 0;
         let posY = (fretSpacing * paramFretNumber) - (fretThickness / 2);
-        let fretWidth = fretboardWidth;
-        let fretLength = fretThickness;
 
         if (posY < 0) {
             posY = 0;
@@ -344,12 +342,12 @@ export class GuitarDiagramsJS {
         // swap orientation
         if (this.#config.orientHorizontally == true) {
             [posX, posY] = [posY, posX];
-            [fretWidth, fretLength] = [fretLength, fretWidth];
+            [fretboardWidth, fretThickness] = [fretThickness, fretboardWidth];
         } // end if test
 
         canvas.beginPath();
         canvas.fillStyle = this.#config.colorFrets;
-        canvas.rect(posX, posY, fretWidth, fretLength);
+        canvas.rect(posX, posY, fretboardWidth, fretThickness);
         canvas.fill();
         canvas.closePath();
     } // end drawFret method
@@ -370,15 +368,16 @@ export class GuitarDiagramsJS {
     #drawString(paramStringNumber) {
         const canvas = this.#canvasContext;
         const stringCount = this.#config.stringNames.length;
-
         let stringIndent = this.#scale(GuitarDiagramsJS.stringIndent);
         let stringSpacing = this.#scale(GuitarDiagramsJS.stringSpacing);
         let stringBaseWidth = this.#scale(GuitarDiagramsJS.stringBaseWidth);
         let stringWidthFactor = this.#scale(GuitarDiagramsJS.stringWidthFactor);
         let fretboardLength = this.#getFretboardLength();
         let fretboardWidth = this.#getFretboardWidth();
-
-        let posX, posY, endX, endY = 0;
+        let posX = 0;
+        let posY = 0;
+        let endX = 0;
+        let endY = 0;
 
         // check orientation
         if (this.#config.orientHorizontally == true) {
@@ -582,7 +581,7 @@ export class GuitarDiagramsJS {
     #getFretboardLength() {
         let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
         let fretLength = this.#scale(GuitarDiagramsJS.fretThickness);
-        let fretboardLength = this.#config.fretCount * fretSpacing + (fretLength / 2);
+        let fretboardLength = (this.#config.fretCount * fretSpacing) + (fretLength / 2);
 
         return fretboardLength;
     } // end getFretboardLength method
