@@ -231,6 +231,7 @@ export class GuitarDiagramsJS {
         canvas.beginPath();
         canvas.fillStyle = this.#config.colorFretboard;
         canvas.fillRect(0, 0, fretboardWidth, fretboardLength);
+        canvas.closePath();
     } // end drawFretboard method
 
     /**
@@ -261,7 +262,7 @@ export class GuitarDiagramsJS {
     /**
      * Draws the fret markers.
      */
-    #drawFretMarkers() {
+    #drawAllFretMarkers() {
         if (this.#config.fretMarkersEnabled) {
             if ((this.#config.fretStartingNumber != 0) && ((this.#config.fretStartingNumber % 2) == 0)) {
                 this.#drawFretMarker(1);
@@ -276,10 +277,10 @@ export class GuitarDiagramsJS {
                 this.#drawFretMarker(4);
             } // end else test
         } // end if test
-    } // end drawFretMarkers method
+    } // end drawAllFretMarkers method
 
     /**
-     * Draws the fret marker.
+     * Draws an individual fret marker.
      * @param {number} paramFretNumber - The number of the fret being drawn. 
      */
     #drawFretMarker(paramFretNumber) {
@@ -412,8 +413,6 @@ export class GuitarDiagramsJS {
     #drawMarker(paramMarker) {
         const canvas = this.#canvasContext;
 
-        //let markerRadius = this.#scale(GuitarDiagramsJS.markerRadius);
-        //let fretboardWidth = this.#getFretboardWidth();
         let stringCount = this.#config.stringNames.length;
         let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
         let stringSpacing = this.#scale(GuitarDiagramsJS.stringSpacing);
@@ -530,6 +529,7 @@ export class GuitarDiagramsJS {
         canvas.lineTo(paramPosX, (paramPosY - diamondMarkerRadius));
         canvas.fill();
         canvas.stroke();
+        canvas.closePath();
     } // end drawMarkerDiamond method
 
     /**
@@ -639,7 +639,7 @@ export class GuitarDiagramsJS {
         this.#drawFretNumber();
         this.#drawFretboard();
         this.#drawNut();
-        this.#drawFretMarkers();
+        this.#drawAllFretMarkers();
         this.#drawAllFrets();
         this.#drawAllStrings();
         this.#addControls();
@@ -705,8 +705,6 @@ export class GuitarDiagramsJS {
         let canvasElement = document.createElement('canvas');
         canvasElement.id = this.#config.canvasID;
         canvasElement.classList.add('guitar-diagrams-canvas');
-        //canvasElement.width = 300;
-        //canvasElement.height = 600;
 
         return canvasElement;
     } // end getCanvasElement method
