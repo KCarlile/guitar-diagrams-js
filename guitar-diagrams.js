@@ -458,7 +458,7 @@ export class GuitarDiagramsJS {
         canvas.textAlign = 'center';
         canvas.textBaseline = 'middle';
         canvas.font = markerFontSize + 'px Arial';
-        canvas.fillText(paramMarker.text, posX, posY + strokeWidth);
+        canvas.fillText(paramMarker.text, posX, (posY + strokeWidth));
         canvas.fill();
         canvas.closePath();
     } // end drawMarker method
@@ -492,7 +492,6 @@ export class GuitarDiagramsJS {
     #drawMarkerCircle(paramPosX, paramPosY) {
         const canvas = this.#canvasContext
         let markerRadius = this.#scale(GuitarDiagramsJS.markerRadius);
-        canvas.lineWidth = this.#scale(2);
         canvas.arc(paramPosX, paramPosY, markerRadius, 0, 2 * Math.PI);
         canvas.fill();
         canvas.stroke();
@@ -530,15 +529,13 @@ export class GuitarDiagramsJS {
         let markerRadius = this.#scale(GuitarDiagramsJS.markerRadius);
         let diamondMarkerRadius = markerRadius * 1.25;
 
-        canvas.beginPath();
-        canvas.moveTo(paramPosX, paramPosY - diamondMarkerRadius);
+        canvas.moveTo(paramPosX, (paramPosY - diamondMarkerRadius));
         canvas.lineTo((paramPosX + diamondMarkerRadius), paramPosY);
         canvas.lineTo(paramPosX, (paramPosY + diamondMarkerRadius));
         canvas.lineTo((paramPosX - diamondMarkerRadius), (paramPosY));
         canvas.lineTo(paramPosX, (paramPosY - diamondMarkerRadius));
         canvas.fill();
         canvas.stroke();
-        canvas.closePath();
     } // end drawMarkerDiamond method
 
     /**
