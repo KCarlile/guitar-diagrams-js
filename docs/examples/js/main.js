@@ -29,23 +29,6 @@ gdj2.addMarker(6, 0, 'X');
 gdj2.addMarker(3, 1);
 gdj2.drawAllMarkers();
 
-
-// https://gist.github.com/Kaundur/2aca9a9edb003555f44195e826af4084
-/*
-var canvas = document.getElementById("diagram1Canvas");
-// Convert the canvas to data
-var image = canvas.toDataURL();
-// Create a link
-var aDownloadLink = document.createElement('a');
-// Add the name of the file to the link
-aDownloadLink.download = 'canvas_image.png';
-// Attach the data to the link
-aDownloadLink.href = image;
-// Get the code to click the download link
-aDownloadLink.click();
-*/
-
-
 let gdj3 = new GuitarDiagramsJS();
 gdj3.config.canvasID = 'diagram3Canvas';
 gdj3.config.stringNamesEnabled = true;
