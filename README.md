@@ -1,10 +1,10 @@
-# Guitar Diagram JS
+# Guitar Diagrams JS
 
 ## Overview
 
-_Guitar Diagram JS_ is an open source JavaScript library for drawing guitar chords and scales on an HTML5 canvas.
+_Guitar Diagrams JS_ is an open source JavaScript library for drawing guitar chords and scales on an HTML5 canvas.
 
-Project: <https://github.com/KCarlile/guitar-diagram-js>\
+Project: <https://github.com/KCarlile/guitar-diagrams-js>\
 Version: 0.1
 
 ## Author
@@ -21,7 +21,7 @@ Please see the [`docs/index.md`](docs/index.md) file for the usage documentation
 
 ### Dependency Requirements
 
-There are no specific requirements<sup>[1](#footnotes),[2](#footnotes)</sup> for dependencies to use Guitar Diagram JS other than the standard browser compatibility considerations with CSS, JavaScript, and HTML 5's `<canvas>` tag. Browser compatibility for the `<canvas>` tag can be found on [the MDN `<canvas>` page](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#browser_compatibility).
+There are no specific requirements<sup>[1](#footnotes),[2](#footnotes)</sup> for dependencies to use Guitar Diagrams JS other than the standard browser compatibility considerations with CSS, JavaScript, and HTML 5's `<canvas>` tag. Browser compatibility for the `<canvas>` tag can be found on [the MDN `<canvas>` page](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#browser_compatibility).
 
 ### References
 
