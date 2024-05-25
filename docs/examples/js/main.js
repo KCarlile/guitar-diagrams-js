@@ -14,7 +14,6 @@ gdj1.config.canvasID = 'diagram1Canvas';
 gdj1.addCanvas('diagram1');
 gdj1.drawNeck();
 
-
 let gdj2 = new GuitarDiagramsJS();
 gdj2.config.canvasID = 'diagram2Canvas';
 gdj2.config.stringNamesEnabled = true;
@@ -51,7 +50,9 @@ let gdj4 = new GuitarDiagramsJS();
 gdj4.config.canvasID = 'diagram4Canvas';
 gdj4.config.stringNamesEnabled = true;
 gdj4.config.orientHorizontally = true;
+//gdj4.config.fretStartingNumber = 3;
 gdj4.config.downloadImageEnabled = true;
+//gdj4.config.scaleFactor = .5;
 gdj4.addCanvas('diagram4');
 gdj4.drawNeck();
 gdj4.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);

@@ -240,7 +240,7 @@ export class GuitarDiagramsJS {
      */
     #drawNut() {
         const canvas = this.#canvasContext;
-        let fretboardWidth = this.#getFretboardWidth();
+        let fretboardWidth = this.#scale(this.#getFretboardWidth());
         let nutThickness = this.#scale(GuitarDiagramsJS.nutThickness);
 
         // swap orientation
@@ -286,7 +286,7 @@ export class GuitarDiagramsJS {
      */
     #drawFretMarker(paramFretNumber) {
         const canvas = this.#canvasContext;
-        let fretboardWidth = this.#getFretboardWidth();
+        let fretboardWidth = this.#scale(this.#getFretboardWidth());
         let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
         let fretMarkerRadius = this.#scale(GuitarDiagramsJS.fretMarkerRadius);
 
@@ -331,7 +331,7 @@ export class GuitarDiagramsJS {
         const canvas = this.#canvasContext;
         let fretThickness = this.#scale(GuitarDiagramsJS.fretThickness);
         let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
-        let fretboardWidth = this.#getFretboardWidth();
+        let fretboardWidth = this.#scale(this.#getFretboardWidth());
         let posX = 0;
         let posY = (fretSpacing * paramFretNumber) - (fretThickness / 2);
 
@@ -372,8 +372,8 @@ export class GuitarDiagramsJS {
         let stringSpacing = this.#scale(GuitarDiagramsJS.stringSpacing);
         let stringBaseWidth = this.#scale(GuitarDiagramsJS.stringBaseWidth);
         let stringWidthFactor = this.#scale(GuitarDiagramsJS.stringWidthFactor);
-        let fretboardLength = this.#getFretboardLength();
-        let fretboardWidth = this.#getFretboardWidth();
+        let fretboardLength = this.#scale(this.#getFretboardLength());
+        let fretboardWidth = this.#scale(this.#getFretboardWidth());
         let posX = 0;
         let posY = 0;
         let endX = 0;
@@ -579,8 +579,8 @@ export class GuitarDiagramsJS {
      * @return {number} Length of the fretboard.
      */
     #getFretboardLength() {
-        let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
-        let fretLength = this.#scale(GuitarDiagramsJS.fretThickness);
+        let fretSpacing = GuitarDiagramsJS.fretSpacing;
+        let fretLength = GuitarDiagramsJS.fretThickness;
         let fretboardLength = (this.#config.fretCount * fretSpacing) + (fretLength / 2);
 
         return fretboardLength;
@@ -591,9 +591,8 @@ export class GuitarDiagramsJS {
      * @return {number} Length of the fretboard.
      */
     #getFretboardWidth() {
-        let stringSpacing = this.#scale(GuitarDiagramsJS.stringSpacing);
-        let stringIndent = this.#scale(GuitarDiagramsJS.stringIndent);
-
+        let stringSpacing = GuitarDiagramsJS.stringSpacing;
+        let stringIndent = GuitarDiagramsJS.stringIndent;
         let fretboardWidth = (this.#config.stringNames.length * stringSpacing) + (stringIndent / 2);
 
         return fretboardWidth;
