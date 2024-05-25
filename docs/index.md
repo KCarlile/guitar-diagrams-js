@@ -22,6 +22,18 @@ Lorem ipsum...
 
 Lorem ipsum...
 
-| Config parameter | Description | Required/Optional | Default Value | Example |
-| ---------------- | ----------- | ----------------- | ------------- | ------- |
-| z | y | x | w | v |
+### Methods
+
+Lorem ipsum...
+
+| Name | Description | Parameters | Return Value | Example | Notes |
+| ---- | ----------- | ---------- | ------------ | ------- | ----- |
+| z | y | x | w | v | u |
+
+### Configuration Values
+
+Lorem ipsum...
+
+| Name | Description | Required | Values | Default | Example | Notes |
+| ---- | ----------- | -------- | ------ | ------- | ------- | ----- |
+| z | y | x | w | v | u | t |
