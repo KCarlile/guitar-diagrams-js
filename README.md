@@ -7,21 +7,41 @@ _Guitar Diagrams JS_ is an open source JavaScript library for drawing guitar cho
 Project: <https://github.com/KCarlile/guitar-diagrams-js>\
 Version: 0.1
 
-## Author
+## Project Lead/Owner and Contributors
+
+### Project Lead/Owner
 
 **Kenny Carlile**\
-[KCarlile.com](https://www.kcarlile.com/)\
-[KCarlile on GitHub](https://github.com/KCarlile)
+Website: [KCarlile.com](https://www.kcarlile.com/)\
+GitHub profile: [@KCarlile](https://github.com/KCarlile)
+
+### Contributors
+
+ If you contribute to the project in any way (code, documentation, testing, etc.), your name will appear in the list of contributors below:
+
+- Kenny Carlile (project lead/owner)
+- _Your name here_
 
 ## Documentation and Examples
 
-Please see the [`docs/index.md`](docs/index.md) file for the usage documentation. You will also find some usage examples at [`docs/examples/index.html`](docs/examples/index.html).
+Please see the following pages for more information:
+
+- [`README.md`](README.md): this page
+- [`docs/index.md`](docs/index.md): API usage documentation
+- [`docs/examples/index.html`](docs/examples/index.html): usage examples
+- [`docs/CODE_OF_CONDUCT.md`](docs/CODE_OF_CONDUCT.md): code of conduct for contributing members
+- [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md): instructions for contributing to the project
+- [`LICENSE`](LICENSE): license file for the project
+
+## Change Log
+
+See the repository's [Releases page](https://github.com/KCarlile/guitar-diagrams-js/releases) for each release and associated release notes.
 
 ## Technical
 
 ### Dependency Requirements
 
-There are no specific requirements<sup>[1](#footnotes),[2](#footnotes)</sup> for dependencies to use Guitar Diagrams JS other than the standard browser compatibility considerations with CSS, JavaScript, and HTML 5's `<canvas>` tag. Browser compatibility for the `<canvas>` tag can be found on [the MDN `<canvas>` page](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#browser_compatibility).
+There are no specific requirements<sup>[1](#footnotes) for dependencies to use Guitar Diagrams JS other than the standard browser compatibility considerations with CSS, JavaScript, and HTML 5's `<canvas>` tag. Browser compatibility for the `<canvas>` tag can be found on [the MDN `<canvas>` page](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#browser_compatibility).
 
 ### References
 
@@ -33,5 +53,6 @@ There are no specific requirements<sup>[1](#footnotes),[2](#footnotes)</sup> for
 
 #### <a href="footnotes"></a>Footnotes
 
-1. The [examples page](docs/examples/index.html) leverages the [Bootstrap framework](https://getbootstrap.com/) for easier layout and formatting, but it is not required for GuitarDiagramsJS.
-1. The [examples page](docs/examples/index.html) leverages the [highlight.js](https://highlightjs.org/) for syntax highlighting in the code examples, but it is not required for GuitarDiagramsJS.
+1. The [examples page](docs/examples/index.html) leverages the following dependencies for convenience, but they are not requried for Guitar Diagrams JS usage.
+   - [Bootstrap framework](https://getbootstrap.com/) is used for easier layout and formatting.
+   - [highlight.js](https://highlightjs.org/) is used for syntax highlighting in the code examples.
