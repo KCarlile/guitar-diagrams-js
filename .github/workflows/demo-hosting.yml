@@ -18,7 +18,7 @@ jobs:
         server: 107.180.58.30
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
-        local-dir: ./docs/examples/
+        local-dir: docs/examples/
         server-dir: demo/guitar-diagrams-js/
         exclude: |
           testing.html
