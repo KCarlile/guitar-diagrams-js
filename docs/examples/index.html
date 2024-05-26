@@ -37,11 +37,12 @@
                     <div id="diagram1"></div>
                 </div>
                 <div class="col-6">
-                    <p>This example demonstrates the most basic usage with a vertical fretboard and no additional options:</p>
+                    <p>This example demonstrates the most basic usage with a vertical fretboard and no additional options.</p>
+                    <h5>Code</h5>
                     <pre><code class="language-javascript">let gdj1 = new GuitarDiagramsJS();
-gdj1.config.canvasID = 'diagram1Canvas';
-gdj1.addCanvas('diagram1');
-gdj1.drawNeck();</code></pre>
+gdj1.config.canvasID = 'diagram1Canvas'; // specify the canvas element's an ID
+gdj1.addCanvas('diagram1'); // add the canvas to the specified element ID on the page
+gdj1.drawNeck(); // draw the fretboard</code></pre>
                 </div>
             </div>
             <!-- END: example 1 -->
@@ -54,23 +55,23 @@ gdj1.drawNeck();</code></pre>
                 <div class="col-6">
                     <p>This example shows a vertical fretboard with the following configuration options:</p>
                     <ul class="list-group mb-3">
-                        <li class="list-group-item">Starting at the 3rd fret</li>
                         <li class="list-group-item">String names are enabled</li>
                         <li class="list-group-item">Adds 7 markers of various shapes with one blank marker and two zero-fret (open string) markers</li>
                     </ul>
+                    <h5>Code</h5>
                     <pre><code class="language-javascript">let gdj2 = new GuitarDiagramsJS();
 gdj2.config.canvasID = 'diagram2Canvas';
 gdj2.config.stringNamesEnabled = true;
 gdj2.addCanvas('diagram2');
 gdj2.drawNeck();
-gdj2.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
-gdj2.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle);
-gdj2.addMarker(3, 3, '3', GuitarDiagramsJS.Shape.Diamond);
-gdj2.addMarker(4, 4, '4');
-gdj2.addMarker(5, 0, '0');
-gdj2.addMarker(6, 0, 'X');
-gdj2.addMarker(3, 1);
-gdj2.drawAllMarkers();</code></pre>
+gdj2.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square); // add a square marker on string 1, fret 1, text '1'
+gdj2.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle); // add a triangle marker on string 2, fret 2, text '2'
+gdj2.addMarker(3, 3, '3', GuitarDiagramsJS.Shape.Diamond); // add a diamond marker on string 3, fret 3, text '3'
+gdj2.addMarker(4, 4, '4'); // add a default (circle) marker on string 4, fret 4, text '4'
+gdj2.addMarker(5, 0, '0'); // add a default (circle) marker on string 5, fret 0, text '0'
+gdj2.addMarker(6, 0, 'X'); // add a default (circle) marker on string 6, fret 0, text 'X'
+gdj2.addMarker(3, 1); // add a default (circle) marker on string 3, fret 1, text empty
+gdj2.drawAllMarkers(); // draw the markers</code></pre>
                 </div>
             </div>
             <!-- END: example 2 -->
@@ -83,21 +84,21 @@ gdj2.drawAllMarkers();</code></pre>
                 <div class="col-6">
                     <p>This example shows a horizontal fretboard with the following configuration options:</p>
                     <ul class="list-group mb-3">
+                        <li class="list-group-item">String names are enabled with custom string names (drop D, 4 strings for bass)</li>
                         <li class="list-group-item">Horizontal orientation</li>
-                        <li class="list-group-item">4 strings (such as for a bass)</li>
                         <li class="list-group-item">Starting on the 3rd fret</li>
                         <li class="list-group-item">Limited to only 3 frets</li>
-                        <li class="list-group-item">String names are enabled with custom string names (drop D)</li>
                         <li class="list-group-item">Adds the same 7 markers of various shapes with one blank marker (the same as the previous example),
                             but 3 of them are off the fretboard so they aren't drawn</li>
                     </ul>
+                    <h5>Code</h5>
                     <pre><code class="language-javascript">let gdj3 = new GuitarDiagramsJS();
 gdj3.config.canvasID = 'diagram3Canvas';
-gdj3.config.stringNamesEnabled = true;
-gdj3.config.orientHorizontally = true;
-gdj3.config.fretStartingNumber = 3;
-gdj3.config.stringNames = ['D','A','D','G'];
-gdj3.config.fretCount = 3;
+gdj3.config.stringNamesEnabled = true; // set string names enabled
+gdj3.config.orientHorizontally = true; // set horizontal orientation
+gdj3.config.fretStartingNumber = 3; // set starting fret
+gdj3.config.stringNames = ['D','A','D','G']; // set string names and count
+gdj3.config.fretCount = 3; // set starting fret
 gdj3.addCanvas('diagram3');
 gdj3.drawNeck();
 gdj3.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
@@ -127,12 +128,80 @@ guitar-diagrams.js:679 [Error] GuitarDiagramsJS.addMarker(): Fret marker could n
                 <div class="col-6">
                     <p>This example shows a vertical fretboard with the following configuration options:</p>
                     <ul class="list-group mb-3">
-                        <li class="list-group-item">...</li>
+                        <li class="list-group-item">Diagram scaled to 60% (.6)</li>
+                        <li class="list-group-item">Adds the same 7 markers of various shapes with one blank marker (the same as the previous examples)</li>
                     </ul>
-                    <pre><code class="language-javascript"></code></pre>
+                    <h5>Code</h5>
+                    <pre><code class="language-javascript">let gdj4 = new GuitarDiagramsJS();
+gdj4.config.canvasID = 'diagram4Canvas';
+gdj4.config.scaleFactor = .6; // set scaling factor (.6 == 60%)
+gdj4.addCanvas('diagram4');
+gdj4.drawNeck();
+gdj4.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
+gdj4.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle);
+gdj4.addMarker(3, 3, '3', GuitarDiagramsJS.Shape.Diamond);
+gdj4.addMarker(4, 4, '4');
+gdj4.addMarker(5, 5, '5');
+gdj4.addMarker(6, 4, '6');
+gdj4.addMarker(3, 1);
+gdj4.drawAllMarkers();</code></pre>
                 </div>
             </div>
             <!-- END: example 4 -->
+            <!-- BEGIN: example 5 -->
+            <h2 class="border-bottom border-1 mb-4">Example 5 - Customizing visuals</h2>
+            <div class="row mb-5">
+                <div class="col-6">
+                    <div id="diagram5"></div>
+                </div>
+                <div class="col-6">
+                    <p>This example shows a vertical fretboard with the following configuration options:</p>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item">String names are enabled</li>
+                        <li class="list-group-item">Starting on the 2nd fret</li>
+                        <li class="list-group-item">Customize settings for the following:
+                            <ul class="list-group">
+                                <li class="list-group-item">Fretboard background color</li>
+                                <li class="list-group-item">Nut background and outline colors</li>
+                                <li class="list-group-item">Fret color</li>
+                                <li class="list-group-item">String color</li>
+                                <li class="list-group-item">Fret marker color</li>
+                                <li class="list-group-item">Diagram background color</li>
+                                <li class="list-group-item">Label color for string name and starting fret number</li>
+                                <li class="list-group-item">Marker's stroke width</li>
+                                <li class="list-group-item">Marker's font size</li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item">Adds the same 7 markers of various shapes with one blank marker (the same as the previous examples)</li>
+                    </ul>
+                    <h5>Code</h5>
+                    <pre><code class="language-javascript">let gdj5 = new GuitarDiagramsJS();
+gdj5.config.stringNamesEnabled = true;
+gdj5.config.fretStartingNumber = 2;
+gdj5.config.canvasID = 'diagram5Canvas';
+gdj5.config.colorFretboard = '#FFE0B2'; // specify the fretboard background color
+gdj5.config.colorNut = '#FFFFFF'; // specify the nut color
+gdj5.config.colorNutOutline = '#7E5109'; // specify the nut outline color
+gdj5.config.colorFrets = '#AEB6BF'; // specify the fret color
+gdj5.config.colorStrings = '#566573'; // specify the string color
+gdj5.config.colorFretMarkers = '#424949'; // specify the fret marker color
+gdj5.config.colorDiagramBackground = '#000000'; // specify the diagram background color
+gdj5.config.colorLabel = '#FFFFFF'; // specify the label color for string names and starting fret
+gdj5.config.markerStrokeWidth = 1; // specify the marker's stroke width
+gdj5.config.markerFontSize = 10; // specify the marker text's font size
+gdj5.addCanvas('diagram5');
+gdj5.drawNeck();
+gdj5.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
+gdj5.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle);
+gdj5.addMarker(3, 3, '3', GuitarDiagramsJS.Shape.Diamond);
+gdj5.addMarker(4, 4, '4');
+gdj5.addMarker(5, 5, '5');
+gdj5.addMarker(6, 4, '6');
+gdj5.addMarker(3, 1);
+gdj5.drawAllMarkers();</code></pre>
+                </div>
+            </div>
+            <!-- END: example 5 -->
             <div class="row">
                 <div class="col border-top small">
                     <p><span class="fw-bold">Guitar Diagram JS</span></p>
