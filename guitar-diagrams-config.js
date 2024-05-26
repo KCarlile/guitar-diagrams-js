@@ -1,6 +1,7 @@
 /**
  * @file Guitar Diagrams JS config class.
  * @module js/lib/Guitar-Diagrams-JS/guitar-diagrams-config.js
+ * @link https://github.com/KCarlile/guitar-diagrams-js
  *
  * @author Kenny Carlile
  * @link https://www.kcarlile.com/
@@ -26,11 +27,8 @@ export class GuitarDiagramsJSConfig {
     #colorLabel = '#000000';
 
     // Markers
-    #markerStrokeWidth = 2; //@ 418, 438
-    #markerFontSize = 16; //@ 432
-    ////#marker line width //@ 493, 512, 535
-    ////Marker triangle radius factor //@ 507
-    ////Marker diamond radius factor //@ 529
+    #markerStrokeWidth = 2;
+    #markerFontSize = 16;
 
     // ----- Dimensions/Orientation
     #fretCount = 5;

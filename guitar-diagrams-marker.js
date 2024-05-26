@@ -1,6 +1,7 @@
 /**
  * @file Guitar Diagrams JS marker class.
  * @module js/lib/Guitar-Diagrams-JS/guitar-diagrams-marker.js
+ * @link https://github.com/KCarlile/guitar-diagrams-js
  *
  * @author Kenny Carlile
  * @link https://www.kcarlile.com/

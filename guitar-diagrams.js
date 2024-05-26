@@ -1,6 +1,7 @@
 /**
  * @file Guitar Diagrams JS main class.
  * @module js/lib/Guitar-Diagrams-JS/guitar-diagrams.js
+ * @link https://github.com/KCarlile/guitar-diagrams-js
  *
  * @author Kenny Carlile
  * @link https://www.kcarlile.com/
@@ -74,6 +75,7 @@ export class GuitarDiagramsJS {
     // ========== BEGIN constructors
     /**
      * Create a GuitarDiagramsJS object instance.
+     * @param {string} paramCanvasID - An optional canvas ID for a predefined canvas element.
      */
     constructor(paramCanvasID = null) {
         this.#config = new GuitarDiagramsJSConfig(paramCanvasID);
@@ -125,6 +127,7 @@ export class GuitarDiagramsJS {
         // set canvas background color
         let colorDiagramBackground = this.#config.colorDiagramBackground;
 
+        // handle background color or transparency
         if ((colorDiagramBackground == '') || (colorDiagramBackground == null)) {
             this.#canvasContext.clearRect(0, 0, canvasWidth, canvasHeight);
         } // end if test
@@ -155,6 +158,7 @@ export class GuitarDiagramsJS {
                 stringNames = stringNames.reverse();
             } // end if test
 
+            // iterate over each string
             for (const [stringNumber, stringName] of Object.entries(stringNames)) {
                 if (this.#config.orientHorizontally == true) {
                     // horizontal
@@ -177,6 +181,7 @@ export class GuitarDiagramsJS {
                 canvas.closePath();
             } // end for loop
 
+            // translation resets the origin for the next drawing element
             if (this.#config.orientHorizontally == true) {
                 // horizontal
                 canvas.translate(stringNameFontSize * 1.5, 0);
@@ -195,6 +200,7 @@ export class GuitarDiagramsJS {
         const canvas = this.#canvasContext;
         let fretNumberFontSize = this.#scale(GuitarDiagramsJS.fretNumberFontSize);
 
+        // draw the fret number, but only if the starting fret is not 0
         if (this.#config.fretStartingNumber != 0) {
             canvas.beginPath();
             canvas.fillStyle = this.#config.colorLabel;
@@ -248,6 +254,7 @@ export class GuitarDiagramsJS {
             [fretboardWidth, nutThickness] = [nutThickness, fretboardWidth];
         } // end if test
 
+        // draw the nut, but only if the starting fret number is 0
         if (this.#config.fretStartingNumber == 0) {
             // draw the nut
             canvas.beginPath();
@@ -289,7 +296,6 @@ export class GuitarDiagramsJS {
         let fretboardWidth = this.#scale(this.#getFretboardWidth());
         let fretSpacing = this.#scale(GuitarDiagramsJS.fretSpacing);
         let fretMarkerRadius = this.#scale(GuitarDiagramsJS.fretMarkerRadius);
-
         let posX = fretboardWidth / 2;
         let posY = (fretSpacing / 2) + (fretSpacing * paramFretNumber);
 
@@ -309,12 +315,9 @@ export class GuitarDiagramsJS {
      * Draws the frets.
      */
     #drawAllFrets() {
-        if (this.#config.fretStartingNumber != 0) {
-            this.#drawFret(0);
-        } // end if test
-
         // draw the frets, but skip the 0-fret if starting fret number is 0
         for (let i = 0; i <= this.#config.fretCount; i++) {
+            // if 0-fret but starting fret is not 0, then skip
             if ((i == 0) && (this.#config.fretStartingNumber == 0)) {
                 continue;
             } // end if test
@@ -335,6 +338,7 @@ export class GuitarDiagramsJS {
         let posX = 0;
         let posY = (fretSpacing * paramFretNumber) - (fretThickness / 2);
 
+        // reset posY to 0 in cases where the previous calculation results in <0
         if (posY < 0) {
             posY = 0;
         } // end if test
@@ -415,9 +419,11 @@ export class GuitarDiagramsJS {
         let stringSpacing = this.#scale(GuitarDiagramsJS.stringSpacing);
         let stringIndent = this.#scale(GuitarDiagramsJS.stringIndent);
         let strokeWidth = this.#scale(this.#config.markerStrokeWidth);
+        let markerFontSize = this.#scale(this.#config.markerFontSize);
         let posX = stringIndent + ((stringCount - paramMarker.string) * stringSpacing) + (strokeWidth * .5);
         let posY = ((paramMarker.fret - 1) * fretSpacing) + (fretSpacing / 2);
 
+        // if 0-fret marker, set at the proper Y-position for the nut
         if (paramMarker.fret == 0) {
             posY = nutThickness / 2;
         } // end if test
@@ -428,26 +434,25 @@ export class GuitarDiagramsJS {
             [posX, posY] = [posY, posX];
         } // end if test
 
-        let markerFontSize = this.#scale(this.#config.markerFontSize);
-
         // marker shape
         canvas.beginPath();
         canvas.fillStyle = paramMarker.colorFill
         canvas.strokeStyle = paramMarker.colorStroke;
         canvas.lineWidth = strokeWidth;
 
-        if (paramMarker.shape == GuitarDiagramsJS.Shape.Square) {
-            this.#drawMarkerSquare(posX, posY);
-        } // end if test
-        else if (paramMarker.shape == GuitarDiagramsJS.Shape.Triangle) {
-            this.#drawMarkerTriangle(posX, posY);
-        } // end else if test
-        else if (paramMarker.shape == GuitarDiagramsJS.Shape.Diamond) {
-            this.#drawMarkerDiamond(posX, posY);
-        } // end else if test
-        else {
-            this.#drawMarkerCircle(posX, posY);
-        } // end else test
+        switch(paramMarker.shape) {
+            case GuitarDiagramsJS.Shape.Square:
+                this.#drawMarkerSquare(posX, posY);
+                break;
+            case GuitarDiagramsJS.Shape.Triangle:
+                this.#drawMarkerTriangle(posX, posY);
+                break;
+            case GuitarDiagramsJS.Shape.Diamond:
+                this.#drawMarkerDiamond(posX, posY);
+                break;
+            default:
+                this.#drawMarkerCircle(posX, posY);
+        } // end switch case
 
         canvas.closePath();
 
@@ -491,7 +496,12 @@ export class GuitarDiagramsJS {
     #drawMarkerCircle(paramPosX, paramPosY) {
         const canvas = this.#canvasContext
         let markerRadius = this.#scale(GuitarDiagramsJS.markerRadius);
-        canvas.arc(paramPosX, paramPosY, markerRadius, 0, 2 * Math.PI);
+
+        canvas.arc(paramPosX,
+            paramPosY,
+            markerRadius,
+            0,
+            (2 * Math.PI));
         canvas.fill();
         canvas.stroke();
     } // end drawMarkerCircle method
