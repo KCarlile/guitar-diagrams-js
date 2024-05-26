@@ -1,0 +1,25 @@
+on:
+  release:
+    types: [published]
+    branches: [main]
+
+name: Deploy examples directory to demo.kcarlile.com on main branch releases
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get latest code
+      uses: actions/checkout@v2
+    
+    - name: Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.2
+      with:
+        server: 107.180.58.30
+        username: ${{ secrets.ftp_username }}
+        password: ${{ secrets.ftp_password }}
+        local-dir: ./docs/examples/
+        server-dir: demo/guitar-diagrams-js/
+        exclude: |
+          testing.html
+          js/testing.js
