@@ -53,10 +53,10 @@ gdj1.drawNeck();</code></pre>
                 </div>
                 <div class="col-6">
                     <p>This example shows a vertical fretboard with the following configuration options:</p>
-                    <ul>
-                        <li>Starting at the 3rd fret</li>
-                        <li>String names are enabled</li>
-                        <li>Adds 7 markers of various shapes with one blank marker and two zero-fret (open string) markers</li>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item">Starting at the 3rd fret</li>
+                        <li class="list-group-item">String names are enabled</li>
+                        <li class="list-group-item">Adds 7 markers of various shapes with one blank marker and two zero-fret (open string) markers</li>
                     </ul>
                     <pre><code class="language-javascript">let gdj2 = new GuitarDiagramsJS();
 gdj2.config.canvasID = 'diagram2Canvas';
@@ -82,13 +82,13 @@ gdj2.drawAllMarkers();</code></pre>
                 </div>
                 <div class="col-6">
                     <p>This example shows a horizontal fretboard with the following configuration options:</p>
-                    <ul>
-                        <li>Horizontal orientation</li>
-                        <li>4 strings (such as for a bass)</li>
-                        <li>Starting on the 3rd fret</li>
-                        <li>Limited to only 3 frets</li>
-                        <li>String names are enabled with custom string names (drop D)</li>
-                        <li>Adds the same 7 markers of various shapes with one blank marker (the same as the previous example),
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item">Horizontal orientation</li>
+                        <li class="list-group-item">4 strings (such as for a bass)</li>
+                        <li class="list-group-item">Starting on the 3rd fret</li>
+                        <li class="list-group-item">Limited to only 3 frets</li>
+                        <li class="list-group-item">String names are enabled with custom string names (drop D)</li>
+                        <li class="list-group-item">Adds the same 7 markers of various shapes with one blank marker (the same as the previous example),
                             but 3 of them are off the fretboard so they aren't drawn</li>
                     </ul>
                     <pre><code class="language-javascript">let gdj3 = new GuitarDiagramsJS();
@@ -117,6 +117,22 @@ guitar-diagrams.js:677 [State] GuitarDiagramsJS.addMarker(): { minFret: 0 | maxF
 guitar-diagrams.js:679 [Error] GuitarDiagramsJS.addMarker(): Fret marker could not be placed on fretboard. { paramString: 6 | paramFret: 4 | paramText: 6 | paramShape: null }</code></pre>
                 </div>
             </div>
+            <!-- END: example 3 -->
+            <!-- BEGIN: example 4 -->
+            <h2 class="border-bottom border-1 mb-4">Example 4 - Scaling</h2>
+            <div class="row mb-5">
+                <div class="col-6">
+                    <div id="diagram4"></div>
+                </div>
+                <div class="col-6">
+                    <p>This example shows a vertical fretboard with the following configuration options:</p>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item">...</li>
+                    </ul>
+                    <pre><code class="language-javascript"></code></pre>
+                </div>
+            </div>
+            <!-- END: example 4 -->
             <div class="row">
                 <div class="col border-top small">
                     <p><span class="fw-bold">Guitar Diagram JS</span></p>
@@ -127,7 +143,6 @@ guitar-diagrams.js:679 [Error] GuitarDiagramsJS.addMarker(): Fret marker could n
                 </div>
             </div>
         </div>
-        <!-- END: example 3 -->
         <!-- BEGIN: custom script include for Guitar Diagrams JS -->
         <script src="js/main.js" type="module"></script>
         <!-- END: custom script include for Guitar Diagrams JS -->

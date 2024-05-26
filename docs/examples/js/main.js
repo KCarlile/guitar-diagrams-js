@@ -52,3 +52,20 @@ gdj3.addMarker(6, 4, '6');
 gdj3.addMarker(3, 1);
 gdj3.drawAllMarkers();
 // ========== END example 3
+
+// ========== BEGIN example 4
+let gdj4 = new GuitarDiagramsJS();
+gdj4.config.canvasID = 'diagram4Canvas';
+gdj4.config.stringNamesEnabled = true;
+gdj4.config.scaleFactor = .75;
+gdj4.addCanvas('diagram4');
+gdj4.drawNeck();
+gdj4.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
+gdj4.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle);
+gdj4.addMarker(3, 3, '3', GuitarDiagramsJS.Shape.Diamond);
+gdj4.addMarker(4, 4, '4');
+gdj4.addMarker(5, 5, '5');
+gdj4.addMarker(6, 4, '6');
+gdj4.addMarker(3, 1);
+gdj4.drawAllMarkers();
+// ========== END example 4
