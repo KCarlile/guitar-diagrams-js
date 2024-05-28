@@ -46,6 +46,8 @@ export class GuitarDiagramsJS {
     static stringNameFontSize = 20;
     static fretNumberFontSize = 24;
 
+    static stringNamePaddingFactor = 1.5;
+
     /**
      * Enumeration for marker shapes.
      * @readonly
@@ -110,10 +112,11 @@ export class GuitarDiagramsJS {
         this.#canvasContext = this.#canvas.getContext('2d');
 
         let fretNumberFontSize = this.#scale(GuitarDiagramsJS.fretNumberFontSize);
-        let stringNamesIndent = this.#config.fretStartingNumber == 0 ? 0 : fretNumberFontSize;
+        let fretNumberIndent = this.#config.fretStartingNumber == 0 ? 0 : fretNumberFontSize;
         let stringNameFontSize = this.#scale(GuitarDiagramsJS.stringNameFontSize);
-        let canvasHeight = this.#scale(this.#getFretboardLength()) + stringNameFontSize;
-        let canvasWidth = this.#scale(this.#getFretboardWidth()) + stringNamesIndent;
+        let stringNameIndent = this.#config.stringNamesEnabled == false ? 0 : (stringNameFontSize * GuitarDiagramsJS.stringNamePaddingFactor);
+        let canvasHeight = this.#scale(this.#getFretboardLength()) + stringNameIndent;
+        let canvasWidth = this.#scale(this.#getFretboardWidth()) + fretNumberIndent;
 
         // swap orientation
         if (this.#config.orientHorizontally == true) {
@@ -184,11 +187,11 @@ export class GuitarDiagramsJS {
             // translation resets the origin for the next drawing element
             if (this.#config.orientHorizontally == true) {
                 // horizontal
-                canvas.translate(stringNameFontSize * 1.5, 0);
+                canvas.translate(stringNameFontSize * GuitarDiagramsJS.stringNamePaddingFactor, 0);
             } // end if test
             else {
                 // vertical
-                canvas.translate(0, stringNameFontSize * 1.5);
+                canvas.translate(0, stringNameFontSize * GuitarDiagramsJS.stringNamePaddingFactor);
             } // end else test
         } // end if test
     } // end drawStringNames method
