@@ -37,11 +37,70 @@ Please see the following pages for more information:
 
 See the repository's [Releases page](https://github.com/KCarlile/guitar-diagrams-js/releases) for each release and associated release notes.
 
-## Technical
+## Technical Information for Site Builders
+
+### Usage in Your Project
+
+#### Option 1: Installation as a Node Dependency
+
+For full details, see the Node JS packages released by this project here: <https://github.com/KCarlile/guitar-diagrams-js/pkgs/npm/guitar-diagrams-js>
+
+You can install Guitar Diagrams JS in your project as a Node JS dependency via NPM. Run the following command from your project's directory:
+
+```bash
+$ npm install @kcarlile/guitar-diagrams-js@0.1.0
+```
+
+Or, alternately, you can manually edit your `package.json` file and add the following entry:
+
+```json
+"@kcarlile/guitar-diagrams-js": "0.1.0",
+```
+
+#### Option 2: Manual Installation
+
+You can also install this package manually by downloading it, placing the files in the correct location, and modifying your site's code to reference the library. The following steps outline this process:
+
+1. Download the repository files from the [GitHub repository for Guitar Diagrams JS](https://github.com/KCarlile/guitar-diagrams-js).
+1. The only files about which you should be concerned are the following:
+   1. `guitar-diagrams.js`: main functionality
+   1. `guitar-diagrams-config.js`: config object
+   1. `guitar-diagrams-marker.js`: marker object
+1. Place those files in your application at `wherever/you/put/your/js/files/guitar-diagram-js/`.
+1. In the JS file with your primary entrypoint, add an import statement:\
+
+   ```javascript
+   import { GuitarDiagramsJS } from 'wherever/you/put/your/js/files/guitar-diagrams-js/guitar-diagrams.js';
+   ```
+
+1. Following that import statement, begin to reference the library:\
+
+   ```javascript
+   let gdj1 = new GuitarDiagramsJS();
+   gdj1.config.canvasID = 'diagram1Canvas'; // specify the canvas element's an ID
+   gdj1.addCanvas('diagram1'); // add the canvas to the specified element ID on the page
+   gdj1.drawNeck(); // draw the fretboard
+   ```
+
+1. Be sure to add some target element with the matching ID in your JS code so Guitar Diagrams JS knows where to add your drawing:\
+
+   ```html
+   <div id="diagram1"></div>
+   ```
+
+### More Information
+
+For more information, please see the [`docs/index.md`](docs/index.md) and ['docs/examples/index.html`](docs/examples/index.html) pages for API documentation and examples.
+
+## Technical Information for Code Owners
+
+### Building and Packaging
+
+When creating a new release, run `node install` in the project to update the `package-lock.json` file, then stage, commit, and push the changes to GitHub. Next, use the [Release page](https://github.com/KCarlile/guitar-diagrams-js/releases) to create a new release which will kick off a new package deployment using the GitHub Action workflow defined in `.github/workflows/release-package.yml`. One the workflow has completed successfully, the package will be hosted on the [Packages page](https://github.com/KCarlile/guitar-diagrams-js/pkgs/npm/guitar-diagrams-js).
 
 ### Dependency Requirements
 
-There are no specific requirements<sup>[1](#footnotes) for dependencies to use Guitar Diagrams JS other than the standard browser compatibility considerations with CSS, JavaScript, and HTML 5's `<canvas>` tag. Browser compatibility for the `<canvas>` tag can be found on [the MDN `<canvas>` page](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#browser_compatibility).
+There are no specific requirements<sup>[1](#footnotes)</sup> for dependencies to use Guitar Diagrams JS other than the standard browser compatibility considerations with CSS, JavaScript, and HTML 5's `<canvas>` tag. Browser compatibility for the `<canvas>` tag can be found on [the MDN `<canvas>` page](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#browser_compatibility).
 
 ### References
 
@@ -52,7 +111,7 @@ There are no specific requirements<sup>[1](#footnotes) for dependencies to use G
 
 ----
 
-#### <a href="footnotes"></a>Footnotes
+###### <a href="footnotes"></a>Footnotes
 
 1. The [examples page](docs/examples/index.html) leverages the following dependencies for convenience, but they are not requried for Guitar Diagrams JS usage.
    - [Bootstrap framework](https://getbootstrap.com/) is used for easier layout and formatting.
