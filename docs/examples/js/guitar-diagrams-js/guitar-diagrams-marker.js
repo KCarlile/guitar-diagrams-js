@@ -1,0 +1,1 @@
+../../../../guitar-diagrams-marker.js
