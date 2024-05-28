@@ -12,7 +12,7 @@ jobs:
     - name: Get latest code
       uses: actions/checkout@v2
     
-    - name: Sync files
+    - name: Upload docs/examples/*
       uses: SamKirkland/FTP-Deploy-Action@4.3.2
       with:
         server: 107.180.58.30
@@ -21,5 +21,24 @@ jobs:
         local-dir: docs/examples/
         server-dir: guitar-diagrams-js/
         exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
           testing.html
           js/testing.js
+    
+    - name: Upload *.js files to overwrite symlinks
+      uses: SamKirkland/FTP-Deploy-Action@4.3.2
+      with:
+        server: 107.180.58.30
+        username: ${{ secrets.ftp_username }}
+        password: ${{ secrets.ftp_password }}
+        local-dir: ./
+        server-dir: guitar-diagrams-js/js/guitar-diagrams-js/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          README.md
+          LICENSE
+          **/docs/**
