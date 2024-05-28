@@ -42,3 +42,5 @@ jobs:
           README.md
           LICENSE
           **/docs/**
+          package.json
+          package-lock.json
