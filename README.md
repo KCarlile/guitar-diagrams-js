@@ -57,7 +57,23 @@ Or, alternately, you can manually edit your `package.json` file and add the foll
 "@kcarlile/guitar-diagrams-js": "0.1.0",
 ```
 
-#### Option 2: Manual Installation
+#### Option 2: Manual Installation via CDN
+
+If you want to use a CDN-hosted package (e.g., Guitar Diagrams JS on JSDelivr at `https://cdn.jsdelivr.net/gh/KCarlile/guitar-diagrams-js@main/guitar-diagrams.js`), you can reference it in your code like this:
+
+```html
+<div id="diagram1"></div>
+<script type="module">
+   import { GuitarDiagramsJS } from 'https://cdn.jsdelivr.net/gh/KCarlile/guitar-diagrams-js@main/guitar-diagrams.js';
+
+   let gdj1 = new GuitarDiagramsJS();
+   gdj1.config.canvasID = 'diagram1Canvas'; // specify the canvas element's an ID
+   gdj1.addCanvas('diagram1'); // add the canvas to the specified element ID on the page
+   gdj1.drawNeck(); // draw the fretboard
+</script>
+```
+
+#### Option 3: Manual Installation via Local Copies
 
 You can also install this package manually by downloading it, placing the files in the correct location, and modifying your site's code to reference the library. The following steps outline this process:
 
@@ -97,6 +113,8 @@ For more information, please see the [`docs/index.md`](docs/index.md) and ['docs
 ### Building and Packaging
 
 When creating a new release, run `node install` in the project to update the `package-lock.json` file, then stage, commit, and push the changes to GitHub. Next, use the [Release page](https://github.com/KCarlile/guitar-diagrams-js/releases) to create a new release which will kick off a new package deployment using the GitHub Action workflow defined in `.github/workflows/release-package.yml`. One the workflow has completed successfully, the package will be hosted on the [Packages page](https://github.com/KCarlile/guitar-diagrams-js/pkgs/npm/guitar-diagrams-js).
+
+See also [`docs/examples/js/guitar-diagrams-js/README.md`](docs/examples/js/guitar-diagrams-js/README.md) for information about symlinks for local testing and demo deployment information.
 
 ### Dependency Requirements
 
