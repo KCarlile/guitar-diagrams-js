@@ -120,16 +120,16 @@ See also [`docs/examples/js/guitar-diagrams-js/README.md`](docs/examples/js/guit
 
 There are no specific requirements<sup>[1](#footnotes)</sup> for dependencies to use Guitar Diagrams JS other than the standard browser compatibility considerations with CSS, JavaScript, and HTML 5's `<canvas>` tag. Browser compatibility for the `<canvas>` tag can be found on [the MDN `<canvas>` page](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#browser_compatibility).
 
-### References
+----
+
+## References
 
 - Color reference: <https://htmlcolorcodes.com/color-chart/>
 - Canvas API reference: <https://www.w3schools.com/jsref/api_canvas.asp>
 - Bootstrap API: <https://getbootstrap.com/docs/>
 - [<img alt="Deployed with FTP Deploy Action" src="https://img.shields.io/badge/Deployed With-FTP DEPLOY ACTION-%3CCOLOR%3E?style=for-the-badge&color=0077b6">](https://github.com/SamKirkland/FTP-Deploy-Action)
 
-----
-
-###### <a href="footnotes"></a>Footnotes
+### <a href="footnotes"></a>Footnotes
 
 1. The [examples page](docs/examples/index.html) leverages the following dependencies for convenience, but they are not requried for Guitar Diagrams JS usage.
    - [Bootstrap framework](https://getbootstrap.com/) is used for easier layout and formatting.
