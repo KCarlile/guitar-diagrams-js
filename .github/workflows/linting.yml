@@ -31,7 +31,7 @@ jobs:
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LINTER_RULES_PATH: .config/linters/
-          CSS_FILE_NAME: stylelint.config.js
+          CSS_FILE_NAME: stylelint.config.json
           VALIDATE_JAVASCRIPT_ES: true
           VALIDATE_HTML: true
           VALIDATE_CSS: true
