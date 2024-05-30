@@ -12,7 +12,7 @@ import { GuitarDiagramsJS } from '../../../guitar-diagrams.js';
 
 // ========== BEGIN testing
 let gdjTesting = new GuitarDiagramsJS();
-gdjTesting.config.canvasID = 'diagramTestingCanvas';
+gdjTesting.config.canvasID = 'diagram-testing-canvas';
 gdjTesting.config.stringNamesEnabled = true;
 gdjTesting.config.orientHorizontally = true;
 //gdj4.config.fretStartingNumber = 3;

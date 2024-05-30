@@ -10,6 +10,7 @@
 [![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/)
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://www.github.com/)
 [![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/KCarlile/guitar-diagrams-js/actions)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 
 ## Overview
 
@@ -59,13 +60,13 @@ For full details, see the Node JS packages released by this project here: <https
 You can install Guitar Diagrams JS in your project as a Node JS dependency via NPM. Run the following command from your project's directory:
 
 ```bash
-npm install @kcarlile/guitar-diagrams-js@0.1.0
+npm install @kcarlile/guitar-diagrams-js@0.9.0
 ```
 
 Or, alternately, you can manually edit your `package.json` file and add the following entry:
 
 ```json
-"@kcarlile/guitar-diagrams-js": "0.1.0",
+"@kcarlile/guitar-diagrams-js": "0.9.0",
 ```
 
 #### Option 2: Manual Installation via CDN
@@ -78,8 +79,8 @@ If you want to use a CDN-hosted package (e.g., Guitar Diagrams JS on JSDelivr at
    import { GuitarDiagramsJS } from 'https://cdn.jsdelivr.net/gh/KCarlile/guitar-diagrams-js@main/guitar-diagrams.js';
 
    let gdj1 = new GuitarDiagramsJS();
-   gdj1.config.canvasID = 'diagram1Canvas'; // specify the canvas element's an ID
-   gdj1.addCanvas('diagram1'); // add the canvas to the specified element ID on the page
+   gdj1.config.canvasID = 'diagram-1-canvas'; // specify the canvas element's an ID
+   gdj1.addCanvas('diagram-1'); // add the canvas to the specified element ID on the page
    gdj1.drawNeck(); // draw the fretboard
 </script>
 ```
@@ -94,25 +95,25 @@ You can also install this package manually by downloading it, placing the files 
    1. `guitar-diagrams-config.js`: config object
    1. `guitar-diagrams-marker.js`: marker object
 1. Place those files in your application at `wherever/you/put/your/js/files/guitar-diagram-js/`.
-1. In the JS file with your primary entrypoint, add an import statement:\
+1. In the JS file with your primary entrypoint, add an import statement:
 
    ```javascript
    import { GuitarDiagramsJS } from 'wherever/you/put/your/js/files/guitar-diagrams-js/guitar-diagrams.js';
    ```
 
-1. Following that import statement, begin to reference the library:\
+1. Following that import statement, begin to reference the library:
 
    ```javascript
    let gdj1 = new GuitarDiagramsJS();
-   gdj1.config.canvasID = 'diagram1Canvas'; // specify the canvas element's an ID
-   gdj1.addCanvas('diagram1'); // add the canvas to the specified element ID on the page
+   gdj1.config.canvasID = 'diagram-1-canvas'; // specify the canvas element's an ID
+   gdj1.addCanvas('diagram-1'); // add the canvas to the specified element ID on the page
    gdj1.drawNeck(); // draw the fretboard
    ```
 
-1. Be sure to add some target element with the matching ID in your JS code so Guitar Diagrams JS knows where to add your drawing:\
+1. Be sure to add some target element with the matching ID in your JS code so Guitar Diagrams JS knows where to add your drawing:
 
    ```html
-   <div id="diagram1"></div>
+   <div id="diagram-1"></div>
    ```
 
 ### More Information
