@@ -17,7 +17,7 @@
 _Guitar Diagrams JS_ is an open source JavaScript library for drawing guitar chords and scales on an HTML5 canvas.
 
 Project: <https://github.com/KCarlile/guitar-diagrams-js>\
-Version: 0.9.1
+Version: 0.9.2
 
 ## Project Lead/Owner and Contributors
 
@@ -60,13 +60,13 @@ For full details, see the Node JS packages released by this project here: <https
 You can install Guitar Diagrams JS in your project as a Node JS dependency via NPM. Run the following command from your project's directory:
 
 ```bash
-npm install @kcarlile/guitar-diagrams-js@0.9.1
+npm install @kcarlile/guitar-diagrams-js@0.9.2
 ```
 
 Or, alternately, you can manually edit your `package.json` file and add the following entry:
 
 ```json
-"@kcarlile/guitar-diagrams-js": "0.9.1",
+"@kcarlile/guitar-diagrams-js": "0.9.2",
 ```
 
 #### Option 2: Manual Installation via CDN
