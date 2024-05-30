@@ -562,7 +562,7 @@ export class GuitarDiagramsJS {
             let downloadButton = document.createElement('input');
 
             downloadButton.type = 'button';
-            downloadButton.id = this.#config.canvasID + 'DownloadButton';
+            downloadButton.id = this.#config.canvasID + '-download-button';
             downloadButton.style = 'display: block;';
             downloadButton.classList.add('guitar-diagrams-button-download');
             downloadButton.value = String.fromCodePoint(0x1F4BE);

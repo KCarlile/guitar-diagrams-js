@@ -33,7 +33,8 @@ If you find a bug or have a feature request, first [search to see if an issue al
 
 #### Solve an issue
 
-Scan through our [existing issues](https://github.com/KCarlile/guitar-diagrams-js/issues) to find one that interests you. You can narrow down the search using `labels` as filters. See "[Label reference](https://docs.github.com/en/contributing/collaborating-on-github-docs/label-reference)" for more information. As a general rule, we don't assign issues to anyone. If you find an issue to work on, you are welcome to open a PR with a fix.
+Scan through our [existing issues](https://github.com/KCarlile/guitar-diagrams-js/issues) to find one that interests you. You can narrow down the search using `labels` as filters. See "[Label reference](https://docs.github.com/en/contributing/collaborating-on-github-docs/label-reference)" for more information.
+As a general rule, we don't assign issues to anyone. If you find an issue to work on, you are welcome to open a PR with a fix.
 
 ### Make Changes
 
