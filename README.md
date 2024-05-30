@@ -143,7 +143,11 @@ There are no specific requirements<sup>[1](#footnotes)</sup> for dependencies to
 - Color reference: <https://htmlcolorcodes.com/color-chart/>
 - Canvas API reference: <https://www.w3schools.com/jsref/api_canvas.asp>
 - Bootstrap API: <https://getbootstrap.com/docs/>
-- [<img alt="Deployed with FTP Deploy Action" src="https://img.shields.io/badge/Deployed With-FTP DEPLOY ACTION-%3CCOLOR%3E?style=for-the-badge&color=0077b6">](https://github.com/SamKirkland/FTP-Deploy-Action)
+- How to Use GitHub Super Linter in Your Projects: <https://www.freecodecamp.org/news/github-super-linter/>
+- GitHub Action - Super-Linter: <https://github.com/super-linter/super-linter/>
+  - [![Super-Linter](https://github.com/KCarlile/guitar-diagrams-js/actions/workflows/linting.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
+- GitHub Action - FTP Deploy: <https://github.com/SamKirkland/FTP-Deploy-Action>
+  - [<img alt="Deployed with FTP Deploy Action" src="https://img.shields.io/badge/Deployed With-FTP DEPLOY ACTION-%3CCOLOR%3E?style=for-the-badge&color=0077b6">](https://github.com/SamKirkland/FTP-Deploy-Action)
 
 ### <a href="footnotes"></a>Footnotes
 
