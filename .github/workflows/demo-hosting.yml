@@ -1,9 +1,10 @@
+name: Deploy examples directory to demo.kcarlile.com on main branch releases
+
 on:
   release:
     types: [published]
     branches: [main]
 
-name: Deploy examples directory to demo.kcarlile.com on main branch releases
 jobs:
   web-deploy:
     name: Deploy

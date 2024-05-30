@@ -2,6 +2,7 @@
 
 [![GitHub Release](https://img.shields.io/github/v/release/KCarlile/guitar-diagrams-js?include_prereleases&logo=github&label=Latest%20version)](https://github.com/KCarlile/guitar-diagrams-js/releases)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/KCarlile/guitar-diagrams-js/release-package.yml?logo=github&label=NPM%20build)](https://github.com/KCarlile/guitar-diagrams-js/actions/workflows/release-package.yml)
+[![Super-Linter](https://github.com/KCarlile/guitar-diagrams-js/actions/workflows/linting.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
 [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://ecma-international.org/publications-and-standards/standards/ecma-262/)
 [![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)](https://www.w3.org/standards/history/html52/)
