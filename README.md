@@ -59,7 +59,7 @@ For full details, see the Node JS packages released by this project here: <https
 You can install Guitar Diagrams JS in your project as a Node JS dependency via NPM. Run the following command from your project's directory:
 
 ```bash
-$ npm install @kcarlile/guitar-diagrams-js@0.1.0
+npm install @kcarlile/guitar-diagrams-js@0.1.0
 ```
 
 Or, alternately, you can manually edit your `package.json` file and add the following entry:
