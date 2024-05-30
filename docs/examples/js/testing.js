@@ -18,7 +18,7 @@ gdjTesting.config.orientHorizontally = true;
 //gdj4.config.fretStartingNumber = 3;
 gdjTesting.config.downloadImageEnabled = true;
 //gdj4.config.scaleFactor = .5;
-gdjTesting.addCanvas('diagramTesting');
+gdjTesting.addCanvas('diagram-testing');
 gdjTesting.drawNeck();
 gdjTesting.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
 gdjTesting.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle);
