@@ -5,7 +5,7 @@
 _Guitar Diagrams JS_ is an open source JavaScript library for drawing guitar chords and scales on an HTML5 canvas.
 
 Project: <https://github.com/KCarlile/guitar-diagrams-js>\
-Version: 0.1.0
+Version: 0.9.0
 
 ## Project Lead/Owner and Contributors
 
@@ -110,9 +110,13 @@ For more information, please see the [`docs/index.md`](docs/index.md) and ['docs
 
 ## Technical Information for Code Owners
 
-### Building and Packaging
+### Building, Packaging, and Releasing
 
-When creating a new release, run `node install` in the project to update the `package-lock.json` file, then stage, commit, and push the changes to GitHub. Next, use the [Release page](https://github.com/KCarlile/guitar-diagrams-js/releases) to create a new release which will kick off a new package deployment using the GitHub Action workflow defined in `.github/workflows/release-package.yml`. One the workflow has completed successfully, the package will be hosted on the [Packages page](https://github.com/KCarlile/guitar-diagrams-js/pkgs/npm/guitar-diagrams-js).
+When creating a new release, run `node install` in the project to update the `package-lock.json` file. You can also run the `.scripts/build.sh` bash script to run this step. (There are currently no other build steps included.)
+
+Next, you will stage, commit, and push the changes to GitHub. Once the code is in the GitHub repo, create a PR into the `main` branch, if necessary.
+
+To create a release, use the [Release page](https://github.com/KCarlile/guitar-diagrams-js/releases) to create a new release which will kick off a new package deployment using the GitHub Action workflow defined in `.github/workflows/release-package.yml`. Once the workflow has completed successfully, the package will be hosted on the [Packages page](https://github.com/KCarlile/guitar-diagrams-js/pkgs/npm/guitar-diagrams-js).
 
 See also [`docs/examples/js/guitar-diagrams-js/README.md`](docs/examples/js/guitar-diagrams-js/README.md) for information about symlinks for local testing and demo deployment information.
 
