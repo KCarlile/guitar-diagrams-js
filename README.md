@@ -89,7 +89,7 @@ Or, alternately, you can manually edit your `package.json` file and add the foll
 If you want to use a CDN-hosted package (e.g., Guitar Diagrams JS on JSDelivr at `https://cdn.jsdelivr.net/gh/KCarlile/guitar-diagrams-js@main/guitar-diagrams.js`), you can reference it in your code like this:
 
 ```html
-<div id="diagram1"></div>
+<div id="diagram-1"></div>
 <script type="module">
    import { GuitarDiagramsJS } from 'https://cdn.jsdelivr.net/gh/KCarlile/guitar-diagrams-js@main/guitar-diagrams.js';
 
