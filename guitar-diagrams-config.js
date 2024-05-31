@@ -70,7 +70,7 @@ export class GuitarDiagramsJSConfig {
 
     /**
      * Sets the ID attribute of the canvas HTML tag.
-     * @param {string} paramColorFretboard - The ID attribute of the canvas HTML tag.
+     * @param {string} paramCanvasID - The ID attribute of the canvas HTML tag.
      */
     set canvasID(paramCanvasID) {
         this.#canvasID = paramCanvasID;
