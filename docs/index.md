@@ -22,7 +22,17 @@ Lorem ipsum...
 
 Lorem ipsum...
 
-### Methods
+### guitar-diagrams.js
+
+#### guitar-diagrams.js Members
+
+#### guitar-diagrams.js Methods
+
+### guitar-diagrams-config.js
+
+#### guitar-diagrams-config.js Members
+
+#### guitar-diagrams-config.js Methods
 
 Lorem ipsum...
 
