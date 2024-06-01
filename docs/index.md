@@ -30,8 +30,29 @@ Lorem ipsum...
 
 ### guitar-diagrams-config.js
 
-#### guitar-diagrams-config.js Members
+### guitar-diagrams-config.js Members
 
+#### canvasID
+
+Gets and sets the ID attribute of the canvas HTML tag.
+
+- **Parameters**: {string} paramCanvasID
+- **Return Value**: #canvasID
+
+*Example:*
+
+```
+get canvasID() {
+        return this.#canvasID;
+    } // end get canvasID property
+    /**
+     * Sets the ID attribute of the canvas HTML tag.
+     * @param {string} paramCanvasID - The ID attribute of the canvas HTML tag.
+     */
+    set canvasID(paramCanvasID) {
+        this.#canvasID = paramCanvasID;
+    } // end get canvasID property'
+```
 #### guitar-diagrams-config.js Methods
 
 Lorem ipsum...
