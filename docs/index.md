@@ -42,16 +42,7 @@ Gets and sets the ID attribute of the canvas HTML tag.
 *Example:*
 
 ```
-get canvasID() {
-        return this.#canvasID;
-    } // end get canvasID property
-    /**
-     * Sets the ID attribute of the canvas HTML tag.
-     * @param {string} paramCanvasID - The ID attribute of the canvas HTML tag.
-     */
-    set canvasID(paramCanvasID) {
-        this.#canvasID = paramCanvasID;
-    } // end get canvasID property'
+gdj1.config.canvasID = 'diagram-1-canvas'; // specify the canvas element's an ID
 ```
 #### guitar-diagrams-config.js Methods
 
