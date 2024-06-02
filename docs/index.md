@@ -77,6 +77,33 @@ _Example:_
 ```javascript
 console.log('Canvas ID: ' + gdj1.config.canvasID);
 ```
+##### colorFretboard (get)
+
+Exists as a property of the config property on the GuitarDiagrams object. Gets the HTML color code of the fretboard.
+
+- **Parameters**: {string} The HTML color code of the fretboard.
+- **Return Value**: _None_
+- **Default Value**: {string} '#795548'
+
+_Example:_
+
+```javascript
+gdj5.config.colorFretboard = '#FFE0B2';
+```
+
+##### colorFretboard (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets the HTML color code of the fretboard.
+
+- **Parameters**: _None_
+- **Return Value**: {string} The HTML color code of the fretboard.
+- **Default Value**: {string} '#795548'
+
+_Example:_
+
+```javascript
+PENDING
+```
 
 #### `guitar-diagrams-config.js` Public Methods
 
