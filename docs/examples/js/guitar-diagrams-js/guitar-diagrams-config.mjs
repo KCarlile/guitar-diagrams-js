@@ -63,16 +63,16 @@ export class GuitarDiagramsJSConfig {
     // ========== BEGIN properties
     // ----- References
     /**
-     * Gets the ID attribute of the canvas HTML tag.
-     * @return {string} The ID attribute of the canvas HTML tag.
+     * Gets the ID attribute of the canvas HTML element.
+     * @return {string} The ID attribute of the canvas HTML element.
      */
     get canvasID() {
         return this.#canvasID;
     } // end get canvasID property
 
     /**
-     * Sets the ID attribute of the canvas HTML tag.
-     * @param {string} paramCanvasID - The ID attribute of the canvas HTML tag.
+     * Sets the ID attribute of the canvas HTML element.
+     * @param {string} paramCanvasID - The ID attribute of the canvas HTML element.
      */
     set canvasID(paramCanvasID) {
         this.#canvasID = paramCanvasID;

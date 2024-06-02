@@ -20,42 +20,78 @@ Lorem ipsum...
 
 ## API Usage
 
-Lorem ipsum...
+Lorem ipsum...some description, if necessary, for the API usage section.
 
-### guitar-diagrams.js
+### `guitar-diagrams.js` Class
 
-#### guitar-diagrams.js Members
+#### `guitar-diagrams.js` Constructors
 
-#### guitar-diagrams.js Methods
+Constructor(s) in `guitar-diagrams.js` go here...
 
-### guitar-diagrams-config.js
+#### `guitar-diagrams.js` Static Public Members
 
-### guitar-diagrams-config.js Members
+Static members in `guitar-diagrams.js` go here... (We might need to talk about how to handled these.)
 
-#### canvasID
+#### `guitar-diagrams.js` Public Properties
 
-Gets and sets the ID attribute of the canvas HTML tag.
+Properties in `guitar-diagrams.js` go here...
 
-- **Parameters**: {string} paramCanvasID
-- **Return Value**: #canvasID
+#### `guitar-diagrams.js` Public Methods
 
-*Example:*
+Methods in `guitar-diagrams.js` go here...
 
+### `guitar-diagrams-config.js` Class
+
+#### `guitar-diagrams-config.js` Constructors
+
+Constructor(s) in `guitar-diagrams-config.js` go here...
+
+#### `guitar-diagrams-config.js` Public Properties
+
+Properties in `guitar-diagrams-config.js` go here...
+
+##### canvasID (get)
+
+Exists as a property of the config property on the GuitarDiagrams object. Gets the ID attribute of the canvas HTML element.
+
+- **Parameters**: {string} The ID attribute of the canvas HTML element.
+- **Return Value**: _None_
+- **Default Value**: {string} 'gdjCanvas'
+
+_Example:_
+
+```javascript
+gdj1.config.canvasID = 'diagram-1-canvas';
 ```
-gdj1.config.canvasID = 'diagram-1-canvas'; // specify the canvas element's an ID
+
+##### canvasID (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets the ID attribute of the canvas HTML element.
+
+- **Parameters**: _None_
+- **Return Value**: {string} The ID attribute of the canvas HTML element.
+- **Default Value**: {string} 'gdjCanvas'
+
+_Example:_
+
+```javascript
+console.log('Canvas ID: ' + gdj1.config.canvasID);
 ```
-#### guitar-diagrams-config.js Methods
 
-Lorem ipsum...
+#### `guitar-diagrams-config.js` Public Methods
 
-| Name | Description | Parameters | Return Value | Example | Notes |
-| ---- | ----------- | ---------- | ------------ | ------- | ----- |
-| z | y | x | w | v | u |
+_None._
 
-### Configuration Values
+### `guitar-diagrams-marker.js` Class
 
-Lorem ipsum...
+#### `guitar-diagrams-marker.js` Constructors
 
-| Name | Description | Required | Values | Default | Example | Notes |
-| ---- | ----------- | -------- | ------ | ------- | ------- | ----- |
-| z | y | x | w | v | u | t |
+Constructor(s) in `guitar-diagram-marker.js` go here... (There's only a default constructor as of now.)
+
+#### `guitar-diagrams-marker.js` Public Properties
+
+Properties in `guitar-diagrams-marker.js` go here...
+
+#### `guitar-diagrams-marker.js` Public Methods
+
+Methods in `guitar-diagrams-marker.js` go here...
