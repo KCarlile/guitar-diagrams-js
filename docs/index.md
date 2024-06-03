@@ -77,6 +77,7 @@ _Example:_
 ```javascript
 console.log('Canvas ID: ' + gdj1.config.canvasID);
 ```
+
 ##### colorFretboard (get)
 
 Exists as a property of the config property on the GuitarDiagrams object. Gets the HTML color code of the fretboard.
