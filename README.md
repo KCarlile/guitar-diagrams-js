@@ -151,7 +151,7 @@ See [`docs/code-owners.md`](docs/code-owners.md) for documentation related to de
 
 There are no specific requirements<sup>[1](#footnotes)</sup> for dependencies to use Guitar Diagrams JS other than the standard browser compatibility considerations with CSS, JavaScript, and HTML 5's `<canvas>` tag. Browser compatibility for the `<canvas>` tag can be found on [the MDN `<canvas>` page](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#browser_compatibility).
 
-----
+---
 
 ## References
 
