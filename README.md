@@ -1,6 +1,5 @@
 # Guitar Diagrams JS
 
-[![GitHub Release](https://img.shields.io/github/v/release/KCarlile/guitar-diagrams-js?include_prereleases&logo=github&label=Latest%20version)](https://github.com/KCarlile/guitar-diagrams-js/releases)
 [![GitHub Actions Workflow Status](https://github.com/KCarlile/guitar-diagrams-js/actions/workflows/release-package.yml/badge.svg)](https://github.com/KCarlile/guitar-diagrams-js/actions/workflows/release-package.yml)
 [![Super-Linter](https://github.com/KCarlile/guitar-diagrams-js/actions/workflows/linting.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
@@ -17,7 +16,7 @@
 _Guitar Diagrams JS_ is an open source JavaScript library for drawing guitar chords and scales on an HTML5 canvas.
 
 Project: <https://github.com/KCarlile/guitar-diagrams-js>\
-Version: 0.9.2
+Version: [![GitHub Release](https://img.shields.io/github/v/release/KCarlile/guitar-diagrams-js?include_prereleases&logo=github&label=Latest%20version)](https://github.com/KCarlile/guitar-diagrams-js/releases)
 
 ### Why should you use Guitar Diagrams JS?
 
@@ -27,12 +26,15 @@ The benefit of Guitar Diagrams JS is that it provides a visual representation of
 
 Here are some other comparisons to Guitar Diagrams JS:
 
-| Name | Description | Visual | Graphical | Instrument Representation | No Sheet Music | Cost |
-| ---- | ----------- | ------ | --------- | ------------------------- | -------------- | ---- |
-| Guitar Diagrams JS | Create diagrams with minimal code and no graphics | ✅ | ✅ | ✅ | ✅ | $0 |
-| Tablature (tabs) | Create diagrams manually with text | ✅ | ✅ | ⚠️ | ✅ | $0 |
-| Graphic Design Software | Create diagrams manually with a graphic design program | ✅ | ✅ | ⚠️ | ✅ | [\$22.99/month](https://www.adobe.com/products/photoshop/plans.html) |
-| Sheet Music | Create sheet music | ✅ | ❌ | ❌ | ❌ | [\$99](https://www.finalemusic.com/products/finale/special-pricing/) or [\$27.99/month](https://www.avid.com/sibelius/sibelius-ultimate-subscriptions?usertype=individual) |
+| Name | Description | Visual | Graphical | Instrument Representation | No Sheet Music Reading | Works with Musical Passages | Cost |
+| ---- | ----------- | ------ | --------- | ------------------------- | -------------- | ---------------- | ---- |
+| Guitar Diagrams JS | Create diagrams with minimal code and no graphics | ✅ | ✅ | ✅ | ✅ | ❌ | $0 |
+| Tablature (tabs) | Create diagrams manually with text | ✅ | ✅ | ⚠️ | ✅ | ✅ | $0, but time consuming and error prone |
+| Graphic Design Software | Create diagrams manually with a graphic design program | ✅ | ✅ | ⚠️ | ✅ | ❌ | [\$22.99/month](https://www.adobe.com/products/photoshop/plans.html), and very time consuming |
+| Sheet Music | Create sheet music | ✅ | ❌ | ❌ | ❌ | ✅ | [\$99](https://www.finalemusic.com/products/finale/special-pricing/) or [\$27.99/month](https://www.avid.com/sibelius/sibelius-ultimate-subscriptions?usertype=individual), and requires music notation proficiency |
+
+Key: ✅Yes. ⚠️Maybe, sorta, kinda, optional. ❌ No.
+
 
 ## Project Lead/Owner and Contributors
 
@@ -74,16 +76,16 @@ See the repository's [Releases page](https://github.com/KCarlile/guitar-diagrams
 
 For full details, see the Node JS packages released by this project here: <https://github.com/KCarlile/guitar-diagrams-js/pkgs/npm/guitar-diagrams-js>
 
-You can install Guitar Diagrams JS in your project as a Node JS dependency via NPM. Run the following command from your project's directory:
+You can install Guitar Diagrams JS in your project as a Node JS dependency via NPM. Run the following command from your project's directory where `x.y.z` (e.g., `1.0.2`) is the version (or branch name, such as `main`) of the library you want to use:
 
 ```bash
-npm install @kcarlile/guitar-diagrams-js@0.9.2
+npm install @kcarlile/guitar-diagrams-js@x.y.z
 ```
 
 Or, alternately, you can manually edit your `package.json` file and add the following entry:
 
 ```json
-"@kcarlile/guitar-diagrams-js": "0.9.2",
+"@kcarlile/guitar-diagrams-js": "x.y.z",
 ```
 
 #### Option 2: Manual Installation via CDN
