@@ -141,7 +141,7 @@ You can also install this package manually by downloading it, placing the files 
 
 ### More Information
 
-For more information, please see the [`docs/index.md`](docs/index.md) and ['docs/examples/index.html`](docs/examples/index.html) pages for API documentation and examples.
+For more information, please see the [`docs/index.md`](docs/index.md) and [`docs/api-docs.md`](docs/api-docs.md) pages for general usage help and API documentation. See also the [`docs/examples/index.html`](docs/examples/index.html) page for usage examples.
 
 ## Technical Information for Code Owners
 
