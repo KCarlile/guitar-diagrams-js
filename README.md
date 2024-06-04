@@ -35,7 +35,6 @@ Here are some other comparisons to Guitar Diagrams JS:
 
 Key: ✅Yes. ⚠️Maybe, sorta, kinda, optional. ❌ No.
 
-
 ## Project Lead/Owner and Contributors
 
 ### Project Lead/Owner
@@ -56,6 +55,8 @@ GitHub profile: [@KCarlile](https://github.com/KCarlile)
 Please see the following pages for more information:
 
 - [`README.md`](README.md): this page
+- [`docs/index.md`](docs/index.md): general usage documentation
+- [`docs/api-docs.md`](docs/api-docs.md): API usage documentation
 - [`docs/index.md`](docs/index.md): main landing page for project documentation
 - [`docs/api-docs.md`](docs/api-docs.md): API usage documentation
 - [`docs/code-owner-docs.md`](docs/code-owner-docs.md): technical documentation for code owners
@@ -70,76 +71,7 @@ See the repository's [Releases page](https://github.com/KCarlile/guitar-diagrams
 
 ## Technical Information for Site Builders
 
-### Usage in Your Project
-
-#### Option 1: Installation as a Node Dependency
-
-For full details, see the Node JS packages released by this project here: <https://github.com/KCarlile/guitar-diagrams-js/pkgs/npm/guitar-diagrams-js>
-
-You can install Guitar Diagrams JS in your project as a Node JS dependency via NPM. Run the following command from your project's directory where `x.y.z` (e.g., `1.0.2`) is the version (or branch name, such as `main`) of the library you want to use:
-
-```bash
-npm install @kcarlile/guitar-diagrams-js@x.y.z
-```
-
-Or, alternately, you can manually edit your `package.json` file and add the following entry:
-
-```json
-"@kcarlile/guitar-diagrams-js": "x.y.z",
-```
-
-#### Option 2: Manual Installation via CDN
-
-If you want to use a CDN-hosted package (e.g., Guitar Diagrams JS on JSDelivr at `https://cdn.jsdelivr.net/gh/KCarlile/guitar-diagrams-js@main/guitar-diagrams.js`), you can reference it in your code like this:
-
-```html
-<div id="diagram-1"></div>
-<script type="module">
-   import { GuitarDiagramsJS } from 'https://cdn.jsdelivr.net/gh/KCarlile/guitar-diagrams-js@main/guitar-diagrams.js';
-
-   let gdj1 = new GuitarDiagramsJS();
-   gdj1.config.canvasID = 'diagram-1-canvas'; // specify the canvas element's an ID
-   gdj1.addCanvas('diagram-1'); // add the canvas to the specified element ID on the page
-   gdj1.drawNeck(); // draw the fretboard
-</script>
-```
-
-Be sure to add some target HTML element to your page with a matching ID (`gdj1.addCanvas('diagram-1');` where `diagram-1` is the ID) in your JS code so Guitar Diagrams JS knows where to add your drawing:
-
-```html
-<div id="diagram-1"></div>
-```
-
-#### Option 3: Manual Installation via Local Copies
-
-You can also install this package manually by downloading it, placing the files in the correct location, and modifying your site's code to reference the library. The following steps outline this process:
-
-1. Download the repository files from the [GitHub repository for Guitar Diagrams JS](https://github.com/KCarlile/guitar-diagrams-js).
-1. The only files about which you should be concerned are the following:
-   - `guitar-diagrams.js`: main functionality
-   - `guitar-diagrams-config.js`: config object
-   - `guitar-diagrams-marker.js`: marker object
-1. Place those files in your application at `wherever/you/put/your/js/files/guitar-diagram-js/`.
-1. In the JS file with your primary entrypoint, add an import statement:
-
-   ```javascript
-   import { GuitarDiagramsJS } from 'wherever/you/put/your/js/files/guitar-diagrams-js/guitar-diagrams.js';
-   ```
-
-1. Following that import statement, begin to reference the library:
-
-   ```javascript
-   let gdj1 = new GuitarDiagramsJS();
-   gdj1.config.canvasID = 'diagram-1-canvas'; // specify the canvas element's an ID
-   gdj1.addCanvas('diagram-1'); // add the canvas to the specified element ID on the page
-   gdj1.drawNeck(); // draw the fretboard
-   ```
-
-1. Be sure to add some target HTML element to your page with a matching ID (`gdj1.addCanvas('diagram-1');` where `diagram-1` is the ID) in your JS code so Guitar Diagrams JS knows where to add your drawing:
-
-   ```html
-   <div id="diagram-1"></div>
-   ```
+You can find the full usage documentation at [`docs/index.md`](docs/index.md) and the API documentation at [`docs/api-docs.md`](docs/api-docs.md). The following information is just a high-level overview of how to use Guitar Diagrams JS.
 
 ### More Information
 
