@@ -37,11 +37,11 @@ If you want to use a CDN-hosted package (e.g., Guitar Diagrams JS on JSDelivr at
 </script>
 ```
 
-Be sure to add some target HTML element to your page with a matching ID (`gdj1.addCanvas('diagram-1');` where `diagram-1` is the ID) in your JS code so Guitar Diagrams JS knows where to add your drawing:
+Be sure to add some target HTML element to your page with a matching ID (`gdj1.addCanvas('diagram-1');` where `'diagram-1'` is the ID) in your JS code so Guitar Diagrams JS knows where to add your drawing:
 
-   ```html
-   <div id="diagram-1"></div>
-   ```
+```html
+<div id="diagram-1"></div>
+```
 
 #### Option 3: Manual Reference via Local Copies of Files
 
@@ -62,7 +62,7 @@ You can also install this package manually by downloading it, placing the files 
    </script>
    ```
 
-1. Be sure to add some target HTML element to your page with a matching ID (`gdj1.addCanvas('diagram-1');` where `diagram-1` is the ID) in your JS code so Guitar Diagrams JS knows where to add your drawing:
+1. Be sure to add some target HTML element to your page with a matching ID (`gdj1.addCanvas('diagram-1');` where `'diagram-1'` is the ID) in your JS code so Guitar Diagrams JS knows where to add your drawing:
 
    ```html
    <div id="diagram-1"></div>
