@@ -88,9 +88,9 @@ After your import statement, add the JavaScript to associate your block-level el
 
 ```javascript
 let gdj1 = new GuitarDiagramsJS();
-gdj1.config.canvasID = 'diagram-1-canvas'; // specify the canvas element's unique ID
-gdj1.addCanvas('diagram-1'); // add the canvas to the specified element ID on the page
-gdj1.drawNeck(); // draw the fretboard
+gdj1.config.canvasID = 'diagram-1-canvas';
+gdj1.addCanvas('diagram-1');
+gdj1.drawNeck();
 ```
 
 This will result in the most basic guitar diagram of a blank fretboard. The following explains what each line does:
@@ -114,14 +114,14 @@ gdj2.config.canvasID = 'diagram-2-canvas';
 gdj2.config.stringNamesEnabled = true;
 gdj2.addCanvas('diagram-2');
 gdj2.drawNeck();
-gdj2.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square); // add a square marker on string 1, fret 1, text '1'
-gdj2.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle); // add a triangle marker on string 2, fret 2, text '2'
-gdj2.addMarker(3, 3, '3', GuitarDiagramsJS.Shape.Diamond); // add a diamond marker on string 3, fret 3, text '3'
-gdj2.addMarker(4, 4, '4'); // add a default (circle) marker on string 4, fret 4, text '4'
-gdj2.addMarker(5, 0, '0'); // add a default (circle) marker on string 5, fret 0, text '0'
-gdj2.addMarker(6, 0, 'X'); // add a default (circle) marker on string 6, fret 0, text 'X'
-gdj2.addMarker(3, 1); // add a default (circle) marker on string 3, fret 1, text empty
-gdj2.drawAllMarkers(); // draw the markers
+gdj2.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
+gdj2.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle);
+gdj2.addMarker(3, 3, '3', GuitarDiagramsJS.Shape.Diamond);
+gdj2.addMarker(4, 4, '4');
+gdj2.addMarker(5, 0, '0');
+gdj2.addMarker(6, 0, 'X');
+gdj2.addMarker(3, 1);
+gdj2.drawAllMarkers();
 ```
 
 This will result in a basic guitar fretboard diagram with 7 different markers added. The following explains what each line does:
