@@ -111,7 +111,7 @@ Exists as a property of the config property on the GuitarDiagrams object. Sets t
 _Example:_
 
 ```javascript
-gdj5.config.colorFretboard = '#FFE0B2';
+gdj1.config.colorFretboard = '#FFE0B2';
 ```
 
 #### colorNut (get)
@@ -124,7 +124,9 @@ Exists as a property of the config property on the GuitarDiagrams object. Gets t
 
 _Example:_
 
-NEED EXAMPLE HERE CRK
+```javascript
+console.log(gdj1.config.colorNut);
+```
 
 #### colorNut (set)
 
@@ -137,7 +139,7 @@ Exists as a property of the config property on the GuitarDiagrams object. Sets t
 _Example:_
 
 ```javascript
-gdj5.config.colorNut = '#FFFFFF';
+gdj1.config.colorNut = '#FFFFFF';
 ```
 
 #### colorNutOutline (get)
@@ -150,7 +152,9 @@ Exists as a property of the config property on the GuitarDiagrams object. Gets t
 
 _Example:_
 
-NEED EXAMPLE HERE CRK
+```javascript
+console.log(gdj1.config.colorNutOutline);
+```
 
 #### colorNutOutline (set)
 
@@ -163,7 +167,7 @@ Exists as a property of the config property on the GuitarDiagrams object. Sets t
 _Example:_
 
 ```javascript
-gdj5.config.colorNutOutline = '#7E5109';
+gdj1.config.colorNutOutline = '#7E5109';
 ```
 
 ### <a name="guitar-diagrams.js-public-methods"></a>`guitar-diagrams-config.js` Public Methods
