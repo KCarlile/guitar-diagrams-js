@@ -104,7 +104,7 @@ export class GuitarDiagramsJSConfig {
     } // end get colorNut property
 
     /**
-     * Gets the HTML color code of the nut.
+     * Sets the HTML color code of the nut.
      * @param {string} paramColorNut - The HTML color code of the nut.
      */
     set colorNut(paramColorNut) {
@@ -120,7 +120,7 @@ export class GuitarDiagramsJSConfig {
     } // end get colorNutOutline property
 
     /**
-     * Gets the HTML color code of the nut outline.
+     * Sets the HTML color code of the nut outline.
      * @param {string} paramColorNutOutline - The HTML color code of the nut outline.
      */
     set colorNutOutline(paramColorNutOutline) {
