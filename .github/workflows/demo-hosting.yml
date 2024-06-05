@@ -43,9 +43,11 @@ jobs:
           **/.scripts/**
           **/docs/**
           **/node_modules/**
+          **/src/**
           .gitignore
           .npmrc
           LICENSE
           package.json
           package-lock.json
           README.md
+          webpack.config.js
