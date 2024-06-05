@@ -37,11 +37,15 @@ jobs:
         local-dir: ./
         server-dir: guitar-diagrams-js/js/guitar-diagrams-js/
         exclude: |
+          **/.config/**
           **/.git*
           **/.git*/**
-          **/node_modules/**
-          README.md
-          LICENSE
+          **/.scripts/**
           **/docs/**
+          **/node_modules/**
+          .gitignore
+          .npmrc
+          LICENSE
           package.json
           package-lock.json
+          README.md

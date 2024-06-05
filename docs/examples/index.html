@@ -155,7 +155,7 @@ gdj4.drawAllMarkers();</code></pre>
                     <div id="diagram-5"></div>
                 </div>
                 <div class="col-6">
-                    <p>This example, while _intentionally_ not very visually appealing, shows a vertical fretboard that has been customized with varying visual configuration options as shown below:</p>
+                    <p>This example, while <em>intentionally</em> not very visually appealing, shows a vertical fretboard that has been customized with varying visual configuration options as shown below:</p>
                     <ul class="list-group mb-3">
                         <li class="list-group-item">String names are enabled</li>
                         <li class="list-group-item">Starting on the 2nd fret</li>
@@ -212,14 +212,18 @@ gdj5.drawAllMarkers();</code></pre>
                     <p>This example demonstrates some configuration options for controls as shown below:</p>
                     <ul class="list-group mb-3">
                         <li class="list-group-item">String names are enabled</li>
+                        <li class="list-group-item">Controls are enabled<br /><em>Controls must be enabled, then each individual control must be enabled to ensure that all controls are intentionally added. Alternatively, call <code class="language-javascript">gdj6.config.enableAllControls();</code> to enable controls and all individual controls.</em></li>
                         <li class="list-group-item">Image download button is enabled</li>
+                        <li class="list-group-item">Change orientation button is enabled</li>
                         <li class="list-group-item">Adds the same 7 markers of various shapes with one blank marker (the same as the previous examples)</li>
                     </ul>
                     <h5>Code</h5>
                     <pre><code class="language-javascript">let gdj6 = new GuitarDiagramsJS();
 gdj6.config.canvasID = 'diagram-6-canvas';
 gdj6.config.stringNamesEnabled = true;
+gdj6.config.controlsEnabled = true;
 gdj6.config.downloadImageEnabled = true;
+gdj6.config.changeOrientationEnabled = true;
 gdj6.addCanvas('diagram-6');
 gdj6.drawNeck();
 gdj6.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);

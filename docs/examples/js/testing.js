@@ -16,7 +16,11 @@ gdjTesting.config.canvasID = 'diagram-testing-canvas';
 gdjTesting.config.stringNamesEnabled = true;
 gdjTesting.config.orientHorizontally = true;
 //gdj4.config.fretStartingNumber = 3;
-gdjTesting.config.downloadImageEnabled = true;
+gdjTesting.config.enableAllControls();
+//gdjTesting.config.controlsEnabled = true;
+//gdjTesting.config.downloadImageEnabled = true;
+//gdjTesting.config.changeOrientationEnabled = true;
+
 //gdj4.config.scaleFactor = .5;
 gdjTesting.addCanvas('diagram-testing');
 gdjTesting.drawNeck();
