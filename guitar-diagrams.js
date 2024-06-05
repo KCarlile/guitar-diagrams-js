@@ -556,35 +556,73 @@ export class GuitarDiagramsJS {
      * Adds any configured controls adjacent to the diagram.
      */
     #addControls() {
-        // image download button
-        if (this.#config.downloadImageEnabled) {
+        if (this.#config.controlsEnabled) {
+            const controlMargins = '.5em .5em 0 0';
+            const controlClass = 'guitar-diagrams-control';
+            const controlClassPrefix = 'guitar-diagrams-';
+
             let canvasElement = document.getElementById(this.#config.canvasID);
-            let downloadButton = document.createElement('input');
 
-            downloadButton.type = 'button';
-            downloadButton.id = this.#config.canvasID + '-download-button';
-            downloadButton.style = 'display: block;';
-            downloadButton.classList.add('guitar-diagrams-button-download');
-            downloadButton.value = String.fromCodePoint(0x1F4BE);
+            let controlsDiv = document.createElement('div');
+            controlsDiv.style = 'display: block; margin-top: .5em';
+            canvasElement.insertAdjacentElement('afterend', controlsDiv);
 
-            downloadButton.addEventListener('click', () => {
-                const canvas = document.getElementById(this.#config.canvasID);
-                const dataURL = canvas.toDataURL('image/png');
-                let a = document.createElement('a');
-                a.href = dataURL;
-                a.download = this.#config.canvasID + '.png';
-                a.click();
-            });
+            // add the controls in reverse order of display order
+            // other controls go here
+            /*
+            if (this.#config.someFeatureEnabled) {
+                // ...
+            } // end if test
+            */
 
-            canvasElement.insertAdjacentElement('afterend', downloadButton);
+            // change orientation button
+            const changeOrientationButtonExists = document.getElementById(this.#config.canvasID + '-change-orientation-button');
+
+            if (this.#config.changeOrientationEnabled && (!changeOrientationButtonExists)) {
+                let changeOrientationButton = document.createElement('input');
+
+                changeOrientationButton.type = 'button';
+                changeOrientationButton.id = this.#config.canvasID + '-change-orientation-button';
+                changeOrientationButton.style = 'margin: ' + controlMargins + ';';
+                changeOrientationButton.classList.add(controlClassPrefix + 'change-orientation-button');
+                changeOrientationButton.classList.add(controlClass);
+                changeOrientationButton.value = String.fromCodePoint(0x1F500);
+
+                changeOrientationButton.addEventListener('click', () => {
+                    // toggle/flip the value, then redraw
+                    this.#config.orientHorizontally = !this.#config.orientHorizontally;
+                    this.drawNeck();
+                    this.drawAllMarkers();
+                });
+
+                controlsDiv.insertAdjacentElement('afterend', changeOrientationButton);
+            } // end if test
+
+            // image download button
+            const downloadImageButtonExists = document.getElementById(this.#config.canvasID + '-download-image-button');
+
+            if (this.#config.downloadImageEnabled && (!downloadImageButtonExists)) {
+                let downloadButton = document.createElement('input');
+
+                downloadButton.type = 'button';
+                downloadButton.id = this.#config.canvasID + '-download-image-button';
+                downloadButton.style = 'margin: ' + controlMargins + ';';
+                downloadButton.classList.add(controlClassPrefix + 'download-image-button');
+                downloadButton.classList.add(controlClass);
+                downloadButton.value = String.fromCodePoint(0x1F4BE);
+
+                downloadButton.addEventListener('click', () => {
+                    const canvas = document.getElementById(this.#config.canvasID);
+                    const dataURL = canvas.toDataURL('image/png');
+                    let a = document.createElement('a');
+                    a.href = dataURL;
+                    a.download = this.#config.canvasID + '.png';
+                    a.click();
+                });
+
+                controlsDiv.insertAdjacentElement('afterend', downloadButton);
+            } // end if test
         } // end if test
-
-        // other controls go here
-        /*
-        if (this.#config.someFeatureEnabled) {
-            // ...
-        } // end if test
-        */
     } // end addControls method
 
     /**
