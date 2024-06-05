@@ -18,6 +18,10 @@ Lorem ipsum...some description, if necessary, for the API usage section.
       - [canvasID (set)](#canvasid-set)
       - [colorFretboard (get)](#colorfretboard-get)
       - [colorFretboard (set)](#colorfretboard-set)
+      - [colorNut (get)](#colornut-get)
+      - [colorNut (set)](#colornut-set)
+      - [colorNutOutline (get)](#colornutoutline-get)
+      - [colorNutOutline (set)](#colornutoutline-set)
     - [`guitar-diagrams-config.js` Public Methods](#guitar-diagrams-configjs-public-methods)
   - [`guitar-diagrams-marker.js` Class](#guitar-diagrams-markerjs-class)
     - [`guitar-diagrams-marker.js` Constructors (non-default)](#guitar-diagrams-markerjs-constructors-non-default)
@@ -70,7 +74,7 @@ console.log('Canvas ID: ' + gdj1.config.canvasID);
 
 #### canvasID (set)
 
-Exists as a property of the config property on the GuitarDiagrams object. Gets the ID attribute of the canvas HTML element.
+Exists as a property of the config property on the GuitarDiagrams object. Sets the ID attribute of the canvas HTML element.
 
 - **Parameters**: {string} The ID attribute of the canvas HTML element.
 - **Return Value**: _None_
@@ -108,6 +112,58 @@ _Example:_
 
 ```javascript
 gdj5.config.colorFretboard = '#FFE0B2';
+```
+
+#### colorNut (get)
+
+Exists as a property of the config property on the GuitarDiagrams object. Gets the HTML color code of the nut.
+
+- **Parameters**: _None_
+- **Return Value**: {string} The HTML color code of the nut.
+- **Default Value**: {string} '#F2F3F4'
+
+_Example:_
+
+NEED EXAMPLE HERE CRK
+
+#### colorNut (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets the HTML color code of the nut.
+
+- **Parameters**: {string} The HTML color code of the nut.
+- **Return Value**: _None_
+- **Default Value**: {string} '#F2F3F4'
+
+_Example:_
+
+```javascript
+gdj5.config.colorNut = '#FFFFFF';
+```
+
+#### colorNutOutline (get)
+
+Exists as a property of the config property on the GuitarDiagrams object. Gets the HTML color code of the nut outline.
+
+- **Parameters**: {string} The HTML color code of the nut outline.
+- **Return Value**: _None_
+- **Default Value**: {string} '#000000'
+
+_Example:_
+
+NEED EXAMPLE HERE CRK
+
+#### colorNutOutline (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets the HTML color code of the nut outline.
+
+- **Parameters**: {string} The HTML color code of the nut outline.
+- **Return Value**: _None_
+- **Default Value**: {string} '#000000'
+
+_Example:_
+
+```javascript
+gdj5.config.colorNutOutline = '#7E5109';
 ```
 
 ### <a name="guitar-diagrams.js-public-methods"></a>`guitar-diagrams-config.js` Public Methods
