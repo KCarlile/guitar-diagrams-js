@@ -40,7 +40,9 @@ export class GuitarDiagramsJSConfig {
     #fretStartingNumber = 0;
     #stringNamesEnabled = false;
     #stringNames = ['E','A','D','G','B','e'];
+    #controlsEnabled = false;
     #downloadImageEnabled = false;
+    #changeOrientationEnabled = false;
 
     // ========== END private members
 
@@ -357,6 +359,22 @@ export class GuitarDiagramsJSConfig {
     } // end get stringNames property
 
     /**
+     * Gets the enabled status of the controls.
+     * @return {boolean} The enabled status of the controls.
+     */
+    get controlsEnabled() {
+        return this.#controlsEnabled;
+    } // end get controlsEnabled property
+
+    /**
+     * Sets the enabled status of the controls.
+     * @param {boolean} paramControlsEnabled - The enabled status of the controls.
+     */
+    set controlsEnabled(paramControlsEnabled) {
+        this.#controlsEnabled = paramControlsEnabled;
+    } // end get controlsEnabled property
+
+    /**
      * Gets the enabled status of the download image button.
      * @return {boolean} The enabled status of the download image button.
      */
@@ -372,12 +390,35 @@ export class GuitarDiagramsJSConfig {
         this.#downloadImageEnabled = paramDownloadImageEnabled;
     } // end get downloadImageEnabled property
 
+    /**
+     * Gets the enabled status of the change orientation button.
+     * @return {boolean} The enabled status of the change orientation button.
+     */
+    get changeOrientationEnabled() {
+        return this.#changeOrientationEnabled;
+    } // end get changeOrientationEnabled property
+
+    /**
+     * Sets the enabled status of the change orientation button.
+     * @param {boolean} paramChangeOrientationEnabled - The enabled status of the change orientation button.
+     */
+    set changeOrientationEnabled(paramChangeOrientationEnabled) {
+        this.#changeOrientationEnabled = paramChangeOrientationEnabled;
+    } // end get changeOrientationEnabled property
     // ========== END properties
 
     // ========== BEGIN private methods
     // ========== END private methods
 
     // ========== BEGIN public methods
+    /**
+     * Enables control functionality and all available individual controls by setting their enabled status to true.
+     */
+    enableAllControls() {
+        this.controlsEnabled = true;
+        this.downloadImageEnabled = true;
+        this.changeOrientationEnabled = true;
+    } // end enableAllControls method
     // ========== END public methods
 
     // ========== BEGIN static methods
