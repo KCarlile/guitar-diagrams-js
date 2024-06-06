@@ -22,6 +22,16 @@ Lorem ipsum...some description, if necessary, for the API usage section.
       - [colorNut (set)](#colornut-set)
       - [colorNutOutline (get)](#colornutoutline-get)
       - [colorNutOutline (set)](#colornutoutline-set)
+      - [colorFrets (get)](#colorfrets-get)
+      - [colorFrets (set)](#colorfrets-set)
+      - [colorStrings (get)](#colorstrings-get)
+      - [colorStrings (set)](#colorstrings-set)
+      - [colorFretMarker (get)](#colorfretmarker-get)
+      - [colorFretMarker (set)](#colorfretmarker-set)
+      - [colorDiagramBackground (get)](#colordiagrambackground-get)
+      - [colorDiagramBackground (set)](#colordiagrambackground-set)
+      - [colorLabel (get)](#colorlabel-get)
+      - [colorLabel (set)](#colorlabel-set)
     - [`guitar-diagrams-config.js` Public Methods](#guitar-diagrams-configjs-public-methods)
   - [`guitar-diagrams-marker.js` Class](#guitar-diagrams-markerjs-class)
     - [`guitar-diagrams-marker.js` Constructors (non-default)](#guitar-diagrams-markerjs-constructors-non-default)
@@ -146,8 +156,8 @@ gdj1.config.colorNut = '#FFFFFF';
 
 Exists as a property of the config property on the GuitarDiagrams object. Gets the HTML color code of the nut outline.
 
-- **Parameters**: {string} The HTML color code of the nut outline.
-- **Return Value**: _None_
+- **Parameters**: _None_ 
+- **Return Value**: {string} The HTML color code of the nut outline.
 - **Default Value**: {string} '#000000'
 
 _Example:_
@@ -168,6 +178,146 @@ _Example:_
 
 ```javascript
 gdj1.config.colorNutOutline = '#7E5109';
+```
+
+#### colorFrets (get)
+
+Exists as a property of the config property on the GuitarDiagrams object. Gets the HTML color code of the frets.
+
+- **Parameters**: _None_
+- **Return Value**: {string} The HTML color code of the frets.
+- **Default Value**: {string} '#808B96'
+
+_Example:_
+
+```javascript
+console.log(gdj1.config.colorFrets);
+```
+
+#### colorFrets (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets the HTML color code of the frets.
+
+- **Parameters**: {string} The HTML color code of the nut outline.
+- **Return Value**: _None_
+- **Default Value**: {string} '#808B96'
+
+_Example:_
+
+```javascript
+gdj1.config.colorFrets = '#AEB6BF';
+```
+
+#### colorStrings (get)
+
+Exists as a property of the config property on the GuitarDiagrams object. Gets the HTML color code of the strings.
+
+- **Parameters**: _None_
+- **Return Value**: {string} The HTML color code of the strings.
+- **Default Value**: {string} '#CFD8DC'
+
+_Example:_
+
+```javascript
+console.log(gdj1.config.colorStrings);
+```
+
+#### colorStrings (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets the HTML color code of the strings.
+
+- **Parameters**: {string} The HTML color code of the strings.
+- **Return Value**: _None_
+- **Default Value**: {string} '#CFD8DC'
+
+_Example:_
+
+```javascript
+gdj1.config.colorStrings = '#566573';
+```
+
+#### colorFretMarker (get)
+
+Exists as a property of the config property on the GuitarDiagrams object. Gets the HTML color code of the fret markers.
+
+- **Parameters**: _None_
+- **Return Value**: {string} The HTML color code of the fret markers.
+- **Default Value**: {string} '#FFFFFF'
+
+_Example:_
+
+```javascript
+console.log(gdj1.config.colorFretMarker);
+```
+
+#### colorFretMarker (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets the HTML color code of the fret markers.
+
+- **Parameters**: {string} The HTML color code of the fret markers.
+- **Return Value**: _None_
+- **Default Value**: {string} '#FFFFFF'
+
+_Example:_
+
+```javascript
+gdj1.config.colorFretMarker = '#424949';
+```
+
+#### colorDiagramBackground (get)
+
+Exists as a property of the config property on the GuitarDiagrams object. Gets the HTML color code of the diagram background. 
+
+- **Parameters**: _None_
+- **Return Value**: {string} The HTML color code of the diagram background.
+- **Default Value**: {string} null
+
+_Example:_
+
+```javascript
+console.log(gdj1.config.colorDiagramBackground);
+```
+
+#### colorDiagramBackground (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets the HTML color code of the diagram background. 
+
+- **Parameters**: {string} The HTML color code of the diagram background.
+- **Return Value**: _None_
+- **Default Value**: {string} null
+
+_Example:_
+
+```javascript
+gdj1.config.colorDiagramBackground = '#000000';
+```
+
+#### colorLabel (get)
+
+Exists as a property of the config property on the GuitarDiagrams object. Gets HTML color code of the label text for string names and fret number.
+
+- **Parameters**: _None_
+- **Return Value**: {string} The HTML color code of the label text for string names and fret number.
+- **Default Value**: {string} '#000000'
+
+_Example:_
+
+```javascript
+console.log(gdj1.config.colorLabel);
+```
+
+#### colorLabel (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets HTML color code of the label text for string names and fret number.
+
+- **Parameters**: {string} The HTML color code of the label text for string names and fret number.
+- **Return Value**: _None_
+- **Default Value**: {string} '#FFFFFF'
+
+_Example:_
+
+```javascript
+gdj1.config.colorDiagramBackground = '#000000';
 ```
 
 ### <a name="guitar-diagrams.js-public-methods"></a>`guitar-diagrams-config.js` Public Methods
