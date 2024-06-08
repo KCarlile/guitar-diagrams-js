@@ -32,6 +32,26 @@ Lorem ipsum...some description, if necessary, for the API usage section.
       - [colorDiagramBackground (set)](#colordiagrambackground-set)
       - [colorLabel (get)](#colorlabel-get)
       - [colorLabel (set)](#colorlabel-set)
+      - [markerStrokeWidth (get)](#markerstrokewidth-get)
+      - [markerStrokeWidth (set)](#markerstrokewidth-set)
+      - [markerFontSize (get)](#markerfontsize-get)
+      - [markerFontSize (set)](#markerfontsize-set)
+      - [fretCount (get)](#fretcount-get)
+      - [fretCount (set)](#fretcount-set)
+      - [scaleFactor (get)](#scalefactor-get)
+      - [scaleFactor (set)](#scalefactor-set)
+      - [orientHorizontally (get)](#orienthorizontally-get)
+      - [orientHorizontally (set)](#orienthorizontally-set)
+      - [fretMarkerEnabled (get)](#fretmarkerenabled-get)
+      - [fretMarkerEnabled (set)](#fretmarkerenabled-set)
+      - [fretStartingNumber (get)](#fretstartingnumber-get)
+      - [fretStartingNumber (set)](#fretstartingnumber-set)
+      - [stringNamesEnabled (get)](#stringnamesenabled-get)
+      - [stringNamesEnabled (set)](#stringnamesenabled-set)
+      - [stringNames (get)](#stringnames-get)
+      - [stringNames (set)](#stringnames-set)
+      - [downloadImageEnabled (get)](#downloadimageenabled-get)
+      - [downloadImageEnabled (set)](#downloadimageenabled-set)
     - [`guitar-diagrams-config.js` Public Methods](#guitar-diagrams-configjs-public-methods)
   - [`guitar-diagrams-marker.js` Class](#guitar-diagrams-markerjs-class)
     - [`guitar-diagrams-marker.js` Constructors (non-default)](#guitar-diagrams-markerjs-constructors-non-default)
@@ -312,14 +332,291 @@ Exists as a property of the config property on the GuitarDiagrams object. Sets H
 
 - **Parameters**: {string} The HTML color code of the label text for string names and fret number.
 - **Return Value**: _None_
-- **Default Value**: {string} '#FFFFFF'
+- **Default Value**: {string} '#000000'
 
 _Example:_
 
 ```javascript
-gdj1.config.colorDiagramBackground = '#000000';
+gdj1.config.colorLabel = '#000000';
 ```
 
+#### markerStrokeWidth (get)
+
+Exists as a property of the config property on the GuitarDiagrams object. Gets the marker's stroke width.
+
+- **Parameters**: _None_
+- **Return Value**: {number} The marker's stroke width.
+- **Default Value**: {number} 2
+
+_Example:_
+
+```javascript
+console.log(gdj1.markerStrokeWidth);
+```
+
+#### markerStrokeWidth (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets the marker's stroke width.
+
+- **Parameters**: {number} The marker's stroke width.
+- **Return Value**: _None_
+- **Default Value**: {number} 2
+
+_Example:_
+
+```javascript
+gdj1.config.markerStrokeWidth = 1;
+```
+#### markerFontSize (get)
+
+Exists as a property of the config property on the GuitarDiagrams object. Gets the marker's font size.
+
+- **Parameters**: _None_
+- **Return Value**: {number} The marker's font size.
+- **Default Value**: {number} 16
+
+_Example:_
+
+```javascript
+console.log(gdj1.config.markerFontSize);
+```
+
+#### markerFontSize (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets the marker's font size.
+
+- **Parameters**: {number} The marker's font size.
+- **Return Value**: _None_
+- **Default Value**: {number} 16
+
+_Example:_
+
+```javascript
+gdj1.config.markerFontSize = 10;
+```
+#### fretCount (get)
+
+Exists as a property of the config property on the GuitarDiagrams object. Gets the number of frets on the diagram.
+
+- **Parameters**: _None_
+- **Return Value**: {number} The number of frets on the diagram.
+- **Default Value**: {number} 5
+
+_Example:_
+
+```javascript
+console.log(gdj1.config.fretCount);
+```
+
+#### fretCount (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets the number of frets on the diagram.
+
+- **Parameters**: {number} The number of frets on the diagram.
+- **Return Value**: _None_
+- **Default Value**: {number} 5
+
+_Example:_
+
+```javascript
+gdj1.config.fretCount = 3;
+```
+
+#### scaleFactor (get)
+
+Exists as a property of the config property on the GuitarDiagrams object. Gets the scale factor of the diagram.
+
+- **Parameters**: _None_
+- **Return Value**: {number} The scale factor of the diagram.
+- **Default Value**: {number} 1
+
+_Example:_
+
+```javascript
+console.log(gdj1.config.scaleFactor);
+```
+
+#### scaleFactor (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets the scale factor of the diagram.
+
+- **Parameters**: {number} The scale factor of the diagram.
+- **Return Value**: _None_
+- **Default Value**: {number} 1
+
+_Example:_
+
+```javascript
+gdj1.config.scaleFactor = .6;
+```
+
+#### orientHorizontally (get)
+
+Exists as a property of the config property on the GuitarDiagrams object. Gets the horizontal status of the diagram.
+
+- **Parameters**: _None_
+- **Return Value**: {boolean} The horizontal status of diagram.
+- **Default Value**: {boolean} false;
+
+_Example:_
+
+```javascript
+console.log(gdj1.config.orientHorizontally);
+```
+
+#### orientHorizontally (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets the horizontal status of the diagram.
+
+- **Parameters**: {boolean} The horizontal status of diagram.
+- **Return Value**: _None_
+- **Default Value**: {boolean} false;
+
+_Example:_
+
+```javascript
+gdj1.config.orientHorizontally = true;
+```
+
+#### fretMarkerEnabled (get)
+
+Exists as a property of the config property on the GuitarDiagrams object. Gets the enabled status of fret markers.
+
+- **Parameters**: _None_
+- **Return Value**: {boolean} The enabled status of fret markers.
+- **Default Value**: {boolean} true;
+
+_Example:_
+
+```javascript
+console.log(gdj1.config.fretMarkerEnabled);
+```
+
+#### fretMarkerEnabled (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets the enabled status of fret markers.
+
+- **Parameters**: {boolean} The enabled status of fret markers.
+- **Return Value**: _None_
+- **Default Value**: {boolean} true;
+
+_Example:_
+
+```javascript
+gdj1.config.fretMarkerEnabled = true;
+```
+
+#### fretStartingNumber (get)
+
+Exists as a property of the config property on the GuitarDiagrams object. Gets the starting fret number.
+
+- **Parameters**: _None_
+- **Return Value**: {number} The starting fret number.
+- **Default Value**: {number} 0;
+
+_Example:_
+
+```javascript
+console.log(gdj1.config.fretStartingNumber);
+```
+
+#### fretStartingNumber (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets the starting fret number.
+
+- **Parameters**: {number} The starting fret number.
+- **Return Value**: _None_
+- **Default Value**: {number} 0;
+
+_Example:_
+
+```javascript
+gdj1.config.fretStartingNumber = 3;
+```
+
+#### stringNamesEnabled (get)
+
+Exists as a property of the config property on the GuitarDiagrams object.  Gets the enabled status of string names.
+
+- **Parameters**: _None_
+- **Return Value**: {boolean} The enabled status of string names.
+- **Default Value**: {boolean} false;
+
+_Example:_
+
+```javascript
+console.log(gdj1.config.stringNamesEnabled);
+```
+
+#### stringNamesEnabled (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets the enabled status of string names.
+
+- **Parameters**: {boolean} The enabled status of string names.
+- **Return Value**: _None_
+- **Default Value**: {boolean} false;
+
+_Example:_
+
+```javascript
+gdj1.config.stringNamesEnabled = true;
+```
+
+#### stringNames (get)
+
+Exists as a property of the config property on the GuitarDiagrams object. Gets the array of string names.
+
+- **Parameters**: _None_
+- **Return Value**: {array} The array of string names.
+- **Default Value**: {array} ['E','A','D','G','B','e'];
+
+_Example:_
+
+```javascript
+console.log(gdj1.config.stringNames);
+```
+
+#### stringNames (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets the array of string names.
+
+- **Parameters**: {array} The array of string names.
+- **Return Value**: _None_
+- **Default Value**: {array} ['E','A','D','G','B','e'];
+
+_Example:_
+
+```javascript
+gdj1.config.stringNames = ['D','A','D','G'];
+```
+
+#### downloadImageEnabled (get)
+
+Exists as a property of the config property on the GuitarDiagrams object. Gets the enabled status of the download image button.
+
+- **Parameters**: _None_
+- **Return Value**: {boolean} The enabled status of the download image button.
+- **Default Value**: {boolean} false;
+
+_Example:_
+
+```javascript
+console.log(gdj1.config.downloadImageEnabled);
+```
+
+#### downloadImageEnabled (set)
+
+Exists as a property of the config property on the GuitarDiagrams object. Sets the enabled status of the download image button.
+
+- **Parameters**: {boolean} The enabled status of the download image button.
+- **Return Value**: _None_
+- **Default Value**: {boolean} false;
+
+_Example:_
+
+```javascript
+gdj1.config.downloadImageEnabled = true;
+```
 ### <a name="guitar-diagrams.js-public-methods"></a>`guitar-diagrams-config.js` Public Methods
 
 _None._
