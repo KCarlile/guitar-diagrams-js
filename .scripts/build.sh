@@ -11,6 +11,12 @@ LOCAL_PATH=$(dirname "$0")
 echo "< Beginning Guitar Diagrams JS build script..."
 echo ""
 
+echo ">> Beginning package checking..."
+source "$LOCAL_PATH/package-check.sh"
+echo "<< Ending package checking."
+echo ""
+
+
 echo ">> Beginning linting..."
 source "$LOCAL_PATH/linting.sh"
 RETURN_CODE=$?
@@ -30,7 +36,7 @@ echo ""
 
 echo ">> Beginning npm run build..."
 npm run build
-echo "<< Ending run build."
+echo "<< Ending npm run build."
 echo ""
 
 echo "< Ending Guitar Diagrams JS build script."
