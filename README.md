@@ -145,7 +145,21 @@ For more information, please see the [`docs/index.md`](docs/index.md) and ['docs
 
 ### Building, Packaging, and Releasing
 
-When creating a new release, run `node install` in the project to update the `package-lock.json` file. You can also run the `.scripts/build.sh` bash script to run this step. (There are currently no other build steps included.)
+#### Local Builds and Releases
+
+Before committing any code changes or when creating a new release, run `node install` in the project to update the `package-lock.json` file. You can also run the `.scripts/build.sh` bash script to run this step, which performs other necessary checks and file management.
+
+```bash
+npm run build-local
+```
+
+The `.scripts/build.sh` script is defined in the `package.json;` file as `build-local`, so it can be run with `npm run build-local`. That script runs:
+
+- `package.json` linting
+- Code linting on HTML, JS, CSS, and Markdown
+- Copies the `*.jsm` files from `src/*` to `docs/examples/js/guitar-diagrams-js/*` so the examples on `docs/examples/index.html` can reference those files.
+
+#### Releases
 
 Next, you will stage, commit, and push the changes to GitHub. Once the code is in the GitHub repo, create a PR into the `main` branch, if necessary.
 
