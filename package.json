@@ -2,11 +2,19 @@
   "name": "@KCarlile/guitar-diagrams-js",
   "version": "0.9.2",
   "description": "Guitar Diagrams JS is an open source JavaScript library for drawing guitar chords and scales on an HTML5 canvas.",
-  "main": "guitar-diagrams.js",
+  "homepage": "https://github.com/KCarlile/guitar-diagrams-js#readme",
+  "exports": {
+    ".": "./src/guitar-diagrams.mjs"
+  },
+  "type": "module",
+  "main": "./src/guitar-diagrams.mjs",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
+    "package-check": ".scripts/package-check.sh",
+    "build": ".scripts/build.sh",
+    "build-local": ".scripts/build-local.sh",
     "test": "exit 0"
   },
   "repository": {
@@ -26,14 +34,23 @@
     "violin",
     "cello",
     "viola",
-    "banjo"
+    "banjo",
+    "educator",
+    "education",
+    "training",
+    "tutorial",
+    "scale",
+    "chord",
+    "notation"
   ],
-  "author": "Kenny Carlile",
+  "author": {
+    "name": "Kenny Carlile",
+    "url": "https://www.kcarlile.com/"
+  },
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/KCarlile/guitar-diagrams-js/issues"
   },
-  "homepage": "https://github.com/KCarlile/guitar-diagrams-js#readme",
   "publishConfig": {
     "@KCarlile:registry": "https://npm.pkg.github.com"
   }
