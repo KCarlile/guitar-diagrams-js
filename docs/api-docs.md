@@ -176,7 +176,7 @@ gdj1.config.colorNut = '#FFFFFF';
 
 Exists as a property of the config property on the GuitarDiagrams object. Gets the HTML color code of the nut outline.
 
-- **Parameters**: _None_ 
+- **Parameters**: _None_
 - **Return Value**: {string} The HTML color code of the nut outline.
 - **Default Value**: {string} '#000000'
 
@@ -286,7 +286,7 @@ gdj1.config.colorFretMarker = '#424949';
 
 #### colorDiagramBackground (get)
 
-Exists as a property of the config property on the GuitarDiagrams object. Gets the HTML color code of the diagram background. 
+Exists as a property of the config property on the GuitarDiagrams object. Gets the HTML color code of the diagram background.
 
 - **Parameters**: _None_
 - **Return Value**: {string} The HTML color code of the diagram background.
@@ -300,7 +300,7 @@ console.log(gdj1.config.colorDiagramBackground);
 
 #### colorDiagramBackground (set)
 
-Exists as a property of the config property on the GuitarDiagrams object. Sets the HTML color code of the diagram background. 
+Exists as a property of the config property on the GuitarDiagrams object. Sets the HTML color code of the diagram background.
 
 - **Parameters**: {string} The HTML color code of the diagram background.
 - **Return Value**: _None_
@@ -367,6 +367,7 @@ _Example:_
 ```javascript
 gdj1.config.markerStrokeWidth = 1;
 ```
+
 #### markerFontSize (get)
 
 Exists as a property of the config property on the GuitarDiagrams object. Gets the marker's font size.
@@ -394,6 +395,7 @@ _Example:_
 ```javascript
 gdj1.config.markerFontSize = 10;
 ```
+
 #### fretCount (get)
 
 Exists as a property of the config property on the GuitarDiagrams object. Gets the number of frets on the diagram.
@@ -617,6 +619,7 @@ _Example:_
 ```javascript
 gdj1.config.downloadImageEnabled = true;
 ```
+
 ### <a name="guitar-diagrams.js-public-methods"></a>`guitar-diagrams-config.js` Public Methods
 
 _None._
