@@ -37,7 +37,7 @@ If you want to use a CDN-hosted package (e.g., Guitar Diagrams JS on JSDelivr at
 </script>
 ```
 
-Be sure to add some target HTML element to your page with a matching ID (`gdj1.addCanvas('diagram-1');` where `'diagram-1'` is the ID) in your JS code so Guitar Diagrams JS knows where to add your drawing:
+Be sure to add some target HTML element to your page with a matching ID (`gdj1.addCanvasToElement('diagram-1');` where `'diagram-1'` is the ID) in your JS code so Guitar Diagrams JS knows where to add your drawing:
 
 ```html
 <div id="diagram-1"></div>
@@ -62,7 +62,7 @@ You can also install this package manually by downloading it, placing the files 
    </script>
    ```
 
-1. Be sure to add some target HTML element to your page with a matching ID (`gdj1.addCanvas('diagram-1');` where `'diagram-1'` is the ID) in your JS code so Guitar Diagrams JS knows where to add your drawing:
+1. Be sure to add some target HTML element to your page with a matching ID (`gdj1.addCanvasToElement('diagram-1');` where `'diagram-1'` is the ID) in your JS code so Guitar Diagrams JS knows where to add your drawing:
 
    ```html
    <div id="diagram-1"></div>
@@ -89,7 +89,7 @@ After your import statement, add the JavaScript to associate your block-level el
 ```javascript
 let gdj1 = new GuitarDiagramsJS();
 gdj1.config.canvasID = 'diagram-1-canvas';
-gdj1.addCanvas('diagram-1');
+gdj1.addCanvasToElement('diagram-1');
 gdj1.drawNeck();
 ```
 
@@ -99,7 +99,7 @@ This will result in the most basic guitar diagram of a blank fretboard. The foll
 | ---- | ---- | ----------- | ----- |
 | 1 | `let gdj1 = new GuitarDiagramsJS();`| Instantiate a new `GuitarDiagramsJS` object and assign it to the `gdj1` variable|  |
 | 2 | `gdj1.config.canvasID = 'diagram-1-canvas';` | Set the canvasID value of the gdj1's config object to `'diagram-1-canvas'` | `'diagram-1-canvas'` is a unique ID for the `<canvas>` HTML element that will be added to your HTML within the block-level element. This ID is important so you can reference it later if you want to style the canvas itself. |
-| 3 | `gdj1.addCanvas('diagram-1');` | Add the Guitar Diagrams JS HTML `<canvas>` element to the parent block-level HTML element as specified by the element's unique ID | The ID string being passed here is the one specified in your HTML, like the example above: ```<div id="diagram-1"></div>``` |
+| 3 | `gdj1.addCanvasToElement('diagram-1');` | Add the Guitar Diagrams JS HTML `<canvas>` element to the parent block-level HTML element as specified by the element's unique ID | The ID string being passed here is the one specified in your HTML, like the example above: ```<div id="diagram-1"></div>``` |
 | 4 | `gdj1.drawNeck();` | Draw the neck of the diagram with the previously specified parameters |  |
 
 See _Example 1_ on the [Examples page](examples/index.html).
@@ -112,7 +112,7 @@ To add markers to a diagram, after calling `gdj1.drawNeck();`, you'll need to sp
 let gdj2 = new GuitarDiagramsJS();
 gdj2.config.canvasID = 'diagram-2-canvas';
 gdj2.config.stringNamesEnabled = true;
-gdj2.addCanvas('diagram-2');
+gdj2.addCanvasToElement('diagram-2');
 gdj2.drawNeck();
 gdj2.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
 gdj2.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle);
@@ -130,7 +130,7 @@ This will result in a basic guitar fretboard diagram with 7 different markers ad
 | ---- | ---- | ----------- | ----- |
 | 1 | `let gdj2 = new GuitarDiagramsJS();`| Instantiate a new `GuitarDiagramsJS` object and assign it to the `gdj1` variable|  |
 | 2 | `gdj2.config.canvasID = 'diagram-2-canvas';` | Set the canvasID value of the gdj1's config object to `'diagram-2-canvas'` | `'diagram-2-canvas'` is a unique ID for the `<canvas>` HTML element that will be added to your HTML within the block-level element. This ID is important so you can reference it later if you want to style the canvas itself. |
-| 3 | `gdj1.addCanvas('diagram-2');` | Add the Guitar Diagrams JS HTML `<canvas>` element to the parent block-level HTML element as specified by the element's unique ID | The ID string being passed here is the one specified in your HTML, like the example above, but with a different ID for diagram 2: ```<div id="diagram-2"></div>``` |
+| 3 | `gdj1.addCanvasToElement('diagram-2');` | Add the Guitar Diagrams JS HTML `<canvas>` element to the parent block-level HTML element as specified by the element's unique ID | The ID string being passed here is the one specified in your HTML, like the example above, but with a different ID for diagram 2: ```<div id="diagram-2"></div>``` |
 | 4 | `gdj1.drawNeck();` | Draw the neck of the diagram with the previously specified parameters |  |
 | 5 | `gdj2.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);` | Adds a marker on the string 1, fret 1, with text "1", and square shape |  |
 | 6 | `gdj2.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle);` | Adds a marker on the string 2, fret 2, with text "2", and triangle shape |  |
