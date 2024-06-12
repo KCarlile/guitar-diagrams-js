@@ -154,7 +154,7 @@ export class GuitarDiagramsJS {
             let stringNamesIndent = this.#config.fretStartingNumber == 0 ? 0 : fretNumberFontSize;
             let posX;
             let posY;
-            let stringNames = this.#config.stringNames;
+            let stringNames = [...this.#config.stringNames]; // deep copy array
 
             // vertical draws string names left to right, but horizontal needs to draw them bottom to top
             if (this.#config.orientHorizontally == true) {
@@ -561,13 +561,13 @@ export class GuitarDiagramsJS {
             const controlClass = 'guitar-diagrams-control';
             const controlClassPrefix = 'guitar-diagrams-';
 
-            let canvasElement = document.getElementById(this.#config.canvasID);
+            const canvasElement = document.getElementById(this.#config.canvasID);
 
-            let controlsDiv = document.createElement('div');
+            const controlsDiv = document.createElement('div');
             controlsDiv.style = 'display: block; margin-top: .5em';
             canvasElement.insertAdjacentElement('afterend', controlsDiv);
 
-            // add the controls in reverse order of display order
+            // add the controls in reverse order of desired display order (last to first)
             // other controls go here
             /*
             if (this.#config.someFeatureEnabled) {
