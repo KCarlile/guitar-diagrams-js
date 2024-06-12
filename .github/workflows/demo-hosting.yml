@@ -27,27 +27,3 @@ jobs:
           **/node_modules/**
           testing.html
           js/testing.js
-    
-    - name: Upload *.js files to overwrite symlinks
-      uses: SamKirkland/FTP-Deploy-Action@4.3.2
-      with:
-        server: 107.180.58.30
-        username: ${{ secrets.ftp_username }}
-        password: ${{ secrets.ftp_password }}
-        local-dir: ./
-        server-dir: guitar-diagrams-js/js/guitar-diagrams-js/
-        exclude: |
-          **/.config/**
-          **/.git*
-          **/.git*/**
-          **/.scripts/**
-          **/docs/**
-          **/node_modules/**
-          **/src/**
-          .gitignore
-          .npmrc
-          LICENSE
-          package.json
-          package-lock.json
-          README.md
-          webpack.config.js
