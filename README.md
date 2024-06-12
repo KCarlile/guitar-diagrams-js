@@ -15,8 +15,11 @@
 
 _Guitar Diagrams JS_ is an open source JavaScript library for drawing guitar chords and scales on an HTML5 canvas.
 
-Project: <https://github.com/KCarlile/guitar-diagrams-js>\
-Version: [![GitHub Release](https://img.shields.io/github/v/release/KCarlile/guitar-diagrams-js?include_prereleases&logo=github&label=Latest%20version)](https://github.com/KCarlile/guitar-diagrams-js/releases)
+**Project:** <https://github.com/KCarlile/guitar-diagrams-js>\
+**Version:** [![GitHub Release](https://img.shields.io/github/v/release/KCarlile/guitar-diagrams-js?include_prereleases&logo=github&label=Latest%20version)](https://github.com/KCarlile/guitar-diagrams-js/releases)\
+**Demo:** <https://demo.kcarlile.com/guitar-diagrams-js/>
+
+![Guitar Diagrams JS demo image](guitar-diagrams-js-demo.png)
 
 ### Why should you use Guitar Diagrams JS?
 
@@ -65,23 +68,23 @@ Please see the following pages for more information:
 - [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md): instructions for contributing to the project
 - [`LICENSE`](LICENSE): license file for the project
 
-## Change Log
-
-See the repository's [Releases page](https://github.com/KCarlile/guitar-diagrams-js/releases) for each release and associated release notes.
-
-## Technical Information for Site Builders
+### Site Builders - Technical Information
 
 You can find the full usage documentation at [`docs/index.md`](docs/index.md) and the API documentation at [`docs/api-docs.md`](docs/api-docs.md). The following information is just a high-level overview of how to use Guitar Diagrams JS.
 
-### More Information
+#### Change Log
+
+See the repository's [Releases page](https://github.com/KCarlile/guitar-diagrams-js/releases) for each release and associated release notes.
+
+#### More Information
 
 For more information, please see the [`docs/index.md`](docs/index.md) and [`docs/api-docs.md`](docs/api-docs.md) pages for general usage help and API documentation. See also the [`docs/examples/index.html`](docs/examples/index.html) page for usage examples.
 
-## Technical Information for Code Owners
+### Code Owners - Technical Information
 
 See [`docs/code-owners.md`](docs/code-owners.md) for documentation related to development and deployment.
 
-## Dependency Requirements
+### Dependency Requirements
 
 There are no specific requirements<sup>[1](#footnotes)</sup> for dependencies to use Guitar Diagrams JS other than the standard browser compatibility considerations with CSS, JavaScript, and HTML 5's `<canvas>` tag. Browser compatibility for the `<canvas>` tag can be found on [the MDN `<canvas>` page](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#browser_compatibility).
 
