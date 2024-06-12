@@ -8,7 +8,7 @@
  * @link https://github.com/KCarlile
  */
 
-import { GuitarDiagramsJS } from '../../../guitar-diagrams.js';
+import { GuitarDiagramsJS } from '../../../src/guitar-diagrams.mjs';
 
 // ========== BEGIN testing
 let gdjTesting = new GuitarDiagramsJS();

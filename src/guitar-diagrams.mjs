@@ -8,8 +8,8 @@
  * @link https://github.com/KCarlile
  */
 
-import { GuitarDiagramsJSConfig } from './guitar-diagrams-config.js';
-import { GuitarDiagramsJSMarker } from './guitar-diagrams-marker.js';
+import { GuitarDiagramsJSConfig } from './guitar-diagrams-config.mjs';
+import { GuitarDiagramsJSMarker } from './guitar-diagrams-marker.mjs';
 
 /**
  * Class representing primary Guitar Diagrams JS functionality.
