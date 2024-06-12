@@ -82,7 +82,7 @@ For more information, please see the [`docs/index.md`](docs/index.md) and [`docs
 
 ### Code Owners - Technical Information
 
-See [`docs/code-owners.md`](docs/code-owners.md) for documentation related to development and deployment.
+See [`docs/code-owner-docs.md`](docs/code-owner-docs.md) for documentation related to development and deployment.
 
 ### Dependency Requirements
 
