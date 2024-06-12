@@ -107,6 +107,8 @@ This script starts a Docker container to run a local version of Super-Linter for
 
 ## Releases
 
-When you have enough features and bugs merged to justify a release, create a PR from the `develop` branch into `main` branch. Once that is merged, use the [Release page](https://github.com/KCarlile/guitar-diagrams-js/releases) to create a new release which will kick off a new package deployment using the GitHub Action workflow defined in `.github/workflows/release-package.yml`. Once the workflow has completed successfully, the package will be hosted on the [Packages page](https://github.com/KCarlile/guitar-diagrams-js/pkgs/npm/guitar-diagrams-js).
+When you have enough features and bugs merged to justify a release, create a PR from the `develop` branch into `main` branch.
+Once that is merged, use the [Release page](https://github.com/KCarlile/guitar-diagrams-js/releases) to create a new release which will kick off a new package deployment using the GitHub Action workflow defined in `.github/workflows/release-package.yml`.
+Once the workflow has completed successfully, the package will be hosted on the [Packages page](https://github.com/KCarlile/guitar-diagrams-js/pkgs/npm/guitar-diagrams-js).
 
 See also [`docs/examples/js/guitar-diagrams-js/README.md`](docs/examples/js/guitar-diagrams-js/README.md) for information about symlinks for local testing and demo deployment information.
