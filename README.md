@@ -50,7 +50,8 @@ GitHub profile: [@KCarlile](https://github.com/KCarlile)
 
  If you contribute to the project in any way (code, documentation, testing, etc.), your name will appear in the list of contributors below:
 
-- Kenny Carlile (project lead/owner)
+- @KCarlile (project lead/owner)
+- @ckreiger1
 - _Your name here_
 
 ## Documentation and Examples
