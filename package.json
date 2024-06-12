@@ -12,9 +12,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "package-check": ".scripts/package-check.sh",
     "build": ".scripts/build.sh",
-    "build-local": ".scripts/build-local.sh",
     "test": "exit 0"
   },
   "repository": {

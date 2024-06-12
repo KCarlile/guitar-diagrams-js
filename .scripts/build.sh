@@ -11,6 +11,12 @@ LOCAL_PATH=$(dirname "$0")
 echo "< Beginning Guitar Diagrams JS build script..."
 echo ""
 
+echo ">> Beginning package.json linting..."
+npx publint
+echo ">> Ending package linting."
+echo ""
+
+
 echo ">> Beginning package checking..."
 source "$LOCAL_PATH/package-check.sh"
 echo "<< Ending package checking."
@@ -38,11 +44,6 @@ echo ""
 echo ">> Beginning npm install..."
 npm install ./
 echo "<< Ending npm install."
-echo ""
-
-echo ">> Beginning npm run build..."
-npm run build
-echo "<< Ending npm run build."
 echo ""
 
 echo "< Ending Guitar Diagrams JS build script."

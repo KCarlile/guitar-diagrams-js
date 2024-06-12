@@ -54,7 +54,9 @@ GitHub profile: [@KCarlile](https://github.com/KCarlile)
 Please see the following pages for more information:
 
 - [`README.md`](README.md): this page
-- [`docs/index.md`](docs/index.md): API usage documentation
+- [`docs/index.md`](docs/index.md): main landing page for project documentation
+- [`docs/api-docs.md`](docs/api-docs.md): API usage documentation
+- [`docs/code-owner-docs.md`](docs/code-owner-docs.md): technical documentation for code owners
 - [`docs/examples/index.html`](docs/examples/index.html): usage examples
 - [`docs/CODE_OF_CONDUCT.md`](docs/CODE_OF_CONDUCT.md): code of conduct for contributing members
 - [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md): instructions for contributing to the project
@@ -102,9 +104,9 @@ If you want to use a CDN-hosted package (e.g., Guitar Diagrams JS on JSDelivr at
 
 Be sure to add some target HTML element to your page with a matching ID (`gdj1.addCanvas('diagram-1');` where `diagram-1` is the ID) in your JS code so Guitar Diagrams JS knows where to add your drawing:
 
-   ```html
-   <div id="diagram-1"></div>
-   ```
+```html
+<div id="diagram-1"></div>
+```
 
 #### Option 3: Manual Installation via Local Copies
 
@@ -143,31 +145,9 @@ For more information, please see the [`docs/index.md`](docs/index.md) and ['docs
 
 ## Technical Information for Code Owners
 
-### Building, Packaging, and Releasing
+See [`docs/code-owners.md`](docs/code-owners.md) for documentation related to development and deployment.
 
-#### Local Builds and Releases
-
-Before committing any code changes or when creating a new release, run `node install` in the project to update the `package-lock.json` file. You can also run the `.scripts/build.sh` bash script to run this step, which performs other necessary checks and file management.
-
-```bash
-npm run build-local
-```
-
-The `.scripts/build.sh` script is defined in the `package.json;` file as `build-local`, so it can be run with `npm run build-local`. That script runs:
-
-- `package.json` linting
-- Code linting on HTML, JS, CSS, and Markdown
-- Copies the `*.jsm` files from `src/*` to `docs/examples/js/guitar-diagrams-js/*` so the examples on `docs/examples/index.html` can reference those files.
-
-#### Releases
-
-Next, you will stage, commit, and push the changes to GitHub. Once the code is in the GitHub repo, create a PR into the `main` branch, if necessary.
-
-To create a release, use the [Release page](https://github.com/KCarlile/guitar-diagrams-js/releases) to create a new release which will kick off a new package deployment using the GitHub Action workflow defined in `.github/workflows/release-package.yml`. Once the workflow has completed successfully, the package will be hosted on the [Packages page](https://github.com/KCarlile/guitar-diagrams-js/pkgs/npm/guitar-diagrams-js).
-
-See also [`docs/examples/js/guitar-diagrams-js/README.md`](docs/examples/js/guitar-diagrams-js/README.md) for information about symlinks for local testing and demo deployment information.
-
-### Dependency Requirements
+## Dependency Requirements
 
 There are no specific requirements<sup>[1](#footnotes)</sup> for dependencies to use Guitar Diagrams JS other than the standard browser compatibility considerations with CSS, JavaScript, and HTML 5's `<canvas>` tag. Browser compatibility for the `<canvas>` tag can be found on [the MDN `<canvas>` page](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#browser_compatibility).
 
