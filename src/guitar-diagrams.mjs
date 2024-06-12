@@ -667,9 +667,9 @@ export class GuitarDiagramsJS {
      * Adds the canvas element to the parent element with the specified ID.
      * @param {string} paramParentElementID - The parent element's ID to which the canvas element will be added.
      */
-    addCanvas(paramParentElementID) {
+    addCanvasToElement(paramParentElementID) {
         document.getElementById(paramParentElementID).appendChild(this.getCanvasElement());
-    } // end addCanvas method
+    } // end addCanvasToElement method
 
     /**
      * Sets the canvas element's ID for an existing canvas.

@@ -22,7 +22,7 @@ gdjTesting.config.enableAllControls();
 //gdjTesting.config.changeOrientationEnabled = true;
 
 //gdj4.config.scaleFactor = .5;
-gdjTesting.addCanvas('diagram-testing');
+gdjTesting.addCanvasToElement('diagram-testing');
 gdjTesting.drawNeck();
 gdjTesting.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
 gdjTesting.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle);
