@@ -1,6 +1,5 @@
 # Guitar Diagrams JS
 
-[![GitHub Release](https://img.shields.io/github/v/release/KCarlile/guitar-diagrams-js?include_prereleases&logo=github&label=Latest%20version)](https://github.com/KCarlile/guitar-diagrams-js/releases)
 [![GitHub Actions Workflow Status](https://github.com/KCarlile/guitar-diagrams-js/actions/workflows/release-package.yml/badge.svg)](https://github.com/KCarlile/guitar-diagrams-js/actions/workflows/release-package.yml)
 [![Super-Linter](https://github.com/KCarlile/guitar-diagrams-js/actions/workflows/linting.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
@@ -17,7 +16,7 @@
 _Guitar Diagrams JS_ is an open source JavaScript library for drawing guitar chords and scales on an HTML5 canvas.
 
 Project: <https://github.com/KCarlile/guitar-diagrams-js>\
-Version: 0.9.2
+Version: [![GitHub Release](https://img.shields.io/github/v/release/KCarlile/guitar-diagrams-js?include_prereleases&logo=github&label=Latest%20version)](https://github.com/KCarlile/guitar-diagrams-js/releases)
 
 ### Why should you use Guitar Diagrams JS?
 
@@ -27,12 +26,14 @@ The benefit of Guitar Diagrams JS is that it provides a visual representation of
 
 Here are some other comparisons to Guitar Diagrams JS:
 
-| Name | Description | Visual | Graphical | Instrument Representation | No Sheet Music | Cost |
-| ---- | ----------- | ------ | --------- | ------------------------- | -------------- | ---- |
-| Guitar Diagrams JS | Create diagrams with minimal code and no graphics | ✅ | ✅ | ✅ | ✅ | $0 |
-| Tablature (tabs) | Create diagrams manually with text | ✅ | ✅ | ⚠️ | ✅ | $0 |
-| Graphic Design Software | Create diagrams manually with a graphic design program | ✅ | ✅ | ⚠️ | ✅ | [\$22.99/month](https://www.adobe.com/products/photoshop/plans.html) |
-| Sheet Music | Create sheet music | ✅ | ❌ | ❌ | ❌ | [\$99](https://www.finalemusic.com/products/finale/special-pricing/) or [\$27.99/month](https://www.avid.com/sibelius/sibelius-ultimate-subscriptions?usertype=individual) |
+| Name | Description | Visual | Graphical | Instrument Representation | No Sheet Music Reading | Works with Musical Passages | Cost |
+| ---- | ----------- | ------ | --------- | ------------------------- | -------------- | ---------------- | ---- |
+| Guitar Diagrams JS | Create diagrams with minimal code and no graphics | ✅ | ✅ | ✅ | ✅ | ❌ | $0 |
+| Tablature (tabs) | Create diagrams manually with text | ✅ | ✅ | ⚠️ | ✅ | ✅ | $0, but time consuming and error prone |
+| Graphic Design Software | Create diagrams manually with a graphic design program | ✅ | ✅ | ⚠️ | ✅ | ❌ | [\$22.99/month](https://www.adobe.com/products/photoshop/plans.html), and very time consuming |
+| Sheet Music | Create sheet music | ✅ | ❌ | ❌ | ❌ | ✅ | [\$99](https://www.finalemusic.com/products/finale/special-pricing/) or [\$27.99/month](https://www.avid.com/sibelius/sibelius-ultimate-subscriptions?usertype=individual), and requires music notation proficiency |
+
+Key: ✅Yes. ⚠️Maybe, sorta, kinda, optional. ❌ No.
 
 ## Project Lead/Owner and Contributors
 
@@ -54,6 +55,8 @@ GitHub profile: [@KCarlile](https://github.com/KCarlile)
 Please see the following pages for more information:
 
 - [`README.md`](README.md): this page
+- [`docs/index.md`](docs/index.md): general usage documentation
+- [`docs/api-docs.md`](docs/api-docs.md): API usage documentation
 - [`docs/index.md`](docs/index.md): main landing page for project documentation
 - [`docs/api-docs.md`](docs/api-docs.md): API usage documentation
 - [`docs/code-owner-docs.md`](docs/code-owner-docs.md): technical documentation for code owners
@@ -68,80 +71,11 @@ See the repository's [Releases page](https://github.com/KCarlile/guitar-diagrams
 
 ## Technical Information for Site Builders
 
-### Usage in Your Project
-
-#### Option 1: Installation as a Node Dependency
-
-For full details, see the Node JS packages released by this project here: <https://github.com/KCarlile/guitar-diagrams-js/pkgs/npm/guitar-diagrams-js>
-
-You can install Guitar Diagrams JS in your project as a Node JS dependency via NPM. Run the following command from your project's directory:
-
-```bash
-npm install @kcarlile/guitar-diagrams-js@0.9.2
-```
-
-Or, alternately, you can manually edit your `package.json` file and add the following entry:
-
-```json
-"@kcarlile/guitar-diagrams-js": "0.9.2",
-```
-
-#### Option 2: Manual Installation via CDN
-
-If you want to use a CDN-hosted package (e.g., Guitar Diagrams JS on JSDelivr at `https://cdn.jsdelivr.net/gh/KCarlile/guitar-diagrams-js@main/guitar-diagrams.js`), you can reference it in your code like this:
-
-```html
-<div id="diagram-1"></div>
-<script type="module">
-   import { GuitarDiagramsJS } from 'https://cdn.jsdelivr.net/gh/KCarlile/guitar-diagrams-js@main/guitar-diagrams.js';
-
-   let gdj1 = new GuitarDiagramsJS();
-   gdj1.config.canvasID = 'diagram-1-canvas'; // specify the canvas element's an ID
-   gdj1.addCanvas('diagram-1'); // add the canvas to the specified element ID on the page
-   gdj1.drawNeck(); // draw the fretboard
-</script>
-```
-
-Be sure to add some target HTML element to your page with a matching ID (`gdj1.addCanvas('diagram-1');` where `diagram-1` is the ID) in your JS code so Guitar Diagrams JS knows where to add your drawing:
-
-```html
-<div id="diagram-1"></div>
-```
-
-#### Option 3: Manual Installation via Local Copies
-
-You can also install this package manually by downloading it, placing the files in the correct location, and modifying your site's code to reference the library. The following steps outline this process:
-
-1. Download the repository files from the [GitHub repository for Guitar Diagrams JS](https://github.com/KCarlile/guitar-diagrams-js).
-1. The only files about which you should be concerned are the following:
-   - `guitar-diagrams.js`: main functionality
-   - `guitar-diagrams-config.js`: config object
-   - `guitar-diagrams-marker.js`: marker object
-1. Place those files in your application at `wherever/you/put/your/js/files/guitar-diagram-js/`.
-1. In the JS file with your primary entrypoint, add an import statement:
-
-   ```javascript
-   import { GuitarDiagramsJS } from 'wherever/you/put/your/js/files/guitar-diagrams-js/guitar-diagrams.js';
-   ```
-
-1. Following that import statement, begin to reference the library:
-
-   ```javascript
-   let gdj1 = new GuitarDiagramsJS();
-   gdj1.config.canvasID = 'diagram-1-canvas'; // specify the canvas element's an ID
-   gdj1.addCanvas('diagram-1'); // add the canvas to the specified element ID on the page
-   gdj1.drawNeck(); // draw the fretboard
-   ```
-
-1. Be sure to add some target HTML element to your page with a matching ID (`gdj1.addCanvas('diagram-1');` where `diagram-1` is the ID) in your JS code so Guitar Diagrams JS knows where to add your drawing:
-
-   ```html
-   <div id="diagram-1"></div>
-   ```
+You can find the full usage documentation at [`docs/index.md`](docs/index.md) and the API documentation at [`docs/api-docs.md`](docs/api-docs.md). The following information is just a high-level overview of how to use Guitar Diagrams JS.
 
 ### More Information
 
-For more information, please see the [`docs/index.md`](docs/index.md) and ['docs/examples/index.html`](docs/examples/index.html) pages for API documentation and examples.
+For more information, please see the [`docs/index.md`](docs/index.md) and [`docs/api-docs.md`](docs/api-docs.md) pages for general usage help and API documentation. See also the [`docs/examples/index.html`](docs/examples/index.html) page for usage examples.
 
 ## Technical Information for Code Owners
 
@@ -151,7 +85,7 @@ See [`docs/code-owners.md`](docs/code-owners.md) for documentation related to de
 
 There are no specific requirements<sup>[1](#footnotes)</sup> for dependencies to use Guitar Diagrams JS other than the standard browser compatibility considerations with CSS, JavaScript, and HTML 5's `<canvas>` tag. Browser compatibility for the `<canvas>` tag can be found on [the MDN `<canvas>` page](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#browser_compatibility).
 
-----
+---
 
 ## References
 

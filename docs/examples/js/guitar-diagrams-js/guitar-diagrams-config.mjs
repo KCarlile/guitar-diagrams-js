@@ -63,16 +63,16 @@ export class GuitarDiagramsJSConfig {
     // ========== BEGIN properties
     // ----- References
     /**
-     * Gets the ID attribute of the canvas HTML tag.
-     * @return {string} The ID attribute of the canvas HTML tag.
+     * Gets the ID attribute of the canvas HTML element.
+     * @return {string} The ID attribute of the canvas HTML element.
      */
     get canvasID() {
         return this.#canvasID;
     } // end get canvasID property
 
     /**
-     * Sets the ID attribute of the canvas HTML tag.
-     * @param {string} paramCanvasID - The ID attribute of the canvas HTML tag.
+     * Sets the ID attribute of the canvas HTML element.
+     * @param {string} paramCanvasID - The ID attribute of the canvas HTML element.
      */
     set canvasID(paramCanvasID) {
         this.#canvasID = paramCanvasID;
@@ -104,7 +104,7 @@ export class GuitarDiagramsJSConfig {
     } // end get colorNut property
 
     /**
-     * Gets the HTML color code of the nut.
+     * Sets the HTML color code of the nut.
      * @param {string} paramColorNut - The HTML color code of the nut.
      */
     set colorNut(paramColorNut) {
@@ -120,7 +120,7 @@ export class GuitarDiagramsJSConfig {
     } // end get colorNutOutline property
 
     /**
-     * Gets the HTML color code of the nut outline.
+     * Sets the HTML color code of the nut outline.
      * @param {string} paramColorNutOutline - The HTML color code of the nut outline.
      */
     set colorNutOutline(paramColorNutOutline) {
