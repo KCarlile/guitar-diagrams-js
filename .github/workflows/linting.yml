@@ -1,4 +1,4 @@
-name: Linting
+name: Lint codebase
 
 on:  # yamllint disable-line rule:truthy
   push:

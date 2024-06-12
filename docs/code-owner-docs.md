@@ -13,9 +13,13 @@ This documentation page is for code owners to understand the technical details o
     - [`linting.sh`](#lintingsh)
     - [`package-check.sh`](#package-checksh)
     - [`super-linter.sh`](#super-lintersh)
+  - [GitHub Actions](#github-actions)
+  - [Demo Hosting](#demo-hosting)
+    - [Important Note](#important-note)
   - [Building, Packaging, and Releasing](#building-packaging-and-releasing)
     - [Local Builds and Releases](#local-builds-and-releases)
   - [Releases](#releases)
+    - [Versioning](#versioning)
 
 ## Directory Structure
 
@@ -51,7 +55,7 @@ This section outlines the directory structure of the project.
     - `code-owner-docs.md`: This document.
     - `CONTRIBUTING.md`: Community guidelines for contributing to the project.
     - `index.md`: Main documentation landing page.
-    - `index.html`: Documentation with demonstrations of examples for how to use the projet.
+    - `index.html`: Documentation with demonstrations of examples for how to use the project.
     - `testing.html`: Testing page used for development.
 - `src/`: Contains development files.
   - `guitar-diagrams.mjs`: Main entry point for the project.
@@ -96,6 +100,30 @@ This script calls the `npx publint` to check the `package.json` file for correct
 
 This script starts a Docker container to run a local version of Super-Linter for linting HTML, CSS, JS, and Markdown. This can be run as part of the `build.sh` script by running `npm run build` from the root of the project.
 
+## GitHub Actions
+
+There are three workflows defined for GitHub Actions and those exist at the following location:
+
+- `.github/`
+  - `workflows/`
+    - `demo-hosting.yml`
+    - `linting.yml`
+    - `release-package.yml`
+
+| File Name | Workflow Name | Trigger(s) | Branch(es) | Description |
+| --------- | ------------- | ---------- | ---------- | ----------- |
+| Deploy docs/examples/* to demo hosting | `demo-hosting.yml` | Release published | `main` | Copies `docs/examples/*` to @KCarlile's personal GoDaddy hosting via FTP for public demo of functionality at <https://demo.kcarlile.com/guitar-diagrams-js/>. |
+| Lint codebase | `linting.yml` | Push, PR | `main`, `develop` | Runs Super-Linter against HTML, CSS, JS, and Markdown files in the codebase when code is pushed to `main` or `develop` and when a PR is created against `main` or `develop`. |
+| Build and publish to NPM | `release-package.yml` | Release created | `main` | Builds and publishes the project to NPM when release are created on `main`. |
+
+## Demo Hosting
+
+Whenever a release is published, a GitHub Actions workflow runs to FTP the contents of the `docs/examples/` directory to @KCarlile's personal GoDaddy hosting account. This is so the demo examples can be easily viewed by anyone at <https://demo.kcarlile.com/guitar-diagrams-js/>.
+
+### Important Note
+
+The `.scripts/build.sh` script, which is run by calling `npm run build` from the root of the project, copies the JavaScript files from `src/*.mjs` to `docs/examples/js/guitar-diagrams-js/` for local reference for the demo page (`docs/examples/index.html`).
+
 ## Building, Packaging, and Releasing
 
 ### Local Builds and Releases
@@ -107,8 +135,20 @@ This script starts a Docker container to run a local version of Super-Linter for
 
 ## Releases
 
-When you have enough features and bugs merged to justify a release, create a PR from the `develop` branch into `main` branch.
-Once that is merged, use the [Release page](https://github.com/KCarlile/guitar-diagrams-js/releases) to create a new release which will kick off a new package deployment using the GitHub Action workflow defined in `.github/workflows/release-package.yml`.
+When enough changes (bugs and new features) have been merged into the `develop` branch to warrant a new version, create a release with a new version number.
+
+1. Create a PR from the `develop` branch into `main` branch.
+1. Once that PR is merged into `main`, checkout `main` locally and pull to get the latest changes. Then, update the version number in `package.json` in your local `main` branch and commit, then push back up to GitHub. (Release creation will fail if the version in `package.json` is not the same as the version you are creating.)
+1. Use the [Release page](https://github.com/KCarlile/guitar-diagrams-js/releases) to create a new release which will kick off a new package deployment using the GitHub Action workflow defined in `.github/workflows/release-package.yml`.
+
 Once the workflow has completed successfully, the package will be hosted on the [Packages page](https://github.com/KCarlile/guitar-diagrams-js/pkgs/npm/guitar-diagrams-js).
 
-See also [`docs/examples/js/guitar-diagrams-js/README.md`](docs/examples/js/guitar-diagrams-js/README.md) for information about symlinks for local testing and demo deployment information.
+### Versioning
+
+Guitar Diagrams JS uses [semantic versioning](https://semver.org/) with version numbers in the format of X.Y.Z.
+
+| Number | Release Significance | Description | Example |
+| ------ | -------------------- | ----------- | ------- |
+| X | Major | A change in major version denotes new features (and bug fixes) that break backward compatibility. | `1.5.1` :arrow_right: `2.0.0` |
+| Y | Minor | A change in minor version denotes new features (and bug fixes) that retain backward compatibility. | `1.5.1` :arrow_right: `1.6.0` |
+| Z | Patch | A change in patch version denotes bug fixes (no new features) that retain backward compatibility. | `1.5.1` :arrow_right: `1.5.2` |
