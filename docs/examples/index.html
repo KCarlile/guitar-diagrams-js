@@ -27,7 +27,7 @@
                     <pre><code class="language-html">&lt;div id="diagram-1"&gt;&lt;/div&gt;</code></pre>
                     <p>That div's ID doesn't need to be <em>diagram-1</em> as shown, but it needs to be a unique name that
                         you will reference later on in your code, like this:</p>
-                    <pre><code class="language-javascript">gdj1.addCanvas('diagram-1');</code></pre>
+                    <pre><code class="language-javascript">gdj1.addCanvasToElement('diagram-1');</code></pre>
                 </div>
             </div>
             <!-- BEGIN: example 1 -->
@@ -41,7 +41,7 @@
                     <h5>Code</h5>
                     <pre><code class="language-javascript">let gdj1 = new GuitarDiagramsJS();
 gdj1.config.canvasID = 'diagram-1-canvas'; // specify the canvas element's an ID
-gdj1.addCanvas('diagram-1'); // add the canvas to the specified element ID on the page
+gdj1.addCanvasToElement('diagram-1'); // add the canvas to the specified element ID on the page
 gdj1.drawNeck(); // draw the fretboard</code></pre>
                 </div>
             </div>
@@ -62,7 +62,7 @@ gdj1.drawNeck(); // draw the fretboard</code></pre>
                     <pre><code class="language-javascript">let gdj2 = new GuitarDiagramsJS();
 gdj2.config.canvasID = 'diagram-2-canvas';
 gdj2.config.stringNamesEnabled = true;
-gdj2.addCanvas('diagram-2');
+gdj2.addCanvasToElement('diagram-2');
 gdj2.drawNeck();
 gdj2.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square); // add a square marker on string 1, fret 1, text '1'
 gdj2.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle); // add a triangle marker on string 2, fret 2, text '2'
@@ -99,7 +99,7 @@ gdj3.config.orientHorizontally = true; // set horizontal orientation
 gdj3.config.fretStartingNumber = 3; // set starting fret
 gdj3.config.stringNames = ['D','A','D','G']; // set string names and count
 gdj3.config.fretCount = 3; // set starting fret
-gdj3.addCanvas('diagram-3');
+gdj3.addCanvasToElement('diagram-3');
 gdj3.drawNeck();
 gdj3.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
 gdj3.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle);
@@ -135,7 +135,7 @@ guitar-diagrams.js:679 [Error] GuitarDiagramsJS.addMarker(): Fret marker could n
                     <pre><code class="language-javascript">let gdj4 = new GuitarDiagramsJS();
 gdj4.config.canvasID = 'diagram-4-canvas';
 gdj4.config.scaleFactor = .6; // set scaling factor (.6 == 60%)
-gdj4.addCanvas('diagram-4');
+gdj4.addCanvasToElement('diagram-4');
 gdj4.drawNeck();
 gdj4.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
 gdj4.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle);
@@ -189,7 +189,7 @@ gdj5.config.colorDiagramBackground = '#000000'; // specify the diagram backgroun
 gdj5.config.colorLabel = '#FFFFFF'; // specify the label color for string names and starting fret
 gdj5.config.markerStrokeWidth = 1; // specify the marker's stroke width
 gdj5.config.markerFontSize = 10; // specify the marker text's font size
-gdj5.addCanvas('diagram-5');
+gdj5.addCanvasToElement('diagram-5');
 gdj5.drawNeck();
 gdj5.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
 gdj5.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle);
@@ -224,7 +224,7 @@ gdj6.config.stringNamesEnabled = true;
 gdj6.config.controlsEnabled = true;
 gdj6.config.downloadImageEnabled = true;
 gdj6.config.changeOrientationEnabled = true;
-gdj6.addCanvas('diagram-6');
+gdj6.addCanvasToElement('diagram-6');
 gdj6.drawNeck();
 gdj6.addMarker(1, 1, '1', GuitarDiagramsJS.Shape.Square);
 gdj6.addMarker(2, 2, '2', GuitarDiagramsJS.Shape.Triangle);

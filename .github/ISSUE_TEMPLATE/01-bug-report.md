@@ -1,7 +1,7 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: "[Bug]"
+name: Bug
+about: Submit a bug describing a problematic behavior
+title: "[Bug title]"
 labels: bug
 assignees: ''
 
@@ -10,6 +10,10 @@ assignees: ''
 ## Background
 
 A description of the bug and how you found it, including steps to reproduce and notable parameters such as browser and OS. Also include how the system should have behaved. Provide screenshots if applicable.
+
+## Steps to Reproduce
+
+Describe the steps to reproduce the issue.
 
 ## Acceptance Criteria
 

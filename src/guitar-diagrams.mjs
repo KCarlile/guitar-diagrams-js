@@ -154,7 +154,7 @@ export class GuitarDiagramsJS {
             let stringNamesIndent = this.#config.fretStartingNumber == 0 ? 0 : fretNumberFontSize;
             let posX;
             let posY;
-            let stringNames = this.#config.stringNames;
+            let stringNames = [...this.#config.stringNames]; // deep copy array
 
             // vertical draws string names left to right, but horizontal needs to draw them bottom to top
             if (this.#config.orientHorizontally == true) {
@@ -561,13 +561,13 @@ export class GuitarDiagramsJS {
             const controlClass = 'guitar-diagrams-control';
             const controlClassPrefix = 'guitar-diagrams-';
 
-            let canvasElement = document.getElementById(this.#config.canvasID);
+            const canvasElement = document.getElementById(this.#config.canvasID);
 
-            let controlsDiv = document.createElement('div');
+            const controlsDiv = document.createElement('div');
             controlsDiv.style = 'display: block; margin-top: .5em';
             canvasElement.insertAdjacentElement('afterend', controlsDiv);
 
-            // add the controls in reverse order of display order
+            // add the controls in reverse order of desired display order (last to first)
             // other controls go here
             /*
             if (this.#config.someFeatureEnabled) {
@@ -667,9 +667,9 @@ export class GuitarDiagramsJS {
      * Adds the canvas element to the parent element with the specified ID.
      * @param {string} paramParentElementID - The parent element's ID to which the canvas element will be added.
      */
-    addCanvas(paramParentElementID) {
+    addCanvasToElement(paramParentElementID) {
         document.getElementById(paramParentElementID).appendChild(this.getCanvasElement());
-    } // end addCanvas method
+    } // end addCanvasToElement method
 
     /**
      * Sets the canvas element's ID for an existing canvas.

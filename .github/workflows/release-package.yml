@@ -1,8 +1,9 @@
-name: Node.js Package
+name: Build and publish to NPM
 
 on:
   release:
     types: [created]
+    branches: [main]
 
 jobs:
   build:
