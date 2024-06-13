@@ -69,6 +69,15 @@ Please see the following pages for more information:
 - [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md): instructions for contributing to the project
 - [`LICENSE`](LICENSE): license file for the project
 
+### Site Builder Examples
+
+If you're a site builder using Guitar Diagrams JS, your site should be featured here as an example of how to use this library. Please [submit an Issue](https://github.com/KCarlile/guitar-diagrams-js/issues/new/choose) with a link to your site, plus any links to specific pages using Guitar Diagrams JS, and it will be added to the list below.
+
+**Example sites:**
+
+- [Guitar Diagrams JS demo/examples](https://demo.kcarlile.com/guitar-diagrams-js/)
+- _Your site here!_
+
 ### Site Builders - Technical Information
 
 You can find the full usage documentation at [`docs/index.md`](docs/index.md) and the API documentation at [`docs/api-docs.md`](docs/api-docs.md). The following information is just a high-level overview of how to use Guitar Diagrams JS.
