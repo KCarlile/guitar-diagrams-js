@@ -32,6 +32,7 @@ This section outlines the directory structure of the project.
   - `ISSUE_TEMPLATE/`: Markdown files for GitHub issue templates.
     - `01-bug-report.md`: Template for GitHub issues of type bug.
     - `02-feature-request.md`: Template for GitHub issues of type feature request.
+    - `03-usage-submission.md`: Template for GitHub issues of type usage submission.
     - `config.yml`: GitHub Actions config.
   - `workflows/`: YML files to define GitHub Actions.
     - `demo-hosting.yml`: GitHub Actions workflow to deploy `examples/` content to GoDaddy hosting for demos.

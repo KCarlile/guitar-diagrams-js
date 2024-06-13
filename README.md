@@ -71,7 +71,8 @@ Please see the following pages for more information:
 
 ### Site Builder Examples
 
-If you're a site builder using Guitar Diagrams JS, your site should be featured here as an example of how to use this library. Please [submit an Issue](https://github.com/KCarlile/guitar-diagrams-js/issues/new/choose) with a link to your site, plus any links to specific pages using Guitar Diagrams JS, and it will be added to the list below.
+If you're a site builder using Guitar Diagrams JS, your site should be featured here as an example of how to use this library.
+Please [submit an issue of Usage Submission type](https://github.com/KCarlile/guitar-diagrams-js/issues/new?labels=usage&template=03-usage-submission.md&title=%5BSite%20name%5D) with a link to your site, plus any links to specific pages using Guitar Diagrams JS, and it will be added to the list below.
 
 **Example sites:**
 
