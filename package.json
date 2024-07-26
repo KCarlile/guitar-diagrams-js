@@ -48,8 +48,5 @@
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/KCarlile/guitar-diagrams-js/issues"
-  },
-  "publishConfig": {
-    "@KCarlile:registry": "https://npm.pkg.github.com"
   }
 }
