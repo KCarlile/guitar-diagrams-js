@@ -1,6 +1,6 @@
 /**
  * @file Guitar Diagrams JS config class.
- * @module js/lib/Guitar-Diagrams-JS/guitar-diagrams-config.js
+ * @module js/lib/Guitar-Diagrams-JS/guitar-diagrams-config.mjs
  * @link https://github.com/KCarlile/guitar-diagrams-js
  *
  * @author Kenny Carlile

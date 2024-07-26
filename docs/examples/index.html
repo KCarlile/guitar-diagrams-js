@@ -19,7 +19,7 @@
                     <p>Before adding the code to draw your diagram, you'll need to include the Guitar Diagrams JS library and
                         provide a target element (e.g., a <code class="language-html">&lt;div&gt;</code>) to which the app can add the canvas and begin drawing.</p>
                     <p>To include the library, use an import statement at the top of your script<sup>1</sup> with the following:</p>
-                    <pre><code class="language-javascript">import { GuitarDiagramsJS } from 'path/to/guitar-diagrams.js';</code></pre>
+                    <pre><code class="language-javascript">import { GuitarDiagramsJS } from 'path/to/guitar-diagrams.mjs';</code></pre>
                     <p class="small"><sup>1</sup>The <em>script</em> can be an inline script with <code class="language-html">&lt;script&gt;</code>
                         tags, or it could be in its own JavaScript file that you include or reference in some other way.</p>
                     <p>To give Guitar Diagrams JS a place to add the drawing, you'll need to specify a block-level element
@@ -110,12 +110,12 @@ gdj3.addMarker(6, 4, '6');
 gdj3.addMarker(3, 1);
 gdj3.drawAllMarkers();</code></pre>
                     <p>The markers that would be rendered off the fretboard are logged in the browser's console log as the errors seen below:</p>
-                    <pre><code>guitar-diagrams.js:677 [State] GuitarDiagramsJS.addMarker(): { minFret: 0 | maxFret: 3 }
-guitar-diagrams.js:679 [Error] GuitarDiagramsJS.addMarker(): Fret marker could not be placed on fretboard. { paramString: 4 | paramFret: 4 | paramText: 4 | paramShape: null }
-guitar-diagrams.js:677 [State] GuitarDiagramsJS.addMarker(): { minFret: 0 | maxFret: 3 }
-guitar-diagrams.js:679 [Error] GuitarDiagramsJS.addMarker(): Fret marker could not be placed on fretboard. { paramString: 5 | paramFret: 5 | paramText: 5 | paramShape: null }
-guitar-diagrams.js:677 [State] GuitarDiagramsJS.addMarker(): { minFret: 0 | maxFret: 3 }
-guitar-diagrams.js:679 [Error] GuitarDiagramsJS.addMarker(): Fret marker could not be placed on fretboard. { paramString: 6 | paramFret: 4 | paramText: 6 | paramShape: null }</code></pre>
+                    <pre><code>guitar-diagrams.mjs:677 [State] GuitarDiagramsJS.addMarker(): { minFret: 0 | maxFret: 3 }
+guitar-diagrams.mjs:679 [Error] GuitarDiagramsJS.addMarker(): Fret marker could not be placed on fretboard. { paramString: 4 | paramFret: 4 | paramText: 4 | paramShape: null }
+guitar-diagrams.mjs:677 [State] GuitarDiagramsJS.addMarker(): { minFret: 0 | maxFret: 3 }
+guitar-diagrams.mjs:679 [Error] GuitarDiagramsJS.addMarker(): Fret marker could not be placed on fretboard. { paramString: 5 | paramFret: 5 | paramText: 5 | paramShape: null }
+guitar-diagrams.mjs:677 [State] GuitarDiagramsJS.addMarker(): { minFret: 0 | maxFret: 3 }
+guitar-diagrams.mjs:679 [Error] GuitarDiagramsJS.addMarker(): Fret marker could not be placed on fretboard. { paramString: 6 | paramFret: 4 | paramText: 6 | paramShape: null }</code></pre>
                 </div>
             </div>
             <!-- END: example 3 -->
