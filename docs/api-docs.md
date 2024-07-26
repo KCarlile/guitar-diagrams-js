@@ -6,14 +6,14 @@ Lorem ipsum...some description, if necessary, for the API usage section.
 
 - [API Documentation](#api-documentation)
   - [Table of Contents](#table-of-contents)
-  - [`guitar-diagrams.js` Class](#guitar-diagramsjs-class)
-    - [`guitar-diagrams.js` Constructors (non-default)](#guitar-diagramsjs-constructors-non-default)
-    - [`guitar-diagrams.js` Static Public Members](#guitar-diagramsjs-static-public-members)
-    - [`guitar-diagrams.js` Public Properties](#guitar-diagramsjs-public-properties)
-    - [`guitar-diagrams.js` Public Methods](#guitar-diagramsjs-public-methods)
-  - [`guitar-diagrams-config.js` Class](#guitar-diagrams-configjs-class)
-    - [`guitar-diagrams-config.js` Constructors (non-default)](#guitar-diagrams-configjs-constructors-non-default)
-    - [`guitar-diagrams-config.js` Public Properties](#guitar-diagrams-configjs-public-properties)
+  - [`guitar-diagrams.mjs` Class](#guitar-diagramsmjs-class)
+    - [`guitar-diagrams.mjs` Constructors (non-default)](#guitar-diagramsmjs-constructors-non-default)
+    - [`guitar-diagrams.mjs` Static Public Members](#guitar-diagramsmjs-static-public-members)
+    - [`guitar-diagrams.mjs` Public Properties](#guitar-diagramsmjs-public-properties)
+    - [`guitar-diagrams.mjs` Public Methods](#guitar-diagramsmjs-public-methods)
+  - [`guitar-diagrams-config.mjs` Class](#guitar-diagrams-configmjs-class)
+    - [`guitar-diagrams-config.mjs` Constructors (non-default)](#guitar-diagrams-configmjs-constructors-non-default)
+    - [`guitar-diagrams-config.mjs` Public Properties](#guitar-diagrams-configmjs-public-properties)
       - [canvasID (get)](#canvasid-get)
       - [canvasID (set)](#canvasid-set)
       - [colorFretboard (get)](#colorfretboard-get)
@@ -52,41 +52,41 @@ Lorem ipsum...some description, if necessary, for the API usage section.
       - [stringNames (set)](#stringnames-set)
       - [downloadImageEnabled (get)](#downloadimageenabled-get)
       - [downloadImageEnabled (set)](#downloadimageenabled-set)
-    - [`guitar-diagrams-config.js` Public Methods](#guitar-diagrams-configjs-public-methods)
-  - [`guitar-diagrams-marker.js` Class](#guitar-diagrams-markerjs-class)
-    - [`guitar-diagrams-marker.js` Constructors (non-default)](#guitar-diagrams-markerjs-constructors-non-default)
-    - [`guitar-diagrams-marker.js` Public Properties](#guitar-diagrams-markerjs-public-properties)
-    - [`guitar-diagrams-marker.js` Public Methods](#guitar-diagrams-markerjs-public-methods)
+    - [`guitar-diagrams-config.mjs` Public Methods](#guitar-diagrams-configmjs-public-methods)
+  - [`guitar-diagrams-marker.mjs` Class](#guitar-diagrams-markermjs-class)
+    - [`guitar-diagrams-marker.mjs` Constructors (non-default)](#guitar-diagrams-markermjs-constructors-non-default)
+    - [`guitar-diagrams-marker.mjs` Public Properties](#guitar-diagrams-markermjs-public-properties)
+    - [`guitar-diagrams-marker.mjs` Public Methods](#guitar-diagrams-markermjs-public-methods)
 
 ---
 
-## <a name="guitar-diagrams.js"></a>`guitar-diagrams.js` Class
+## <a name="guitar-diagrams.mjs"></a>`guitar-diagrams.mjs` Class
 
-### <a name="guitar-diagrams.js-constructor"></a>`guitar-diagrams.js` Constructors (non-default)
+### <a name="guitar-diagrams.mjs-constructor"></a>`guitar-diagrams.mjs` Constructors (non-default)
 
-Constructor(s) in `guitar-diagrams.js` go here... or _None._
+Constructor(s) in `guitar-diagrams.mjs` go here... or _None._
 
-### <a name="guitar-diagrams.js-static-public-members"></a>`guitar-diagrams.js` Static Public Members
+### <a name="guitar-diagrams.mjs-static-public-members"></a>`guitar-diagrams.mjs` Static Public Members
 
-Static members in `guitar-diagrams.js` go here... (We might need to talk about how to handled these.)
+Static members in `guitar-diagrams.mjs` go here... (We might need to talk about how to handled these.)
 
-### <a name="guitar-diagrams.js-public-properties"></a>`guitar-diagrams.js` Public Properties
+### <a name="guitar-diagrams.mjs-public-properties"></a>`guitar-diagrams.mjs` Public Properties
 
-Properties in `guitar-diagrams.js` go here...
+Properties in `guitar-diagrams.mjs` go here...
 
-### <a name="guitar-diagrams.js-public-methods"></a>`guitar-diagrams.js` Public Methods
+### <a name="guitar-diagrams.mjs-public-methods"></a>`guitar-diagrams.mjs` Public Methods
 
-Methods in `guitar-diagrams.js` go here...
+Methods in `guitar-diagrams.mjs` go here...
 
-## <a name="guitar-diagrams-config.js"></a>`guitar-diagrams-config.js` Class
+## <a name="guitar-diagrams-config.mjs"></a>`guitar-diagrams-config.mjs` Class
 
-### <a name="guitar-diagrams.js-constructors"></a>`guitar-diagrams-config.js` Constructors (non-default)
+### <a name="guitar-diagrams.mjs-constructors"></a>`guitar-diagrams-config.mjs` Constructors (non-default)
 
-Constructor(s) in `guitar-diagrams-config.js` go here...
+Constructor(s) in `guitar-diagrams-config.mjs` go here...
 
-### <a name="guitar-diagrams.js-public-properties"></a>`guitar-diagrams-config.js` Public Properties
+### <a name="guitar-diagrams.mjs-public-properties"></a>`guitar-diagrams-config.mjs` Public Properties
 
-Properties in `guitar-diagrams-config.js` go here...
+Properties in `guitar-diagrams-config.mjs` go here...
 
 #### canvasID (get)
 
@@ -620,20 +620,20 @@ _Example:_
 gdj1.config.downloadImageEnabled = true;
 ```
 
-### <a name="guitar-diagrams.js-public-methods"></a>`guitar-diagrams-config.js` Public Methods
+### <a name="guitar-diagrams.mjs-public-methods"></a>`guitar-diagrams-config.mjs` Public Methods
 
 _None._
 
-## <a name="guitar-diagrams-marker.js"></a>`guitar-diagrams-marker.js` Class
+## <a name="guitar-diagrams-marker.mjs"></a>`guitar-diagrams-marker.mjs` Class
 
-### <a name="guitar-diagrams-marker.js-contstructors"></a>`guitar-diagrams-marker.js` Constructors (non-default)
+### <a name="guitar-diagrams-marker.mjs-contstructors"></a>`guitar-diagrams-marker.mjs` Constructors (non-default)
 
-Constructor(s) in `guitar-diagram-marker.js` go here... (There's only a default constructor as of now.)
+Constructor(s) in `guitar-diagram-marker.mjs` go here... (There's only a default constructor as of now.)
 
-### <a name="guitar-diagrams-marker.js-public-properties">`guitar-diagrams-marker.js` Public Properties
+### <a name="guitar-diagrams-marker.mjs-public-properties">`guitar-diagrams-marker.mjs` Public Properties
 
-Properties in `guitar-diagrams-marker.js` go here...
+Properties in `guitar-diagrams-marker.mjs` go here...
 
-### <a name="guitar-diagrams-marker.js-public-methods">`guitar-diagrams-marker.js` Public Methods
+### <a name="guitar-diagrams-marker.mjs-public-methods">`guitar-diagrams-marker.mjs` Public Methods
 
-Methods in `guitar-diagrams-marker.js` go here...
+Methods in `guitar-diagrams-marker.mjs` go here...

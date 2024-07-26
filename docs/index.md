@@ -6,33 +6,18 @@
 
 There are three primary ways to include the Guitar Diagrams JS library into your project:
 
-1. Install the Guitar Diagrams JS library as a Node JS dependency
 1. Reference the Guitar Diagrams JS library from a hosted CDN provider
 1. Reference the Guitar Diagrams JS library from a local copy of the JavaScript (JS) files
 
-#### Option 1: Installation as a Node JS Dependency
+:information_source: Note: in some future state, Guitar Diagrams JS may be available as a NPM package. (See issue [#65](https://github.com/KCarlile/guitar-diagrams-js/issues/65).)
 
-For full details, see the Node JS packages released by this project here: <https://github.com/KCarlile/guitar-diagrams-js/pkgs/npm/guitar-diagrams-js>
+#### Option 1: Manual Reference via CDN-Hosted Files
 
-You can install Guitar Diagrams JS in your project as a Node JS dependency via NPM. Run the following command from your project's directory where `x.y.z` (e.g., `1.0.2`) is the version (or branch name, such as `main`) of the library you want to use:
-
-```bash
-npm install @kcarlile/guitar-diagrams-js@x.y.z
-```
-
-Or, alternately, you can manually edit your `package.json` file and add the following entry:
-
-```json
-"@kcarlile/guitar-diagrams-js": "x.y.z",
-```
-
-#### Option 2: Manual Reference via CDN-Hosted Files
-
-If you want to use a CDN-hosted package (e.g., Guitar Diagrams JS on JSDelivr at `https://cdn.jsdelivr.net/gh/KCarlile/guitar-diagrams-js@main/guitar-diagrams.js`), you can reference it in your code like this:
+If you want to use a CDN-hosted package (e.g., Guitar Diagrams JS on JSDelivr at `https://cdn.jsdelivr.net/gh/KCarlile/guitar-diagrams-js@main/src/guitar-diagrams.mjs`), you can reference it in your code like this:
 
 ```html
 <script type="module">
-   import { GuitarDiagramsJS } from 'https://cdn.jsdelivr.net/gh/KCarlile/guitar-diagrams-js@main/guitar-diagrams.js';
+   import { GuitarDiagramsJS } from 'https://cdn.jsdelivr.net/gh/KCarlile/guitar-diagrams-js@main/src/guitar-diagrams.mjs';
    // code to configure and use Guitar Diagrams JS goes here
 </script>
 ```
@@ -43,21 +28,21 @@ Be sure to add some target HTML element to your page with a matching ID (`gdj1.a
 <div id="diagram-1"></div>
 ```
 
-#### Option 3: Manual Reference via Local Copies of Files
+#### Option 2: Manual Reference via Local Copies of Files
 
 You can also install this package manually by downloading it, placing the files in the correct location, and modifying your site's code to reference the library. The following steps outline this process:
 
 1. Download the repository files from the [GitHub repository for Guitar Diagrams JS](https://github.com/KCarlile/guitar-diagrams-js).
 1. The only files about which you should be concerned are the following:
-   - `guitar-diagrams.js`: main functionality
-   - `guitar-diagrams-config.js`: config object
-   - `guitar-diagrams-marker.js`: marker object
+   - `guitar-diagrams.mjs`: main functionality
+   - `guitar-diagrams-config.mjs`: config object
+   - `guitar-diagrams-marker.mjs`: marker object
 1. Place those files in your application at `wherever/you/put/your/js/files/guitar-diagram-js/`.
 1. In the JS file with your primary entrypoint, add an import statement:
 
    ```javascript
    <script type="module">
-      import { GuitarDiagramsJS } from 'wherever/you/put/your/js/files/guitar-diagrams-js/guitar-diagrams.js';
+      import { GuitarDiagramsJS } from 'wherever/you/put/your/js/files/guitar-diagrams-js/guitar-diagrams.mjs';
       // code to configure and use Guitar Diagrams JS goes here
    </script>
    ```
