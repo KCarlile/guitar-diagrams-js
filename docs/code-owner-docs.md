@@ -133,7 +133,7 @@ When enough changes (bugs and new features) have been merged into the `develop` 
 
 1. Create a PR from the `develop` branch into `main` branch.
 1. Once that PR is merged into `main`, checkout `main` locally and pull to get the latest changes. Then, update the version number in `package.json` in your local `main` branch.
-   - Release creation will fail if the version in `package.json` is not the same as the version you are creating. 
+   - Release creation will fail if the version in `package.json` is not the same as the version you are creating.
 1. Run `npm run build` to update the `package-lock.json` and commit, then push back up to GitHub.
 1. Use the [Release page](https://github.com/KCarlile/guitar-diagrams-js/releases) to create a new release.
 
