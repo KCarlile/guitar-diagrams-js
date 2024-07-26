@@ -1,6 +1,5 @@
 # Guitar Diagrams JS
 
-[![GitHub Actions Workflow Status](https://github.com/KCarlile/guitar-diagrams-js/actions/workflows/release-package.yml/badge.svg)](https://github.com/KCarlile/guitar-diagrams-js/actions/workflows/release-package.yml)
 [![Super-Linter](https://github.com/KCarlile/guitar-diagrams-js/actions/workflows/linting.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
 [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://ecma-international.org/publications-and-standards/standards/ecma-262/)
