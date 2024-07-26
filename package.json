@@ -1,6 +1,6 @@
 {
   "name": "@KCarlile/guitar-diagrams-js",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "description": "Guitar Diagrams JS is an open source JavaScript library for drawing guitar chords and scales on an HTML5 canvas.",
   "homepage": "https://github.com/KCarlile/guitar-diagrams-js#readme",
   "exports": {
